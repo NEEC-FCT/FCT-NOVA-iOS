@@ -1,1 +1,0 @@
-# -FCT-NOVA-iOS
