@@ -49,6 +49,12 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="duration">
                             <real key="value" value="0.40000000000000002"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.25513941049575806" green="0.53652757406234741" blue="0.4204707145690918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.25513941049575806" green="0.53652757406234741" blue="0.4204707145690918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
@@ -88,13 +94,13 @@
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="CzN-js-aQV" customClass="RAMFlipLeftTransitionItemAnimations" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                <customObject id="CzN-js-aQV" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.48263823986053467" green="0.74192720651626587" blue="0.033854000270366669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.48263823986053467" green="0.74192720651626587" blue="0.033854000270366669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
@@ -138,7 +144,10 @@
                 <customObject id="SMy-mk-LC7" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.2584097683429718" green="0.42054206132888794" blue="0.74289005994796753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.2584097683429718" green="0.42054206132888794" blue="0.74289005994796753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
@@ -222,13 +231,16 @@
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bq-TO-3KR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="BSW-Za-y3b" customClass="RAMBounceAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                <customObject id="BSW-Za-y3b" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.27027395367622375" green="0.35866177082061768" blue="0.39214795827865601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="duration">
                             <real key="value" value="0.80000000000000004"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.27027395367622375" green="0.35866177082061768" blue="0.39214795827865601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
@@ -269,12 +281,15 @@
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FuQ-Du-YS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="Ojd-WY-9Yd" customClass="RAMFrameItemAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                <customObject id="Ojd-WY-9Yd" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="imagesPath" value="ToolsAnimation"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDeselectAnimation" value="YES"/>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.91764705879999997" green="0.2901960784" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.35308212041854858" green="0.74121981859207153" blue="0.80749493837356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.35308212041854858" green="0.74121981859207153" blue="0.80749493837356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
