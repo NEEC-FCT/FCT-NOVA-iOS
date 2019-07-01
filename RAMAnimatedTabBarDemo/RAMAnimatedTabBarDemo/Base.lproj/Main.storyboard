@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QjJ-1j-Kct">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QjJ-1j-Kct">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Mapa-->
         <scene sceneID="Y99-CA-jqU">
             <objects>
                 <viewController id="wJE-Q4-t8C" sceneMemberID="viewController">
@@ -33,7 +32,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cbk-oV-z7H"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="drop" id="tS2-0E-St8" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Mapa" image="mapa" id="tS2-0E-St8" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="1349" y="-239"/>
         </scene>
-        <!--Item1-->
+        <!--Informação-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +76,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8ec-QI-6Cw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item1" image="icon_pin" id="lUH-JS-dWf" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Informação" image="informacao" id="lUH-JS-dWf" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -102,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="1349" y="479"/>
         </scene>
-        <!--Item2-->
+        <!--Notícias-->
         <scene sceneID="quI-1J-que">
             <objects>
                 <viewController id="DFF-lT-Wr8" sceneMemberID="viewController">
@@ -124,7 +123,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VaI-Rh-DC9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item2" image="icon_user" id="z5N-yh-KHH" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Notícias" image="news" id="z5N-yh-KHH" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,7 +135,7 @@
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Cn-qd-9Vu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="SMy-mk-LC7" customClass="RAMLeftRotationAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                <customObject id="SMy-mk-LC7" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
                             <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="537" y="479"/>
         </scene>
-        <!--Item4-->
+        <!--NEEC-->
         <scene sceneID="ttZ-oS-sRQ">
             <objects>
                 <viewController id="eCt-4k-9Vu" customClass="ViewController" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,7 +210,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kSB-yj-LRJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item4" image="Settings" id="EiX-sv-bUZ" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="NEEC" image="neec" id="EiX-sv-bUZ" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -236,7 +235,7 @@
             </objects>
             <point key="canvasLocation" x="-237" y="1228"/>
         </scene>
-        <!--Item3-->
+        <!--Calendário-->
         <scene sceneID="rxZ-sE-b31">
             <objects>
                 <viewController id="Zsy-o9-m6D" sceneMemberID="viewController">
@@ -258,7 +257,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oai-od-5ae"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item3" image="Tools_00028" id="c38-iL-qNf" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Calendário" image="calendario" id="c38-iL-qNf" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -284,10 +283,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Settings" width="30" height="30"/>
-        <image name="Tools_00028" width="30" height="30"/>
-        <image name="drop" width="24" height="24"/>
-        <image name="icon_pin" width="30" height="30"/>
-        <image name="icon_user" width="30" height="30"/>
+        <image name="calendario" width="25" height="25"/>
+        <image name="informacao" width="25" height="25"/>
+        <image name="mapa" width="25" height="25"/>
+        <image name="neec" width="25" height="25"/>
+        <image name="news" width="25" height="25"/>
     </resources>
 </document>
