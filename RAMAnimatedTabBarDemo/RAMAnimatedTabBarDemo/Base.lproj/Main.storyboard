@@ -13,22 +13,26 @@
         <!--Mapa-->
         <scene sceneID="Y99-CA-jqU">
             <objects>
-                <viewController id="wJE-Q4-t8C" sceneMemberID="viewController">
+                <viewController id="wJE-Q4-t8C" customClass="Mapa" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PmG-Vl-9D1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fume Animation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxN-OP-GHb">
-                                <rect key="frame" x="93" y="317.5" width="189" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fuc-5W-O3V">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cbk-oV-z7H" firstAttribute="centerX" secondItem="UxN-OP-GHb" secondAttribute="centerX" id="1l9-FQ-w0o"/>
-                            <constraint firstAttribute="centerY" secondItem="UxN-OP-GHb" secondAttribute="centerY" id="5ae-83-gzq"/>
+                            <constraint firstItem="Fuc-5W-O3V" firstAttribute="leading" secondItem="cbk-oV-z7H" secondAttribute="leading" id="0eZ-kS-W5C"/>
+                            <constraint firstItem="cbk-oV-z7H" firstAttribute="bottom" secondItem="Fuc-5W-O3V" secondAttribute="bottom" id="c54-uF-3pL"/>
+                            <constraint firstItem="Fuc-5W-O3V" firstAttribute="top" secondItem="cbk-oV-z7H" secondAttribute="top" id="d8E-u4-Len"/>
+                            <constraint firstItem="cbk-oV-z7H" firstAttribute="trailing" secondItem="Fuc-5W-O3V" secondAttribute="trailing" id="wsN-we-fkD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cbk-oV-z7H"/>
                     </view>
@@ -42,6 +46,9 @@
                             <outlet property="animation" destination="Lky-Hp-l9U" id="r67-ap-cxK"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="webview" destination="Fuc-5W-O3V" id="lmU-xf-MrF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zW4-Q6-RN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Lky-Hp-l9U" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
@@ -110,22 +117,26 @@
         <!--Notícias-->
         <scene sceneID="quI-1J-que">
             <objects>
-                <viewController id="DFF-lT-Wr8" sceneMemberID="viewController">
+                <viewController id="DFF-lT-Wr8" customClass="Noticias" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DX2-Ge-a2o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotation Animation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juj-np-Jde">
-                                <rect key="frame" x="77.5" y="317.5" width="220.5" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTZ-Ei-oAS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="juj-np-Jde" secondAttribute="centerY" id="5B9-09-yru"/>
-                            <constraint firstItem="VaI-Rh-DC9" firstAttribute="centerX" secondItem="juj-np-Jde" secondAttribute="centerX" id="JZ0-P4-3th"/>
+                            <constraint firstItem="VaI-Rh-DC9" firstAttribute="bottom" secondItem="kTZ-Ei-oAS" secondAttribute="bottom" id="4n9-J5-6fg"/>
+                            <constraint firstItem="kTZ-Ei-oAS" firstAttribute="top" secondItem="VaI-Rh-DC9" secondAttribute="top" id="KkM-s5-htd"/>
+                            <constraint firstItem="VaI-Rh-DC9" firstAttribute="trailing" secondItem="kTZ-Ei-oAS" secondAttribute="trailing" id="axD-LI-ko9"/>
+                            <constraint firstItem="kTZ-Ei-oAS" firstAttribute="leading" secondItem="VaI-Rh-DC9" secondAttribute="leading" id="vsA-xc-Z0I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VaI-Rh-DC9"/>
                     </view>
@@ -139,6 +150,9 @@
                             <outlet property="animation" destination="SMy-mk-LC7" id="MkP-KN-27u"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="webview" destination="kTZ-Ei-oAS" id="zde-0D-cDA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Cn-qd-9Vu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="SMy-mk-LC7" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
@@ -185,37 +199,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bounce Animation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMh-ib-nBJ">
-                                <rect key="frame" x="81.5" y="317.5" width="212" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KK9-Py-qqm">
-                                <rect key="frame" x="-4" y="580" width="190.5" height="30"/>
-                                <state key="normal" title="Show Badge"/>
-                                <connections>
-                                    <action selector="showBadgeHandelr:" destination="eCt-4k-9Vu" eventType="touchUpInside" id="ghX-V6-TVP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKl-OF-gs1">
-                                <rect key="frame" x="188.5" y="580" width="190.5" height="30"/>
-                                <state key="normal" title="Hide Badge"/>
-                                <connections>
-                                    <action selector="hideBadgeHandler:" destination="eCt-4k-9Vu" eventType="touchUpInside" id="9Ed-dA-ULL"/>
-                                </connections>
-                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOG-ow-s1P">
+                                <rect key="frame" x="0.0" y="55" width="375" height="563"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WYF-8o-Ekc">
+                                <rect key="frame" x="23" y="20" width="329" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="yOF-bK-kSz"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="NEEC"/>
+                                    <segment title="Equipa"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FKl-OF-gs1" firstAttribute="leading" secondItem="KK9-Py-qqm" secondAttribute="trailing" constant="2" id="IP7-Vx-f8P"/>
-                            <constraint firstItem="KK9-Py-qqm" firstAttribute="leading" secondItem="JgG-ft-dcB" secondAttribute="leadingMargin" constant="-20" id="Isz-OD-x14"/>
-                            <constraint firstItem="KK9-Py-qqm" firstAttribute="width" secondItem="FKl-OF-gs1" secondAttribute="width" id="WnW-pO-RYO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FKl-OF-gs1" secondAttribute="trailing" constant="-20" id="YyU-4n-KYs"/>
-                            <constraint firstItem="kSB-yj-LRJ" firstAttribute="centerX" secondItem="qMh-ib-nBJ" secondAttribute="centerX" id="b2F-Ux-a2l"/>
-                            <constraint firstAttribute="centerY" secondItem="qMh-ib-nBJ" secondAttribute="centerY" id="jUP-sb-8cO"/>
-                            <constraint firstItem="kSB-yj-LRJ" firstAttribute="bottom" secondItem="KK9-Py-qqm" secondAttribute="bottom" constant="8" id="naI-ed-60X"/>
-                            <constraint firstItem="kSB-yj-LRJ" firstAttribute="bottom" secondItem="FKl-OF-gs1" secondAttribute="bottom" constant="8" id="ush-0w-xgF"/>
+                            <constraint firstItem="sOG-ow-s1P" firstAttribute="bottom" secondItem="kSB-yj-LRJ" secondAttribute="bottom" id="0ye-ZC-F1A"/>
+                            <constraint firstItem="WYF-8o-Ekc" firstAttribute="centerX" secondItem="sOG-ow-s1P" secondAttribute="centerX" id="8Ee-0S-3xJ"/>
+                            <constraint firstItem="sOG-ow-s1P" firstAttribute="top" secondItem="WYF-8o-Ekc" secondAttribute="bottom" constant="8" symbolic="YES" id="HbA-fi-spa"/>
+                            <constraint firstItem="WYF-8o-Ekc" firstAttribute="top" secondItem="kSB-yj-LRJ" secondAttribute="top" id="IdZ-FD-6g3"/>
+                            <constraint firstAttribute="trailing" secondItem="sOG-ow-s1P" secondAttribute="trailing" id="NLn-tH-b4r"/>
+                            <constraint firstItem="sOG-ow-s1P" firstAttribute="leading" secondItem="JgG-ft-dcB" secondAttribute="leading" id="nOQ-DP-eB6"/>
+                            <constraint firstItem="WYF-8o-Ekc" firstAttribute="leading" secondItem="kSB-yj-LRJ" secondAttribute="leading" constant="23" id="sYy-lB-9Tm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kSB-yj-LRJ"/>
                     </view>
@@ -245,7 +256,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-237" y="1228"/>
+            <point key="canvasLocation" x="-237.59999999999999" y="1227.4362818590705"/>
         </scene>
         <!--Calendário-->
         <scene sceneID="rxZ-sE-b31">
