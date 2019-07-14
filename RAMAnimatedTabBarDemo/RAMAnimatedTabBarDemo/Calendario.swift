@@ -9,11 +9,12 @@
 import UIKit
 import WebKit
 
-class Calendario: UIViewController  {
+class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
     
     //A string array to save all the names
-    var finalArray:[Any] = []
+    var finalArray:[Any] = ["Data 1 " , "Data 2" , "Data 3" , "Data 4" , "Data 5" , "Data 6" , "Data 7" , "Data 8" ]
+    
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,19 @@ class Calendario: UIViewController  {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (finalArray.count)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
+        cell.textLabel?.text = finalArray[indexPath.row] as? String
+        return cell
+    
     }
     
     
