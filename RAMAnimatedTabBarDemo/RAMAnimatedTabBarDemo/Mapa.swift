@@ -29,7 +29,7 @@ class Mapa: UIViewController , WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
         webview.evaluateJavaScript("document.getElementById('gbr').style.display='none';", completionHandler: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {
             self.webview.isHidden = false
         }
     }
