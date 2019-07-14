@@ -269,22 +269,22 @@
         <!--Calendário-->
         <scene sceneID="rxZ-sE-b31">
             <objects>
-                <viewController id="Zsy-o9-m6D" sceneMemberID="viewController">
+                <viewController id="Zsy-o9-m6D" customClass="Calendario" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qT7-Vb-aMC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frame Animation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnW-CR-KSE">
-                                <rect key="frame" x="89.5" y="317.5" width="196.5" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgw-tW-VDK" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="45" width="375" height="258"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oai-od-5ae" firstAttribute="centerX" secondItem="gnW-CR-KSE" secondAttribute="centerX" id="jwX-bj-6Ah"/>
-                            <constraint firstAttribute="centerY" secondItem="gnW-CR-KSE" secondAttribute="centerY" id="pMh-vB-55X"/>
+                            <constraint firstItem="oai-od-5ae" firstAttribute="bottom" secondItem="cgw-tW-VDK" secondAttribute="bottom" constant="315" id="2xx-fg-2RB"/>
+                            <constraint firstItem="cgw-tW-VDK" firstAttribute="leading" secondItem="qT7-Vb-aMC" secondAttribute="leading" id="5SG-gI-wfw"/>
+                            <constraint firstItem="cgw-tW-VDK" firstAttribute="top" secondItem="oai-od-5ae" secondAttribute="top" constant="25" id="rsb-Ao-RR7"/>
+                            <constraint firstAttribute="trailing" secondItem="cgw-tW-VDK" secondAttribute="trailing" id="z4h-sr-Tbu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oai-od-5ae"/>
                     </view>
@@ -313,7 +313,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="537" y="1228"/>
+            <point key="canvasLocation" x="536.79999999999995" y="1227.4362818590705"/>
         </scene>
     </scenes>
     <resources>

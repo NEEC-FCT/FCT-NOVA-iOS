@@ -11,6 +11,7 @@
 		5A5D3FF021B91D0700304986 /* RAMBadgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5D3FEF21B91D0700304986 /* RAMBadgeTests.swift */; };
 		5ADAB94A209B0FA8006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB949209B0FA8006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift */; };
 		5ADAB94B209B51E5006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADAB949209B0FA8006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift */; };
+		7FF81071ED636ED6C3673A81 /* Pods_RAMAnimatedTabBarDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC64CD0A103F773327412E7 /* Pods_RAMAnimatedTabBarDemo.framework */; };
 		849507011D05772B0005EC1A /* ToolsAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849507001D05772B0005EC1A /* ToolsAnimation.plist */; };
 		84BC64221C22E4C800B89B79 /* RAMBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC64211C22E4C800B89B79 /* RAMBadge.swift */; };
 		84D4B7A11DB0D35500EE38C6 /* TabBarLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4B79F1DB0D35500EE38C6 /* TabBarLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +29,8 @@
 		9C9CC4CB22DA379D002A0D38 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9CC4CA22DA379C002A0D38 /* WebKit.framework */; };
 		9C9CC4CD22DA4290002A0D38 /* Noticias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4CC22DA4290002A0D38 /* Noticias.swift */; };
 		9C9CC4CF22DA8FE8002A0D38 /* SobreNeec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */; };
+		9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4D022DB4D32002A0D38 /* Calendario.swift */; };
+		C562BD4177761A8AC8BB7752 /* Pods_RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */; };
 		CE4146781A1B923D0037F03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146771A1B923D0037F03C /* AppDelegate.swift */; };
 		CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146791A1B923D0037F03C /* ViewController.swift */; };
 		CE41467D1A1B923D0037F03C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE41467B1A1B923D0037F03C /* Main.storyboard */; };
@@ -74,20 +77,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RAMAnimatedTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A1F33B92126AA3D004B8735 /* AnimatedTabBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimatedTabBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A1F33BB2126AA3D004B8735 /* AnimatedTabBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarTests.swift; sourceTree = "<group>"; };
 		5A1F33BD2126AA3D004B8735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A5D3FEF21B91D0700304986 /* RAMBadgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBadgeTests.swift; sourceTree = "<group>"; };
 		5ADAB949209B0FA8006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMAnimatedTabBarController+BottomLine.swift"; sourceTree = "<group>"; };
+		6809B9D1C32C4061D9A6C646 /* Pods-RAMAnimatedTabBarController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAMAnimatedTabBarController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RAMAnimatedTabBarController/Pods-RAMAnimatedTabBarController.debug.xcconfig"; sourceTree = "<group>"; };
+		7CBA3908B1DBC71CE3F693FB /* Pods-RAMAnimatedTabBarController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAMAnimatedTabBarController.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAMAnimatedTabBarController/Pods-RAMAnimatedTabBarController.release.xcconfig"; sourceTree = "<group>"; };
 		849507001D05772B0005EC1A /* ToolsAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ToolsAnimation.plist; sourceTree = "<group>"; };
 		84BC64211C22E4C800B89B79 /* RAMBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBadge.swift; sourceTree = "<group>"; };
 		84D4B79D1DB0D35500EE38C6 /* RAMAnimatedTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RAMAnimatedTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D4B79F1DB0D35500EE38C6 /* TabBarLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarLib.h; sourceTree = "<group>"; };
 		84D4B7A01DB0D35500EE38C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B35A48A898C2152B9CB9533 /* Pods-RAMAnimatedTabBarDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAMAnimatedTabBarDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAMAnimatedTabBarDemo/Pods-RAMAnimatedTabBarDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9C9CC4C722D9F53D002A0D38 /* Mapa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapa.swift; sourceTree = "<group>"; };
 		9C9CC4CA22DA379C002A0D38 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9C9CC4CC22DA4290002A0D38 /* Noticias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noticias.swift; sourceTree = "<group>"; };
 		9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreNeec.swift; sourceTree = "<group>"; };
+		9C9CC4D022DB4D32002A0D38 /* Calendario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario.swift; sourceTree = "<group>"; };
 		CE4146721A1B923D0037F03C /* Animated Tab Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animated Tab Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4146761A1B923D0037F03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4146771A1B923D0037F03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +109,8 @@
 		CE90A83F1A1C7C14002D8931 /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
 		CE90A8421A1C8DD3002D8931 /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMRotationAnimation.swift; sourceTree = "<group>"; };
 		CE90A8781A1CE200002D8931 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		D900AA007855093F24BD3E87 /* Pods-RAMAnimatedTabBarDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAMAnimatedTabBarDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RAMAnimatedTabBarDemo/Pods-RAMAnimatedTabBarDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		ECC64CD0A103F773327412E7 /* Pods_RAMAnimatedTabBarDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RAMAnimatedTabBarDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E056BD1A2DD57600F33DDA /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFumeAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C562BD4177761A8AC8BB7752 /* Pods_RAMAnimatedTabBarController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +136,7 @@
 			files = (
 				9C9CC4CB22DA379D002A0D38 /* WebKit.framework in Frameworks */,
 				84D4B7A41DB0D35500EE38C6 /* RAMAnimatedTabBarController.framework in Frameworks */,
+				7FF81071ED636ED6C3673A81 /* Pods_RAMAnimatedTabBarDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				9C9CC4CA22DA379C002A0D38 /* WebKit.framework */,
+				47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */,
+				ECC64CD0A103F773327412E7 /* Pods_RAMAnimatedTabBarDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,6 +196,7 @@
 				5A1F33BA2126AA3D004B8735 /* AnimatedTabBarTests */,
 				CE4146731A1B923D0037F03C /* Products */,
 				9C9CC4C922DA379C002A0D38 /* Frameworks */,
+				F7F97AAE4020ED62972C233C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +224,7 @@
 				9C9CC4C722D9F53D002A0D38 /* Mapa.swift */,
 				9C9CC4CC22DA4290002A0D38 /* Noticias.swift */,
 				9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */,
+				9C9CC4D022DB4D32002A0D38 /* Calendario.swift */,
 			);
 			path = RAMAnimatedTabBarDemo;
 			sourceTree = "<group>";
@@ -294,6 +310,17 @@
 			path = FumeAnimation;
 			sourceTree = "<group>";
 		};
+		F7F97AAE4020ED62972C233C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6809B9D1C32C4061D9A6C646 /* Pods-RAMAnimatedTabBarController.debug.xcconfig */,
+				7CBA3908B1DBC71CE3F693FB /* Pods-RAMAnimatedTabBarController.release.xcconfig */,
+				D900AA007855093F24BD3E87 /* Pods-RAMAnimatedTabBarDemo.debug.xcconfig */,
+				8B35A48A898C2152B9CB9533 /* Pods-RAMAnimatedTabBarDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -330,6 +357,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D4B7A81DB0D35500EE38C6 /* Build configuration list for PBXNativeTarget "RAMAnimatedTabBarController" */;
 			buildPhases = (
+				A8182E8DC7B585CD60DE3087 /* [CP] Check Pods Manifest.lock */,
 				84D4B7981DB0D35500EE38C6 /* Sources */,
 				84D4B7991DB0D35500EE38C6 /* Frameworks */,
 				84D4B79A1DB0D35500EE38C6 /* Headers */,
@@ -348,10 +376,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE4146911A1B923D0037F03C /* Build configuration list for PBXNativeTarget "RAMAnimatedTabBarDemo" */;
 			buildPhases = (
+				38283F44672F7D9BBB8A8AC6 /* [CP] Check Pods Manifest.lock */,
 				CE41466E1A1B923D0037F03C /* Sources */,
 				CE41466F1A1B923D0037F03C /* Frameworks */,
 				CE4146701A1B923D0037F03C /* Resources */,
 				8499D8F91D0069C6004B5B37 /* Embed Frameworks */,
+				F19461D57436622128D2B41C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -439,6 +469,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38283F44672F7D9BBB8A8AC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RAMAnimatedTabBarDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8182E8DC7B585CD60DE3087 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RAMAnimatedTabBarController-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F19461D57436622128D2B41C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RAMAnimatedTabBarDemo/Pods-RAMAnimatedTabBarDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar-iOS11.1/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar-iOS9.0/FSCalendar.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RAMAnimatedTabBarDemo/Pods-RAMAnimatedTabBarDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5A1F33B52126AA3D004B8735 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -471,6 +571,7 @@
 			files = (
 				CE41469E1A1B944D0037F03C /* RAMFrameItemAnimation.swift in Sources */,
 				CE90A8401A1C7C14002D8931 /* RAMAnimatedTabBarController.swift in Sources */,
+				9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */,
 				CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */,
 				5ADAB94A209B0FA8006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */,
 				CE90A8431A1C8DD3002D8931 /* RAMRotationAnimation.swift in Sources */,
@@ -573,6 +674,7 @@
 		};
 		84D4B7A61DB0D35500EE38C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6809B9D1C32C4061D9A6C646 /* Pods-RAMAnimatedTabBarController.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -602,6 +704,7 @@
 		};
 		84D4B7A71DB0D35500EE38C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CBA3908B1DBC71CE3F693FB /* Pods-RAMAnimatedTabBarController.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -738,6 +841,7 @@
 		};
 		CE4146921A1B923D0037F03C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D900AA007855093F24BD3E87 /* Pods-RAMAnimatedTabBarDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -757,6 +861,7 @@
 		};
 		CE4146931A1B923D0037F03C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B35A48A898C2152B9CB9533 /* Pods-RAMAnimatedTabBarDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
