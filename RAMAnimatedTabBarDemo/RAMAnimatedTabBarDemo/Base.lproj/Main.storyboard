@@ -194,7 +194,7 @@
         <!--NEEC-->
         <scene sceneID="ttZ-oS-sRQ">
             <objects>
-                <viewController id="eCt-4k-9Vu" customClass="ViewController" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eCt-4k-9Vu" customClass="SobreNeec" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JgG-ft-dcB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,6 +216,10 @@
                                     <segment title="NEEC"/>
                                     <segment title="Equipa"/>
                                 </segments>
+                                <connections>
+                                    <action selector="toggle:" destination="eCt-4k-9Vu" eventType="valueChanged" id="CN0-g6-cIe"/>
+                                    <action selector="toggle:" destination="Ka3-35-OFg" eventType="valueChanged" id="NVp-lb-WaN"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -240,8 +244,12 @@
                             <outlet property="animation" destination="BSW-Za-y3b" id="Q93-Wg-KJV"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="webview" destination="sOG-ow-s1P" id="JCh-Kw-exG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bq-TO-3KR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ka3-35-OFg" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="BSW-Za-y3b" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">

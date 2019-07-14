@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         // example for showing badges
         index += 1
         tabBarItem.badgeValue = "\(index)"
+       
     }
 
     @IBAction func hideBadgeHandler(_: AnyObject) {
