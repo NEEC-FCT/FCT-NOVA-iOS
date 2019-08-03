@@ -15,10 +15,14 @@ class SobreNeec: UIViewController  , WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        OperationQueue.main.addOperation {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "Intro") 
-            self.present(newViewController, animated: true, completion: nil)
+        
+          if (UserDefaults.standard.string(forKey: "intro") == nil) {
+            // show intro
+            OperationQueue.main.addOperation {
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "Intro")
+                self.present(newViewController, animated: true, completion: nil)
+            }
         }
                 
     }

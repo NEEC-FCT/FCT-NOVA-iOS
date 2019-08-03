@@ -307,7 +307,17 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon3"]];
     page4.titleIconPositionY = 260;
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    //Pagina 5
+    EAIntroPage *page5 = [EAIntroPage page];
+    page5.title = @"This is page 2";
+    page5.titlePositionY = 240;
+    page5.desc = sampleDescription2;
+    page5.descPositionY = 220;
+    page5.bgImage = [UIImage imageNamed:@"bg2"];
+    page5.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon1"]];
+    page5.titleIconPositionY = 260;
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4,page5]];
     intro.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigLogo"]];
     intro.titleViewY = 120;
     intro.tapToNext = YES;
@@ -335,11 +345,18 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 #pragma mark - EAIntroView delegate
 
 - (void)introDidFinish:(EAIntroView *)introView wasSkipped:(BOOL)wasSkipped {
-    if(wasSkipped) {
-        NSLog(@"Intro skipped");
-    } else {
-        NSLog(@"Intro finished");
-    }
+    
+    //dont show intro again
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"User" forKey:@"intro"];
+    [defaults synchronize];
+    //Volta ao inicio
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"bundle:nil];
+    ViewController *loginVC = (ViewController*)[storyboard instantiateViewControllerWithIdentifier:@"RAMAnimatedTabBarController"];
+      [self presentViewController: loginVC animated:YES completion:NULL];
+
+    
+    
 }
 
 #pragma mark - Custom actions
