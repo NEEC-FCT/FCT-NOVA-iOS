@@ -25,11 +25,15 @@
 		84D4B7AE1DB0D38700EE38C6 /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41469A1A1B944D0037F03C /* RAMFrameItemAnimation.swift */; };
 		84D4B7AF1DB0D38B00EE38C6 /* RAMTransitionItemAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41469C1A1B944D0037F03C /* RAMTransitionItemAnimations.swift */; };
 		84D4B7B01DB0D38F00EE38C6 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41469D1A1B944D0037F03C /* RAMItemAnimationProtocol.swift */; };
+		9C056AFF22F5F3EE00B119D4 /* IntroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C056AFD22F5F3EE00B119D4 /* IntroController.m */; };
 		9C9CC4C822D9F53D002A0D38 /* Mapa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4C722D9F53D002A0D38 /* Mapa.swift */; };
 		9C9CC4CB22DA379D002A0D38 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9CC4CA22DA379C002A0D38 /* WebKit.framework */; };
 		9C9CC4CD22DA4290002A0D38 /* Noticias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4CC22DA4290002A0D38 /* Noticias.swift */; };
 		9C9CC4CF22DA8FE8002A0D38 /* SobreNeec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */; };
 		9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4D022DB4D32002A0D38 /* Calendario.swift */; };
+		9CE194EE22F5FA4700C26F35 /* IntroPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE194ED22F5FA4700C26F35 /* IntroPage.xib */; };
+		9CE194F022F5FB0D00C26F35 /* Intro in Resources */ = {isa = PBXBuildFile; fileRef = 9CE194EF22F5FB0C00C26F35 /* Intro */; };
+		9CE194F222F5FC5F00C26F35 /* Intro in Resources */ = {isa = PBXBuildFile; fileRef = 9CE194F122F5FC5F00C26F35 /* Intro */; };
 		C562BD4177761A8AC8BB7752 /* Pods_RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */; };
 		CE4146781A1B923D0037F03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146771A1B923D0037F03C /* AppDelegate.swift */; };
 		CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146791A1B923D0037F03C /* ViewController.swift */; };
@@ -91,11 +95,16 @@
 		84D4B79F1DB0D35500EE38C6 /* TabBarLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarLib.h; sourceTree = "<group>"; };
 		84D4B7A01DB0D35500EE38C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B35A48A898C2152B9CB9533 /* Pods-RAMAnimatedTabBarDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAMAnimatedTabBarDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAMAnimatedTabBarDemo/Pods-RAMAnimatedTabBarDemo.release.xcconfig"; sourceTree = "<group>"; };
+		9C056AFD22F5F3EE00B119D4 /* IntroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroController.m; sourceTree = "<group>"; };
+		9C056AFE22F5F3EE00B119D4 /* IntroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroController.h; sourceTree = "<group>"; };
 		9C9CC4C722D9F53D002A0D38 /* Mapa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapa.swift; sourceTree = "<group>"; };
 		9C9CC4CA22DA379C002A0D38 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9C9CC4CC22DA4290002A0D38 /* Noticias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noticias.swift; sourceTree = "<group>"; };
 		9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreNeec.swift; sourceTree = "<group>"; };
 		9C9CC4D022DB4D32002A0D38 /* Calendario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario.swift; sourceTree = "<group>"; };
+		9CE194ED22F5FA4700C26F35 /* IntroPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage.xib; sourceTree = "<group>"; };
+		9CE194EF22F5FB0C00C26F35 /* Intro */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Intro; sourceTree = "<group>"; };
+		9CE194F122F5FC5F00C26F35 /* Intro */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Intro; sourceTree = "<group>"; };
 		CE4146721A1B923D0037F03C /* Animated Tab Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animated Tab Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4146761A1B923D0037F03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4146771A1B923D0037F03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -219,12 +228,16 @@
 				CE4146791A1B923D0037F03C /* ViewController.swift */,
 				CE41467B1A1B923D0037F03C /* Main.storyboard */,
 				CE41467E1A1B923D0037F03C /* Images.xcassets */,
+				9CE194EF22F5FB0C00C26F35 /* Intro */,
 				CE4146801A1B923D0037F03C /* LaunchScreen.xib */,
+				9CE194ED22F5FA4700C26F35 /* IntroPage.xib */,
 				CE4146751A1B923D0037F03C /* Supporting Files */,
 				9C9CC4C722D9F53D002A0D38 /* Mapa.swift */,
 				9C9CC4CC22DA4290002A0D38 /* Noticias.swift */,
 				9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */,
 				9C9CC4D022DB4D32002A0D38 /* Calendario.swift */,
+				9C056AFE22F5F3EE00B119D4 /* IntroController.h */,
+				9C056AFD22F5F3EE00B119D4 /* IntroController.m */,
 			);
 			path = RAMAnimatedTabBarDemo;
 			sourceTree = "<group>";
@@ -289,6 +302,7 @@
 		CE90A8441A1CB1A2002D8931 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CE194F122F5FC5F00C26F35 /* Intro */,
 				849507001D05772B0005EC1A /* ToolsAnimation.plist */,
 			);
 			path = Resources;
@@ -417,7 +431,7 @@
 					CE4146711A1B923D0037F03C = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = S4HVWNDNBH;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -463,7 +477,10 @@
 				849507011D05772B0005EC1A /* ToolsAnimation.plist in Resources */,
 				CE41467D1A1B923D0037F03C /* Main.storyboard in Resources */,
 				CE4146821A1B923D0037F03C /* LaunchScreen.xib in Resources */,
+				9CE194F022F5FB0D00C26F35 /* Intro in Resources */,
+				9CE194EE22F5FA4700C26F35 /* IntroPage.xib in Resources */,
 				CE41467F1A1B923D0037F03C /* Images.xcassets in Resources */,
+				9CE194F222F5FC5F00C26F35 /* Intro in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +544,7 @@
 				"${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework",
 				"${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/SMPageControl/SMPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar-iOS9.0/FSCalendar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -537,6 +555,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAIntroView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EARestrictedScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMPageControl.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -587,6 +606,7 @@
 				9C9CC4CF22DA8FE8002A0D38 /* SobreNeec.swift in Sources */,
 				9C9CC4C822D9F53D002A0D38 /* Mapa.swift in Sources */,
 				9C9CC4CD22DA4290002A0D38 /* Noticias.swift in Sources */,
+				9C056AFF22F5F3EE00B119D4 /* IntroController.m in Sources */,
 				CE4146A01A1B944D0037F03C /* RAMItemAnimationProtocol.swift in Sources */,
 				CE4146781A1B923D0037F03C /* AppDelegate.swift in Sources */,
 				CE90A8791A1CE200002D8931 /* RAMBounceAnimation.swift in Sources */,
@@ -851,6 +871,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -861,6 +882,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fct.nova.neec;
 				PRODUCT_NAME = "Animated Tab Bar";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -871,6 +893,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;

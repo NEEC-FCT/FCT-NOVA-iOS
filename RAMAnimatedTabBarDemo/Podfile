@@ -18,6 +18,7 @@ target 'RAMAnimatedTabBarDemo' do
   pod 'FSCalendar'
   pod 'Floaty'
   pod 'EAIntroView'
+  pod'SMPageControl'
 
 
 end

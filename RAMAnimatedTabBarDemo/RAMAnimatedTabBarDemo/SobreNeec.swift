@@ -15,8 +15,12 @@ class SobreNeec: UIViewController  , WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        OperationQueue.main.addOperation {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "Intro") 
+            self.present(newViewController, animated: true, completion: nil)
+        }
+                
     }
     
     

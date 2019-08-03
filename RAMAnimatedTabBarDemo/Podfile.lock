@@ -4,11 +4,13 @@ PODS:
   - EARestrictedScrollView (1.1.0)
   - Floaty (4.1.0)
   - FSCalendar (2.8.0)
+  - SMPageControl (1.2)
 
 DEPENDENCIES:
   - EAIntroView
   - Floaty
   - FSCalendar
+  - SMPageControl
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - EARestrictedScrollView
     - Floaty
     - FSCalendar
+    - SMPageControl
 
 SPEC CHECKSUMS:
   EAIntroView: 249559079ddfdbe80e5bcb755c04c3b964b2ac27
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
   Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
+  SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
 
-PODFILE CHECKSUM: cc3a821d8316723b671ef95dfbc5e3583c0f69f9
+PODFILE CHECKSUM: 24df4d1aa3db7a1a9be6decd8ff2d4ff292d4318
 
 COCOAPODS: 1.5.3

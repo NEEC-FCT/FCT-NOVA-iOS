@@ -147,6 +147,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SMPageControl/SMPageControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSCalendar-iOS9.0/FSCalendar.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -154,6 +155,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SMPageControl/SMPageControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSCalendar-iOS9.0/FSCalendar.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
