@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import WebKit
+import JJFloatingActionButton
+
 
 class Informacao: UIViewController  , WKNavigationDelegate {
     
@@ -20,6 +22,26 @@ class Informacao: UIViewController  , WKNavigationDelegate {
         
         webview.navigationDelegate = self
         
+        //FAB
+        let actionButton = JJFloatingActionButton()
+        actionButton.addItem(title: "item 1", image: UIImage(named: "First")?.withRenderingMode(.alwaysTemplate)) { item in
+            // do something
+        }
+        actionButton.addItem(title: "item 2", image: UIImage(named: "Second")?.withRenderingMode(.alwaysTemplate)) { item in
+            // do something
+        }
+        
+        actionButton.addItem(title: "item 3", image: nil) { item in
+            // do something
+        }
+        
+        view.addSubview(actionButton)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+
+        
+        //Load Webview
         let url = URL (string: "https://fctapp.neec-fct.com/Informacao/")
         let requestObj = URLRequest(url: url!)
         webview.load(requestObj)

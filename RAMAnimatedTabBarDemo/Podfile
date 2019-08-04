@@ -17,6 +17,7 @@ target 'RAMAnimatedTabBarDemo' do
   # Pods for RAMAnimatedTabBarDemo
   pod 'FSCalendar'
   pod 'Floaty'
+  pod 'JJFloatingActionButton'
   pod 'EAIntroView'
   pod'SMPageControl'
   pod 'Firebase/Analytics'
