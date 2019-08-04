@@ -19,9 +19,8 @@ class Informacao: UIViewController  , WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
         webview.navigationDelegate = self
-        
         //FAB
         let actionButton = JJFloatingActionButton()
         actionButton.buttonImage = UIImage(named: "security")
@@ -106,6 +105,25 @@ class Informacao: UIViewController  , WKNavigationDelegate {
             }*/
         }
         decisionHandler(.allow)
+    }
+    
+    func myHandler(alert: UIAlertAction){
+        if( CheckInternet.Connection() == false)
+        {
+            let controller = UIAlertController(title: "Sem internet" , message: "Esta aplicação necessita de internet", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: myHandler)
+            
+            
+            controller.addAction(ok)
+            
+            
+            present(controller, animated: true, completion: nil)
+        }
+        else{
+            let url = URL (string: "https://fctapp.neec-fct.com/Informacao/")
+            let requestObj = URLRequest(url: url!)
+            webview.load(requestObj)
+        }
     }
     
 }

@@ -16,6 +16,8 @@ class Mapa: UIViewController , WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
+        
         webview.navigationDelegate = self
 
         let url = URL (string: "https://www.google.com/maps/d/viewer?mid=1puDPKCs1qt4eyU1fK2EfzPCHyQzkfm6n&ll=38.661303032631146%2C-9.205898544352294&z=16")
@@ -86,6 +88,26 @@ class Mapa: UIViewController , WKNavigationDelegate {
             let url = URL (string: "https://www.google.com/maps/d/u/0/viewer?mid=1TdpAcDgdncinIqJLrr504ZMAJe6zQ2il&ll=38.661303032631146%2C-9.205898544352294&z=16")
             let requestObj = URLRequest(url: url!)
             webview.isHidden = true
+            webview.load(requestObj)
+        }
+    }
+    
+    
+    func myHandler(alert: UIAlertAction){
+        if( CheckInternet.Connection() == false)
+        {
+            let controller = UIAlertController(title: "Sem internet" , message: "Esta aplicação necessita de internet", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: myHandler)
+            
+            
+            controller.addAction(ok)
+            
+            
+            present(controller, animated: true, completion: nil)
+        }
+        else{
+            let url = URL (string: "https://www.google.com/maps/d/viewer?mid=1puDPKCs1qt4eyU1fK2EfzPCHyQzkfm6n&ll=38.661303032631146%2C-9.205898544352294&z=16")
+            let requestObj = URLRequest(url: url!)
             webview.load(requestObj)
         }
     }

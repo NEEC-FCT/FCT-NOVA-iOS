@@ -18,11 +18,11 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
   
     override func viewDidLoad() {
         super.viewDidLoad()
-         getJsonFromUrl()
+        myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
+        getJsonFromUrl()
         
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,5 +59,18 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         }
     }
     
-    
+    func myHandler(alert: UIAlertAction){
+        if( CheckInternet.Connection() == false)
+        {
+            let controller = UIAlertController(title: "Sem internet" , message: "Esta aplicação necessita de internet", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: myHandler)
+            
+            
+            controller.addAction(ok)
+            
+            
+            present(controller, animated: true, completion: nil)
+        }
+    }
+
 }

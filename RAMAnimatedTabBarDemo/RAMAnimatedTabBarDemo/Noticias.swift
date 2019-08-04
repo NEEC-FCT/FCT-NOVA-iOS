@@ -15,6 +15,9 @@ class Noticias: UIViewController  , WKNavigationDelegate {
     var back:Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
+        
         self.back = false
         webview.isHidden = true
         let url = URL (string: "https://www.fct.unl.pt/noticias")
@@ -70,6 +73,21 @@ class Noticias: UIViewController  , WKNavigationDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func myHandler(alert: UIAlertAction){
+        if( CheckInternet.Connection() == false)
+        {
+            let controller = UIAlertController(title: "Sem internet" , message: "Esta aplicação necessita de internet", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: myHandler)
+            
+            
+            controller.addAction(ok)
+            
+            
+            present(controller, animated: true, completion: nil)
+        }
     }
     
     
