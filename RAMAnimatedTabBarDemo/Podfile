@@ -19,6 +19,7 @@ target 'RAMAnimatedTabBarDemo' do
   pod 'Floaty'
   pod 'EAIntroView'
   pod'SMPageControl'
+  pod 'Firebase/Analytics'
 
 
 end
