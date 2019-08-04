@@ -37,11 +37,7 @@ class Noticias: UIViewController  , WKNavigationDelegate {
                 self.back = true
                 guard let url = URL(string: urlStr) else { return }
                 UIApplication.shared.open(url)
-             
-    
             }
-            
-            
         }
         decisionHandler(.allow)
     }
