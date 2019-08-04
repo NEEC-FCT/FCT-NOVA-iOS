@@ -83,22 +83,26 @@
         <!--Informação-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="Informacao" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transition Animation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeA-ED-4jL">
-                                <rect key="frame" x="69.5" y="317.5" width="236" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-rj-aEC">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="AeA-ED-4jL" secondAttribute="centerY" id="Ifi-6x-Ruv"/>
-                            <constraint firstItem="8ec-QI-6Cw" firstAttribute="centerX" secondItem="AeA-ED-4jL" secondAttribute="centerX" id="gXX-8c-cGG"/>
+                            <constraint firstItem="8ec-QI-6Cw" firstAttribute="bottom" secondItem="WpS-rj-aEC" secondAttribute="bottom" id="CQC-t4-9Es"/>
+                            <constraint firstItem="WpS-rj-aEC" firstAttribute="top" secondItem="8ec-QI-6Cw" secondAttribute="top" id="LeA-ci-xqL"/>
+                            <constraint firstItem="8ec-QI-6Cw" firstAttribute="trailing" secondItem="WpS-rj-aEC" secondAttribute="trailing" id="OZf-ik-Fsy"/>
+                            <constraint firstItem="WpS-rj-aEC" firstAttribute="leading" secondItem="8ec-QI-6Cw" secondAttribute="leading" id="Tea-fx-XIk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8ec-QI-6Cw"/>
                     </view>
@@ -112,6 +116,9 @@
                             <outlet property="animation" destination="CzN-js-aQV" id="gvH-Rf-Hp8"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="webview" destination="WpS-rj-aEC" id="7fJ-LY-xrv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="CzN-js-aQV" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">

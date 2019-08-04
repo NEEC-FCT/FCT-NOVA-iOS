@@ -33,6 +33,7 @@
 		9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4D022DB4D32002A0D38 /* Calendario.swift */; };
 		9CE194F222F5FC5F00C26F35 /* Intro in Resources */ = {isa = PBXBuildFile; fileRef = 9CE194F122F5FC5F00C26F35 /* Intro */; };
 		9CE194F822F74CED00C26F35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CE194F722F74CED00C26F35 /* GoogleService-Info.plist */; };
+		9CE194FA22F763DE00C26F35 /* Informacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE194F922F763DE00C26F35 /* Informacao.swift */; };
 		C562BD4177761A8AC8BB7752 /* Pods_RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */; };
 		CE4146781A1B923D0037F03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146771A1B923D0037F03C /* AppDelegate.swift */; };
 		CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146791A1B923D0037F03C /* ViewController.swift */; };
@@ -105,6 +106,7 @@
 		9CE194F322F6E24A00C26F35 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		9CE194F422F6E24A00C26F35 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9CE194F722F74CED00C26F35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9CE194F922F763DE00C26F35 /* Informacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informacao.swift; sourceTree = "<group>"; };
 		CE4146721A1B923D0037F03C /* Animated Tab Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animated Tab Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4146761A1B923D0037F03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4146771A1B923D0037F03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				9C9CC4D022DB4D32002A0D38 /* Calendario.swift */,
 				9C056AFE22F5F3EE00B119D4 /* IntroController.h */,
 				9C056AFD22F5F3EE00B119D4 /* IntroController.m */,
+				9CE194F922F763DE00C26F35 /* Informacao.swift */,
 			);
 			path = RAMAnimatedTabBarDemo;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 				"pt-PT",
 			);
@@ -596,6 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CE194FA22F763DE00C26F35 /* Informacao.swift in Sources */,
 				CE41469E1A1B944D0037F03C /* RAMFrameItemAnimation.swift in Sources */,
 				CE90A8401A1C7C14002D8931 /* RAMAnimatedTabBarController.swift in Sources */,
 				9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */,
