@@ -85,24 +85,15 @@ class Informacao: UIViewController  , WKNavigationDelegate {
         if let urlStr = navigationAction.request.url?.absoluteString {
             //urlStr is what you want
             print(urlStr)
-            //mudar para o safari ou calendario
-            /*
-            if( !urlStr.hasPrefix("https://fctapp.neec-fct.com/equipa/") && !urlStr.hasPrefix("https://fctapp.neec-fct.com/SobreNEEC/") ){
+            if( !urlStr.hasPrefix("https://fctapp.neec-fct.com/") ){
                 guard let url = URL(string: urlStr) else { return }
                 UIApplication.shared.open(url)
                 //Go back
-                if( separator == 0){
-                    
-                    let url = URL (string: "https://fctapp.neec-fct.com/SobreNEEC/")
-                    let requestObj = URLRequest(url: url!)
-                    webview.load(requestObj)
-                }
-                if( separator == 1){
-                    let url = URL (string: "https://fctapp.neec-fct.com/equipa/about.html")
-                    let requestObj = URLRequest(url: url!)
-                    webview.load(requestObj)
-                }
-            }*/
+                //Load Webview
+                let home = URL (string: "https://fctapp.neec-fct.com/Informacao/")
+                let requestObj = URLRequest(url: home!)
+                webview.load(requestObj)
+            }
         }
         decisionHandler(.allow)
     }
