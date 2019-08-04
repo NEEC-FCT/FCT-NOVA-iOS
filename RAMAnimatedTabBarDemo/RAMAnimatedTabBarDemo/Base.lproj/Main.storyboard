@@ -286,7 +286,7 @@
             </objects>
             <point key="canvasLocation" x="-237.59999999999999" y="1227.4362818590705"/>
         </scene>
-        <!--Calendário-->
+        <!--Data Source-->
         <scene sceneID="rxZ-sE-b31">
             <objects>
                 <viewController id="Zsy-o9-m6D" customClass="Calendario" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
@@ -297,6 +297,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgw-tW-VDK" customClass="FSCalendar">
                                 <rect key="frame" x="0.0" y="45" width="375" height="258"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zsy-o9-m6D" id="xHQ-lD-1xT"/>
+                                    <outlet property="delegate" destination="Zsy-o9-m6D" id="Q0C-j1-CPs"/>
+                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yUp-7A-owr">
                                 <rect key="frame" x="0.0" y="303" width="375" height="315"/>
@@ -342,6 +346,9 @@
                             <outlet property="animation" destination="Ojd-WY-9Yd" id="Ogs-bO-YG5"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="calendar" destination="cgw-tW-VDK" id="6P3-5q-H3p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FuQ-Du-YS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Ojd-WY-9Yd" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
