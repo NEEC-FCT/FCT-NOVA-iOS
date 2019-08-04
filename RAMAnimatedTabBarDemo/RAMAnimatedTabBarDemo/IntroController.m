@@ -35,43 +35,35 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
-    //page1.title = @"Bem-vindo à Faculdade de Ciências e Tecnologias";
-    //page1.desc = @"Conhece a nossa Faculdade com esta app";
     page1.bgImage = [UIImage imageNamed:@"bg1"];
-    //page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro"]];
-    
+
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"Inúmeras funcionalidades";
-    page2.desc = @"Desenhadas para te ajudar na tua vida académica";
     page2.bgImage = [UIImage imageNamed:@"bg2"];
-    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"introicons"]];
     
     EAIntroPage *page3 = [EAIntroPage page];
-    page3.title = @"This is page 3";
-    page3.desc = sampleDescription3;
     page3.bgImage = [UIImage imageNamed:@"bg3"];
-    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title3"]];
-    
+
     EAIntroPage *page4 = [EAIntroPage page];
-    page4.title = @"This is page 4";
-    page4.desc = sampleDescription4;
     page4.bgImage = [UIImage imageNamed:@"bg4"];
-    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
-    
-    
+
     EAIntroPage *page5 = [EAIntroPage page];
-    page5.title = @"This is page 5";
-    page5.desc = sampleDescription2;
-    page5.bgImage = [UIImage imageNamed:@"bg2"];
-    page5.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title2"]];
+    page5.bgImage = [UIImage imageNamed:@"bg5"];
     
+    EAIntroPage *page6 = [EAIntroPage page];
+    page6.bgImage = [UIImage imageNamed:@"bg6"];
     
+    EAIntroPage *page7 = [EAIntroPage page];
+    page7.bgImage = [UIImage imageNamed:@"bg7"];
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4,page5]];
+    EAIntroPage *page8 = [EAIntroPage page];
+    page8.bgImage = [UIImage imageNamed:@"bg8"];
+
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4,page5,page6,page7,page8]];
     intro.skipButtonAlignment = EAViewAlignmentCenter;
     intro.skipButtonY = 80.f;
     intro.pageControlY = 42.f;
-    
+    [intro.skipButton setTitle:@"Saltar" forState:UIControlStateNormal];
     [intro setDelegate:self];
     
     [intro showInView:rootView animateDuration:0.3];
