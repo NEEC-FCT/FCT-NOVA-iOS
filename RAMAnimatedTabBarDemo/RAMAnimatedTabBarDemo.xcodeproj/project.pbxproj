@@ -31,8 +31,6 @@
 		9C9CC4CD22DA4290002A0D38 /* Noticias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4CC22DA4290002A0D38 /* Noticias.swift */; };
 		9C9CC4CF22DA8FE8002A0D38 /* SobreNeec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */; };
 		9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4D022DB4D32002A0D38 /* Calendario.swift */; };
-		9CE194EE22F5FA4700C26F35 /* IntroPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE194ED22F5FA4700C26F35 /* IntroPage.xib */; };
-		9CE194F022F5FB0D00C26F35 /* Intro in Resources */ = {isa = PBXBuildFile; fileRef = 9CE194EF22F5FB0C00C26F35 /* Intro */; };
 		9CE194F222F5FC5F00C26F35 /* Intro in Resources */ = {isa = PBXBuildFile; fileRef = 9CE194F122F5FC5F00C26F35 /* Intro */; };
 		C562BD4177761A8AC8BB7752 /* Pods_RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */; };
 		CE4146781A1B923D0037F03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146771A1B923D0037F03C /* AppDelegate.swift */; };
@@ -102,9 +100,9 @@
 		9C9CC4CC22DA4290002A0D38 /* Noticias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noticias.swift; sourceTree = "<group>"; };
 		9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreNeec.swift; sourceTree = "<group>"; };
 		9C9CC4D022DB4D32002A0D38 /* Calendario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario.swift; sourceTree = "<group>"; };
-		9CE194ED22F5FA4700C26F35 /* IntroPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage.xib; sourceTree = "<group>"; };
-		9CE194EF22F5FB0C00C26F35 /* Intro */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Intro; sourceTree = "<group>"; };
 		9CE194F122F5FC5F00C26F35 /* Intro */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Intro; sourceTree = "<group>"; };
+		9CE194F322F6E24A00C26F35 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
+		9CE194F422F6E24A00C26F35 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		CE4146721A1B923D0037F03C /* Animated Tab Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animated Tab Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4146761A1B923D0037F03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4146771A1B923D0037F03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,9 +226,7 @@
 				CE4146791A1B923D0037F03C /* ViewController.swift */,
 				CE41467B1A1B923D0037F03C /* Main.storyboard */,
 				CE41467E1A1B923D0037F03C /* Images.xcassets */,
-				9CE194EF22F5FB0C00C26F35 /* Intro */,
 				CE4146801A1B923D0037F03C /* LaunchScreen.xib */,
-				9CE194ED22F5FA4700C26F35 /* IntroPage.xib */,
 				CE4146751A1B923D0037F03C /* Supporting Files */,
 				9C9CC4C722D9F53D002A0D38 /* Mapa.swift */,
 				9C9CC4CC22DA4290002A0D38 /* Noticias.swift */,
@@ -440,8 +436,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"pt-PT",
 			);
 			mainGroup = CE4146691A1B923D0037F03C;
 			productRefGroup = CE4146731A1B923D0037F03C /* Products */;
@@ -477,8 +473,6 @@
 				849507011D05772B0005EC1A /* ToolsAnimation.plist in Resources */,
 				CE41467D1A1B923D0037F03C /* Main.storyboard in Resources */,
 				CE4146821A1B923D0037F03C /* LaunchScreen.xib in Resources */,
-				9CE194F022F5FB0D00C26F35 /* Intro in Resources */,
-				9CE194EE22F5FA4700C26F35 /* IntroPage.xib in Resources */,
 				CE41467F1A1B923D0037F03C /* Images.xcassets in Resources */,
 				9CE194F222F5FC5F00C26F35 /* Intro in Resources */,
 			);
@@ -633,6 +627,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE41467C1A1B923D0037F03C /* Base */,
+				9CE194F322F6E24A00C26F35 /* pt-PT */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -641,6 +636,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE4146811A1B923D0037F03C /* Base */,
+				9CE194F422F6E24A00C26F35 /* pt-PT */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

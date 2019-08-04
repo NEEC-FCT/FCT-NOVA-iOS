@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Transition Animation"; ObjectID = "AeA-ED-4jL"; */
+"AeA-ED-4jL.text" = "Transition Animation";
+
+/* Class = "UITabBarItem"; title = "NEEC"; ObjectID = "EiX-sv-bUZ"; */
+"EiX-sv-bUZ.title" = "NEEC";
+
+/* Class = "UISegmentedControl"; WYF-8o-Ekc.segmentTitles[0] = "NEEC"; ObjectID = "WYF-8o-Ekc"; */
+"WYF-8o-Ekc.segmentTitles[0]" = "NEEC";
+
+/* Class = "UISegmentedControl"; WYF-8o-Ekc.segmentTitles[1] = "Equipa"; ObjectID = "WYF-8o-Ekc"; */
+"WYF-8o-Ekc.segmentTitles[1]" = "Equipa";
+
+/* Class = "UITabBarItem"; title = "Calendário"; ObjectID = "c38-iL-qNf"; */
+"c38-iL-qNf.title" = "Calendário";
+
+/* Class = "UITabBarItem"; title = "Informação"; ObjectID = "lUH-JS-dWf"; */
+"lUH-JS-dWf.title" = "Informação";
+
+/* Class = "UITabBarItem"; title = "Mapa"; ObjectID = "tS2-0E-St8"; */
+"tS2-0E-St8.title" = "Mapa";
+
+/* Class = "UITabBarItem"; title = "Notícias"; ObjectID = "z5N-yh-KHH"; */
+"z5N-yh-KHH.title" = "Notícias";

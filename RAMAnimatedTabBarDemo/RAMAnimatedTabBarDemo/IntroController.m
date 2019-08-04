@@ -35,16 +35,16 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"Hello world";
-    page1.desc = sampleDescription1;
+    //page1.title = @"Bem-vindo à Faculdade de Ciências e Tecnologias";
+    //page1.desc = @"Conhece a nossa Faculdade com esta app";
     page1.bgImage = [UIImage imageNamed:@"bg1"];
-    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title1"]];
+    //page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro"]];
     
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"This is page 2";
-    page2.desc = sampleDescription2;
+    page2.title = @"Inúmeras funcionalidades";
+    page2.desc = @"Desenhadas para te ajudar na tua vida académica";
     page2.bgImage = [UIImage imageNamed:@"bg2"];
-    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title2"]];
+    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"introicons"]];
     
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"This is page 3";
@@ -100,10 +100,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 - (IBAction)switchFlip:(id)sender {
     UISwitch *switchControl = (UISwitch *) sender;
     NSLog(@"%@", switchControl.on ? @"On" : @"Off");
-    
-    // limit scrolling on one, currently visible page (can't go previous or next page)
-    //[_intro setScrollingEnabled:switchControl.on];
-    
     if(!switchControl.on) {
         // scroll no further selected page (can go previous pages, but not next)
         _intro.limitPageIndex = _intro.visiblePageIndex;
