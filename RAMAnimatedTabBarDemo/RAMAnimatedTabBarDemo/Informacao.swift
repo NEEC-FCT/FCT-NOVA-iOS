@@ -24,16 +24,42 @@ class Informacao: UIViewController  , WKNavigationDelegate {
         
         //FAB
         let actionButton = JJFloatingActionButton()
-        actionButton.addItem(title: "item 1", image: UIImage(named: "First")?.withRenderingMode(.alwaysTemplate)) { item in
+        actionButton.buttonImage = UIImage(named: "security")
+        actionButton.addItem(title: "Alarme de evacuação", image: UIImage(named: "firealarm")?.withRenderingMode(.alwaysTemplate)) { item in
             // do something
         }
-        actionButton.addItem(title: "item 2", image: UIImage(named: "Second")?.withRenderingMode(.alwaysTemplate)) { item in
+        actionButton.addItem(title: "Doença súbita/acidente", image: UIImage(named: "disease")?.withRenderingMode(.alwaysTemplate)) { item in
             // do something
         }
-        
-        actionButton.addItem(title: "item 3", image: nil) { item in
+        actionButton.addItem(title: "Fogo", image: UIImage(named: "fire")?.withRenderingMode(.alwaysTemplate)) { item in
             // do something
         }
+        actionButton.addItem(title: "Ligar segurança", image: UIImage(named: "call")?.withRenderingMode(.alwaysTemplate)) { item in
+            // liga seguranca
+         
+            let alert = UIAlertController(title: "Contactar Segurança", message: "Não te esqueças:\n" +
+                "o Localização\n" +
+                "o Número de vítimas e idade\n" +
+                "o Sintomas ou informações importantes\n" +
+                "o Outros perigos (gases perigosos, incêndio)", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Não é grave", style: .default, handler: { action in
+                guard let number = URL(string: "tel://+351916025546" ) else { return }
+                UIApplication.shared.open(number)
+                }))
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Grave", style: .default, handler: { action in
+                guard let number = URL(string: "tel://112" ) else { return }
+                UIApplication.shared.open(number)
+            }))
+            
+            self.present(alert, animated: true)
+            
+        }
+        actionButton.addItem(title: "Sismo", image: UIImage(named: "earthquakes")?.withRenderingMode(.alwaysTemplate)) { item in
+            // do something
+        }
+
         
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
