@@ -8,15 +8,17 @@
 import UIKit
 import WebKit
 
-class SobreNeec: UIViewController  , WKNavigationDelegate {
+class SobreNeec: UIViewController  , WKNavigationDelegate , UIWebViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var webview: WKWebView!
     var separator:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-         webview.navigationDelegate = self
+        myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
+        webview.navigationDelegate = self
+        webview.scrollView.delegate = self
+        webview.scrollView.showsHorizontalScrollIndicator = false
 
           if (UserDefaults.standard.string(forKey: "intro") == nil) {
             // show intro
@@ -39,6 +41,19 @@ class SobreNeec: UIViewController  , WKNavigationDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        if(self.separator == 0){
+           self.webview.scrollView.showsHorizontalScrollIndicator = false
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.x > 0 && self.separator == 0){
+            scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentOffset.y)
+        }
     }
     
     //abre os links externamente
@@ -78,6 +93,25 @@ class SobreNeec: UIViewController  , WKNavigationDelegate {
         if( sender.selectedSegmentIndex == 1){
             separator = 1
             let url = URL (string: "https://fctapp.neec-fct.com/equipa/about.html")
+            let requestObj = URLRequest(url: url!)
+            webview.load(requestObj)
+        }
+    }
+    
+    func myHandler(alert: UIAlertAction){
+        if( CheckInternet.Connection() == false)
+        {
+            let controller = UIAlertController(title: "Sem internet" , message: "Esta aplicação necessita de internet", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: myHandler)
+            
+            
+            controller.addAction(ok)
+            
+            
+            present(controller, animated: true, completion: nil)
+        }
+        else{
+            let url = URL (string: "https://fctapp.neec-fct.com/SobreNEEC/")
             let requestObj = URLRequest(url: url!)
             webview.load(requestObj)
         }
