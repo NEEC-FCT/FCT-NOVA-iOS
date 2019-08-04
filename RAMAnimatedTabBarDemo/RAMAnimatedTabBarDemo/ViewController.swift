@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var index: NSInteger = 0
-
+    
     // PRAGMA: actions
     @IBAction func showBadgeHandelr(_: AnyObject) {
         // example for showing badges
@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         tabBarItem.badgeValue = "\(index)"
        
     }
+    
 
     @IBAction func hideBadgeHandler(_: AnyObject) {
         tabBarItem.badgeValue = nil

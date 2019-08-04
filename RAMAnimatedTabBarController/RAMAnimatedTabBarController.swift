@@ -275,6 +275,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         initializeContainers()
+        setSelectIndex(from: 2, to: 2)
     }
 
     fileprivate func initializeContainers() {
@@ -370,7 +371,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
             }
             item.iconView = (icon: icon, textLabel: textLabel)
             
-            if 0 == index { // selected first elemet
+            if 2 == index { // selected first elemet
                 item.selectedState()
                 container.backgroundColor = (items as [RAMAnimatedTabBarItem])[index].bgSelectedColor
             } else {

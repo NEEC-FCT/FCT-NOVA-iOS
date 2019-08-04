@@ -26,8 +26,8 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kug-l4-vxx">
-                                <rect key="frame" x="46" y="23" width="282" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kug-l4-vxx">
+                                <rect key="frame" x="16" y="23" width="343" height="29"/>
                                 <segments>
                                     <segment title="FACULDADE"/>
                                     <segment title="ECO FCT"/>
@@ -40,12 +40,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Fuc-5W-O3V" firstAttribute="leading" secondItem="cbk-oV-z7H" secondAttribute="leading" id="0eZ-kS-W5C"/>
-                            <constraint firstItem="Kug-l4-vxx" firstAttribute="leading" secondItem="cbk-oV-z7H" secondAttribute="leading" constant="46" id="Oe2-Ye-wwY"/>
-                            <constraint firstItem="Kug-l4-vxx" firstAttribute="centerX" secondItem="Fuc-5W-O3V" secondAttribute="centerX" id="bua-6Q-37h"/>
                             <constraint firstItem="cbk-oV-z7H" firstAttribute="bottom" secondItem="Fuc-5W-O3V" secondAttribute="bottom" id="c54-uF-3pL"/>
                             <constraint firstItem="Fuc-5W-O3V" firstAttribute="top" secondItem="cbk-oV-z7H" secondAttribute="top" constant="39" id="d8E-u4-Len"/>
-                            <constraint firstItem="Kug-l4-vxx" firstAttribute="top" secondItem="cbk-oV-z7H" secondAttribute="top" constant="3" id="rYW-JY-iha"/>
+                            <constraint firstItem="Fuc-5W-O3V" firstAttribute="top" secondItem="Kug-l4-vxx" secondAttribute="bottom" constant="8" symbolic="YES" id="hji-qJ-gbU"/>
+                            <constraint firstItem="Kug-l4-vxx" firstAttribute="leading" secondItem="PmG-Vl-9D1" secondAttribute="leadingMargin" id="pt4-fx-0ng"/>
                             <constraint firstItem="cbk-oV-z7H" firstAttribute="trailing" secondItem="Fuc-5W-O3V" secondAttribute="trailing" id="wsN-we-fkD"/>
+                            <constraint firstItem="Kug-l4-vxx" firstAttribute="centerX" secondItem="Fuc-5W-O3V" secondAttribute="centerX" id="zLG-ze-Jud"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cbk-oV-z7H"/>
                     </view>
