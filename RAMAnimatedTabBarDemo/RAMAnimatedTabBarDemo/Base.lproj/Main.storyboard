@@ -348,6 +348,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="calendar" destination="cgw-tW-VDK" id="6P3-5q-H3p"/>
+                        <outlet property="tableview" destination="yUp-7A-owr" id="5pH-jZ-BDF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FuQ-Du-YS3" userLabel="First Responder" sceneMemberID="firstResponder"/>

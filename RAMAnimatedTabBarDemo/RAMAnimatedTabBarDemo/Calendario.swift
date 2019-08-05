@@ -10,17 +10,24 @@ import UIKit
 import WebKit
 import FSCalendar
 
+
+
+
+
+
 class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource  , FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance{
     
     @IBOutlet weak var calendar: FSCalendar!
     
     //A string array to save all the names
-    var finalArray:[Any] = ["Data 1 " , "Data 2" , "Data 3" , "Data 4" , "Data 5" , "Data 6" , "Data 7" , "Data 8" ]
+    var finalArray:[Any] = []
     var time:[String]  = []
     var color:[String]  = []
     var name:[String]  = []
     
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
+    
+    @IBOutlet weak var tableview: UITableView!
     
     fileprivate lazy var dateFormatter1: DateFormatter = {
         let formatter = DateFormatter()
@@ -29,7 +36,7 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
     }()
     
     
-    let borderDefaultColors = ["11/09/2019": UIColor.cyan]
+    var borderDefaultColors = ["11/09/2019": UIColor.cyan]
 
     
     deinit {
@@ -137,6 +144,25 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
                             self.name = json
                                 .compactMap{$0["name"] as? String}
                             print(self.name) // ==> ["09/09/2019",
+                            
+                            //adicionar ao UI
+                            for n in 0...(self.name.count - 1 ){
+                                
+                                self.finalArray.append( self.name[n] + " " + self.time[n])
+                            
+                                self.borderDefaultColors[self.time[n]] = self.hexStringToUIColor( hex: self.color[n])
+                                print(self.time[n] + " " + self.color[n])
+                            
+                                
+                               
+                            }
+                            
+                            print("Mapa do calendario")
+                            print(  self.borderDefaultColors)
+                            //Reload data
+                           DispatchQueue.main.async { self.tableview.reloadData() }
+                           DispatchQueue.main.async { self.calendar.reloadData() }
+                            
                         } else {
                             print("bad json")
                         }
@@ -158,10 +184,27 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         }
     }
     
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
     
- 
-    
-
 }
-
 
