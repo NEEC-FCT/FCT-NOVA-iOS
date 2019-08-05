@@ -28,8 +28,7 @@ class Noticias: UIViewController  , WKNavigationDelegate {
         else{
         
         myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
-        
-        
+
         webview.navigationDelegate = self
         
         let url = URL (string: "https://www.fct.unl.pt/noticias")
@@ -47,8 +46,6 @@ class Noticias: UIViewController  , WKNavigationDelegate {
     
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
-        print("Limpando")
         
         self.webview.isHidden = true
         webview.evaluateJavaScript( "document.getElementById(\"sliding-popup\").style.display=\"none\";" , completionHandler: nil)

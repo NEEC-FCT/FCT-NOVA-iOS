@@ -21,19 +21,19 @@ class ScreenSeguranca: UIViewController   {
         let screen =  UserDefaults.standard.integer(forKey: "open")
         
         if(screen == 5){
-            imagem.image = UIImage(named: "bg5")
+            imagem.image = UIImage(named: "doenca")
             view.backgroundColor = self.hexStringToUIColor( hex: "#63b6e6")
         }
         else if(screen == 6){
-            imagem.image = UIImage(named: "bg6")
+            imagem.image = UIImage(named: "alarme")
             view.backgroundColor = self.hexStringToUIColor( hex: "#f0d826")
         }
         else if(screen == 7){
-            imagem.image = UIImage(named: "bg7")
+            imagem.image = UIImage(named: "fogo")
             view.backgroundColor = self.hexStringToUIColor( hex: "#6600CC")
         }
         else if(screen == 8){
-            imagem.image = UIImage(named: "bg8")
+            imagem.image = UIImage(named: "sismo")
             view.backgroundColor = self.hexStringToUIColor( hex: "#eaa932")
         }
     }

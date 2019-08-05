@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "alarme.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icon1@2x.png",
       "scale" : "2x"
     },
     {
