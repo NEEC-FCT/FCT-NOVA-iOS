@@ -11,12 +11,19 @@ import WebKit
 import FSCalendar
 
 
+class HeadlineTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var nome: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var cor: UIImageView!
+    
+}
+
 class Calendario: UIViewController , UITableViewDelegate  , UITableViewDataSource  , FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance{
     
     @IBOutlet weak var calendar: FSCalendar!
     
     //A string array to save all the names
-    var finalArray:[Any] = []
     var time:[String]  = []
     var color:[String]  = []
     var name:[String]  = []
@@ -123,13 +130,19 @@ class Calendario: UIViewController , UITableViewDelegate  , UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (finalArray.count)
+        return (self.time.count)
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = finalArray[indexPath.row] as? String
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            as! HeadlineTableViewCell
+        
+        cell.nome.text  = name[indexPath.row]
+        cell.date.text = time[indexPath.row]
+        cell.cor.backgroundColor = self.hexStringToUIColor( hex: self.color[indexPath.row])
+        
         return cell
     
     }
@@ -148,18 +161,17 @@ class Calendario: UIViewController , UITableViewDelegate  , UITableViewDataSourc
                         {
                             self.time = json
                                 .compactMap{$0["time"] as? String}
-                            print(self.time) // ==> ["09/09/2019",
+                            print(self.time)
                             self.color = json
                                 .compactMap{$0["color"] as? String}
-                            print(self.color) // ==> ["09/09/2019",
+                            print(self.color)
                             self.name = json
                                 .compactMap{$0["name"] as? String}
-                            print(self.name) // ==> ["09/09/2019",
+                            print(self.name)
                             
                             //adicionar ao UI
                             for n in 0...(self.name.count - 1 ){
                                 
-                                self.finalArray.append( self.name[n] + " " + self.time[n])
                                 self.borderDefaultColors[self.time[n]] = self.hexStringToUIColor( hex: self.color[n])
                                 print(self.time[n] + " " + self.color[n])
                             
@@ -214,5 +226,19 @@ class Calendario: UIViewController , UITableViewDelegate  , UITableViewDataSourc
         )
     }
     
+}
+
+
+extension UIImage {
+    static func from(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img!
+    }
 }
 
