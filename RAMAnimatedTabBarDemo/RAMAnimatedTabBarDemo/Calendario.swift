@@ -11,7 +11,7 @@ import WebKit
 import FSCalendar
 
 
-class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource  , FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance{
+class Calendario: UIViewController , UITableViewDelegate  , UITableViewDataSource  , FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance{
     
     @IBOutlet weak var calendar: FSCalendar!
     
@@ -62,6 +62,10 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         }
     }
     
+    
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\(indexPath.row)!")
+    }
 
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
@@ -93,12 +97,13 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
         calendar.dataSource = self
         calendar.delegate = self
-        calendar.allowsMultipleSelection = true
+        calendar.allowsMultipleSelection = false
         calendar.swipeToChooseGesture.isEnabled = true
         calendar.backgroundColor = UIColor.white
         calendar.appearance.caseOptions = [.headerUsesUpperCase,.weekdayUsesSingleUpperCase]
         
-        
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
         
         //calendar.select(self.dateFormatter1.date(from: "2019/10/03"))
         let todayItem = UIBarButtonItem(title: "TODAY", style: .plain, target: self, action: #selector(self.todayItemClicked(sender:)))
