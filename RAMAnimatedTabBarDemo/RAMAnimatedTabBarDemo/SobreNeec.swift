@@ -20,20 +20,10 @@ class SobreNeec: UIViewController  , WKNavigationDelegate , UIWebViewDelegate, U
         webview.scrollView.delegate = self
         webview.scrollView.showsHorizontalScrollIndicator = false
 
-          if (UserDefaults.standard.string(forKey: "intro") == nil) {
-            // show intro
-            OperationQueue.main.addOperation {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let newViewController = storyBoard.instantiateViewController(withIdentifier: "Intro")
-                self.present(newViewController, animated: true, completion: nil)
-            }
-        }
+        let url = URL (string: "https://fctapp.neec-fct.com/SobreNEEC/")
+        let requestObj = URLRequest(url: url!)
+        webview.load(requestObj)
         
-          else{
-            let url = URL (string: "https://fctapp.neec-fct.com/SobreNEEC/")
-            let requestObj = URLRequest(url: url!)
-            webview.load(requestObj)
-        }
                 
     }
     
