@@ -16,32 +16,20 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
     
     //A string array to save all the names
     var finalArray:[Any] = ["Data 1 " , "Data 2" , "Data 3" , "Data 4" , "Data 5" , "Data 6" , "Data 7" , "Data 8" ]
+    var time:[String]  = []
+    var color:[String]  = []
+    var name:[String]  = []
     
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
+    
     fileprivate lazy var dateFormatter1: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        return formatter
-    }()
-    fileprivate lazy var dateFormatter2: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "dd/MM/yyyy"
         return formatter
     }()
     
     
-    let fillSelectionColors = ["2015/10/08": UIColor.green, "2015/10/06": UIColor.purple, "2015/10/17": UIColor.gray, "2015/10/21": UIColor.cyan, "2015/11/08": UIColor.green, "2015/11/06": UIColor.purple, "2015/11/17": UIColor.gray, "2015/11/21": UIColor.cyan, "2015/12/08": UIColor.green, "2015/12/06": UIColor.purple, "2015/12/17": UIColor.gray, "2015/12/21": UIColor.cyan]
-    
-    
-    let fillDefaultColors = ["2015/10/08": UIColor.purple, "2015/10/06": UIColor.green, "2015/10/18": UIColor.cyan, "2015/10/22": UIColor.yellow, "2015/11/08": UIColor.purple, "2015/11/06": UIColor.green, "2015/11/18": UIColor.cyan, "2015/11/22": UIColor.yellow, "2015/12/08": UIColor.purple, "2015/12/06": UIColor.green, "2015/12/18": UIColor.cyan, "2015/12/22": UIColor.magenta]
-    
-    let borderDefaultColors = ["2015/10/08": UIColor.brown, "2015/10/17": UIColor.magenta, "2015/10/21": UIColor.cyan, "2015/10/25": UIColor.black, "2015/11/08": UIColor.brown, "2015/11/17": UIColor.magenta, "2015/11/21": UIColor.cyan, "2015/11/25": UIColor.black, "2015/12/08": UIColor.brown, "2015/12/17": UIColor.magenta, "2015/12/21": UIColor.purple, "2015/12/25": UIColor.black]
-    
-    let borderSelectionColors = ["2015/10/08": UIColor.red, "2015/10/17": UIColor.purple, "2015/10/21": UIColor.cyan, "2015/10/25": UIColor.magenta, "2015/11/08": UIColor.red, "2015/11/17": UIColor.purple, "2015/11/21": UIColor.cyan, "2015/11/25": UIColor.purple, "2015/12/08": UIColor.red, "2015/12/17": UIColor.purple, "2015/12/21": UIColor.cyan, "2015/12/25": UIColor.magenta]
-    
-    var datesWithEvent = ["2015-10-03", "2015-10-06", "2015-10-12", "2015-10-25"]
-    var datesWithMultipleEvents = ["2015-10-08", "2015-10-16", "2015-10-20", "2015-10-28"]
-
+    let borderDefaultColors = ["11/09/2019": UIColor.cyan]
 
     
     deinit {
@@ -51,34 +39,6 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
     @objc
     func todayItemClicked(sender: AnyObject) {
         self.calendar.setCurrentPage(Date(), animated: false)
-    }
-    
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        let dateString = self.dateFormatter2.string(from: date)
-        if self.datesWithEvent.contains(dateString) {
-            return 1
-        }
-        if self.datesWithMultipleEvents.contains(dateString) {
-            return 3
-        }
-        return 0
-    }
-    
-    
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-        let key = self.dateFormatter2.string(from: date)
-        if self.datesWithMultipleEvents.contains(key) {
-            return [UIColor.magenta, appearance.eventDefaultColor, UIColor.black]
-        }
-        return nil
-    }
-    
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
-        let key = self.dateFormatter1.string(from: date)
-        if let color = self.fillSelectionColors[key] {
-            return color
-        }
-        return appearance.selectionColor
     }
     
     
@@ -93,14 +53,7 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
 
     }
     
-    
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
-        let key = self.dateFormatter1.string(from: date)
-        if let color = self.fillDefaultColors[key] {
-            return color
-        }
-        return nil
-    }
+
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
         let key = self.dateFormatter1.string(from: date)
@@ -112,7 +65,7 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderSelectionColorFor date: Date) -> UIColor? {
         let key = self.dateFormatter1.string(from: date)
-        if let color = self.borderSelectionColors[key] {
+        if let color = self.borderDefaultColors[key] {
             return color
         }
         return appearance.borderSelectionColor
@@ -136,7 +89,7 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         calendar.backgroundColor = UIColor.white
         calendar.appearance.caseOptions = [.headerUsesUpperCase,.weekdayUsesSingleUpperCase]
         
-        calendar.select(self.dateFormatter1.date(from: "2015/10/03"))
+        //calendar.select(self.dateFormatter1.date(from: "2019/10/03"))
         let todayItem = UIBarButtonItem(title: "TODAY", style: .plain, target: self, action: #selector(self.todayItemClicked(sender:)))
         self.navigationItem.rightBarButtonItem = todayItem
         
@@ -150,14 +103,6 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
-
-    
-  
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (finalArray.count)
@@ -179,9 +124,24 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         if let url = URL(string: "https://fctapp.neec-fct.com/calendar.php") {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
-                    if let jsonString = String(data: data, encoding: .utf8) {
-                        print(jsonString)
-                        
+                    print(data)
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
+                        {
+                            self.time = json
+                                .compactMap{$0["time"] as? String}
+                            print(self.time) // ==> ["09/09/2019",
+                            self.color = json
+                                .compactMap{$0["color"] as? String}
+                            print(self.color) // ==> ["09/09/2019",
+                            self.name = json
+                                .compactMap{$0["name"] as? String}
+                            print(self.name) // ==> ["09/09/2019",
+                        } else {
+                            print("bad json")
+                        }
+                    } catch let error as NSError {
+                        print(error)
                     }
                 }
                 }.resume()
@@ -193,13 +153,15 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         {
             let controller = UIAlertController(title: "Sem internet" , message: "Esta aplicação necessita de internet", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: myHandler)
-            
-            
             controller.addAction(ok)
-            
-            
             present(controller, animated: true, completion: nil)
         }
     }
+    
+    
+ 
+    
 
 }
+
+
