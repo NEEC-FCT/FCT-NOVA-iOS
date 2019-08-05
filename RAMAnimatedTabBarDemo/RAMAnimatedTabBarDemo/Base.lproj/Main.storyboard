@@ -317,20 +317,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoB-zT-jRC">
-                                                    <rect key="frame" x="15" y="11" width="232" height="21.5"/>
+                                                    <rect key="frame" x="15" y="11" width="292" height="21.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="232" id="PJp-kz-wfI"/>
+                                                        <constraint firstAttribute="width" constant="292" id="PJp-kz-wfI"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pg-ET-JgD">
-                                                    <rect key="frame" x="282" y="0.0" width="84" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="84" id="xiF-io-lox"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -340,6 +331,15 @@
                                                         <constraint firstAttribute="width" constant="28" id="iah-Ts-ygA"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pg-ET-JgD">
+                                                    <rect key="frame" x="282" y="4" width="84" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="84" id="xiF-io-lox"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YoB-zT-jRC" firstAttribute="leading" secondItem="IHl-n4-SBM" secondAttribute="leadingMargin" id="1OY-f9-sBW"/>
@@ -347,10 +347,10 @@
                                                 <constraint firstItem="YoB-zT-jRC" firstAttribute="centerY" secondItem="IHl-n4-SBM" secondAttribute="centerY" id="8g4-2w-IKi"/>
                                                 <constraint firstItem="8pg-ET-JgD" firstAttribute="trailing" secondItem="nE0-kh-n9p" secondAttribute="trailing" id="F6f-p6-rjT"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="nE0-kh-n9p" secondAttribute="bottom" constant="-4" id="UqM-Vh-UO5"/>
-                                                <constraint firstItem="nE0-kh-n9p" firstAttribute="top" secondItem="8pg-ET-JgD" secondAttribute="bottom" constant="8" symbolic="YES" id="b3K-dv-I2d"/>
+                                                <constraint firstItem="nE0-kh-n9p" firstAttribute="top" secondItem="8pg-ET-JgD" secondAttribute="bottom" constant="4" id="b3K-dv-I2d"/>
                                                 <constraint firstItem="YoB-zT-jRC" firstAttribute="top" secondItem="IHl-n4-SBM" secondAttribute="topMargin" id="fyG-r7-7B7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8pg-ET-JgD" secondAttribute="trailing" constant="-6" id="sDj-lq-mgF"/>
-                                                <constraint firstItem="8pg-ET-JgD" firstAttribute="top" secondItem="IHl-n4-SBM" secondAttribute="top" id="urm-SR-OCA"/>
+                                                <constraint firstItem="8pg-ET-JgD" firstAttribute="top" secondItem="IHl-n4-SBM" secondAttribute="top" constant="4" id="urm-SR-OCA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
