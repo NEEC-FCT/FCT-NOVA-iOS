@@ -11,10 +11,6 @@ import WebKit
 import FSCalendar
 
 
-
-
-
-
 class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource  , FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance{
     
     @IBOutlet weak var calendar: FSCalendar!
@@ -57,7 +53,13 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print("calendar did select date \(self.dateFormatter1.string(from: date))")
-
+        for n in 0 ... ( self.time.count - 1 ) {
+            if( self.time[n] ==  self.dateFormatter1.string(from: date) ){
+                let indexPath = NSIndexPath(row: n, section: 0)
+                self.tableview.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+                break
+            }
+        }
     }
     
 
@@ -95,6 +97,8 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
         calendar.swipeToChooseGesture.isEnabled = true
         calendar.backgroundColor = UIColor.white
         calendar.appearance.caseOptions = [.headerUsesUpperCase,.weekdayUsesSingleUpperCase]
+        
+        
         
         //calendar.select(self.dateFormatter1.date(from: "2019/10/03"))
         let todayItem = UIBarButtonItem(title: "TODAY", style: .plain, target: self, action: #selector(self.todayItemClicked(sender:)))
@@ -149,12 +153,9 @@ class Calendario: UIViewController , UITableViewDelegate , UITableViewDataSource
                             for n in 0...(self.name.count - 1 ){
                                 
                                 self.finalArray.append( self.name[n] + " " + self.time[n])
-                            
                                 self.borderDefaultColors[self.time[n]] = self.hexStringToUIColor( hex: self.color[n])
                                 print(self.time[n] + " " + self.color[n])
                             
-                                
-                               
                             }
                             
                             print("Mapa do calendario")
