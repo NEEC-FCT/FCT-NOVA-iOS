@@ -1,5 +1,5 @@
 framework module FSCalendar {
-  umbrella header "FSCalendar-iOS11.1-umbrella.h"
+  umbrella header "FSCalendar-umbrella.h"
 
   export *
   module * { export * }
