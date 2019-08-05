@@ -65,6 +65,8 @@ class Calendario: UIViewController , UITableViewDelegate  , UITableViewDataSourc
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.row)!")
+        self.calendar.select(self.dateFormatter1.date(from: self.time[indexPath.row]))
+       
     }
 
     
