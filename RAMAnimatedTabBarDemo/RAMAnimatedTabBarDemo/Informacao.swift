@@ -19,19 +19,27 @@ class Informacao: UIViewController  , WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
+        //no caso de nao ter net tem de ter acesso a isto
+      //  myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
         webview.navigationDelegate = self
         //FAB
         let actionButton = JJFloatingActionButton()
         actionButton.buttonImage = UIImage(named: "security")
         actionButton.addItem(title: "Alarme de evacuação", image: UIImage(named: "firealarm")?.withRenderingMode(.alwaysTemplate)) { item in
-            // do something
+            
+            UserDefaults.standard.set(6, forKey: "open")
+            self.performSegue(withIdentifier: "seguranca", sender: nil)
+            
         }
         actionButton.addItem(title: "Doença súbita/acidente", image: UIImage(named: "disease")?.withRenderingMode(.alwaysTemplate)) { item in
-            // do something
+            
+            UserDefaults.standard.set(5, forKey: "open")
+            self.performSegue(withIdentifier: "seguranca", sender: nil)
         }
         actionButton.addItem(title: "Fogo", image: UIImage(named: "fire")?.withRenderingMode(.alwaysTemplate)) { item in
-            // do something
+    
+            UserDefaults.standard.set(7, forKey: "open")
+            self.performSegue(withIdentifier: "seguranca", sender: nil)
         }
         actionButton.addItem(title: "Ligar segurança", image: UIImage(named: "call")?.withRenderingMode(.alwaysTemplate)) { item in
             // liga seguranca
@@ -56,7 +64,10 @@ class Informacao: UIViewController  , WKNavigationDelegate {
             
         }
         actionButton.addItem(title: "Sismo", image: UIImage(named: "earthquakes")?.withRenderingMode(.alwaysTemplate)) { item in
-            // do something
+           
+            UserDefaults.standard.set(8, forKey: "open")
+            self.performSegue(withIdentifier: "seguranca", sender: nil)
+            
         }
 
         
