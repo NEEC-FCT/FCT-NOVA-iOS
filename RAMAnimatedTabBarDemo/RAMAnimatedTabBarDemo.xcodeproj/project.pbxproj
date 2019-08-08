@@ -893,7 +893,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S4HVWNDNBH;
 				INFOPLIST_FILE = RAMAnimatedTabBarDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fct.nova.neec;
 				PRODUCT_NAME = "Animated Tab Bar";
@@ -916,7 +916,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S4HVWNDNBH;
 				INFOPLIST_FILE = RAMAnimatedTabBarDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fct.nova.neec;
 				PRODUCT_NAME = "Animated Tab Bar";
