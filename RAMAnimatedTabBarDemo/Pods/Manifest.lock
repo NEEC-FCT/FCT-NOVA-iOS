@@ -25,7 +25,6 @@ PODS:
     - FirebaseCore (~> 5.2)
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/UserDefaults (~> 5.2)
-  - Floaty (4.1.0)
   - FSCalendar (2.8.0)
   - GoogleAppMeasurement (5.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
@@ -62,7 +61,6 @@ PODS:
 DEPENDENCIES:
   - EAIntroView
   - Firebase/Analytics
-  - Floaty
   - FSCalendar
   - JJFloatingActionButton
   - SMPageControl
@@ -75,7 +73,6 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseInstanceID
-    - Floaty
     - FSCalendar
     - GoogleAppMeasurement
     - GoogleUtilities
@@ -90,7 +87,6 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
   FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
   FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
-  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
@@ -98,6 +94,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
 
-PODFILE CHECKSUM: 6bfb7a8ca0cc944f84ef47f7e1de439d4c168300
+PODFILE CHECKSUM: 9a31e06d494504d5584f915ee0eec73f81ae9ecf
 
 COCOAPODS: 1.5.3
