@@ -73,10 +73,10 @@ class Informacao: UIViewController  , WKNavigationDelegate {
         
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
+        
         actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
 
-        
         //Load Webview
         let url = URL (string: "https://fctapp.neec-fct.com/Informacao/")
         let requestObj = URLRequest(url: url!)

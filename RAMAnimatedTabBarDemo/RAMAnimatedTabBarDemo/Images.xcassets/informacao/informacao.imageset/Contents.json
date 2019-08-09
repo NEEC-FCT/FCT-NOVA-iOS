@@ -2,7 +2,6 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-informaÃ§Ãµes-50.png",
       "scale" : "1x"
     },
     {
@@ -12,7 +11,6 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-informaÃ§Ãµes-52.png",
       "scale" : "3x"
     }
   ],
