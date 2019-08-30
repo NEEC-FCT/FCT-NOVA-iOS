@@ -26,6 +26,7 @@
 		84D4B7AF1DB0D38B00EE38C6 /* RAMTransitionItemAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41469C1A1B944D0037F03C /* RAMTransitionItemAnimations.swift */; };
 		84D4B7B01DB0D38F00EE38C6 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41469D1A1B944D0037F03C /* RAMItemAnimationProtocol.swift */; };
 		9C056AFF22F5F3EE00B119D4 /* IntroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C056AFD22F5F3EE00B119D4 /* IntroController.m */; };
+		9C7CD77C2318C37900380FC2 /* ClipLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD77B2318C37900380FC2 /* ClipLogin.swift */; };
 		9C9CC4C822D9F53D002A0D38 /* Mapa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4C722D9F53D002A0D38 /* Mapa.swift */; };
 		9C9CC4CB22DA379D002A0D38 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9CC4CA22DA379C002A0D38 /* WebKit.framework */; };
 		9C9CC4CD22DA4290002A0D38 /* Noticias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4CC22DA4290002A0D38 /* Noticias.swift */; };
@@ -99,6 +100,7 @@
 		8B35A48A898C2152B9CB9533 /* Pods-RAMAnimatedTabBarDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAMAnimatedTabBarDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAMAnimatedTabBarDemo/Pods-RAMAnimatedTabBarDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9C056AFD22F5F3EE00B119D4 /* IntroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroController.m; sourceTree = "<group>"; };
 		9C056AFE22F5F3EE00B119D4 /* IntroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroController.h; sourceTree = "<group>"; };
+		9C7CD77B2318C37900380FC2 /* ClipLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipLogin.swift; path = ../../RAMAnimatedTabBarController/ClipLogin.swift; sourceTree = "<group>"; };
 		9C9CC4C722D9F53D002A0D38 /* Mapa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapa.swift; sourceTree = "<group>"; };
 		9C9CC4CA22DA379C002A0D38 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9C9CC4CC22DA4290002A0D38 /* Noticias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noticias.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				9C9CC4C722D9F53D002A0D38 /* Mapa.swift */,
 				9C9CC4CC22DA4290002A0D38 /* Noticias.swift */,
 				9C9CC4CE22DA8FE8002A0D38 /* SobreNeec.swift */,
+				9C7CD77B2318C37900380FC2 /* ClipLogin.swift */,
 				9C9CC4D022DB4D32002A0D38 /* Calendario.swift */,
 				9C056AFE22F5F3EE00B119D4 /* IntroController.h */,
 				9C056AFD22F5F3EE00B119D4 /* IntroController.m */,
@@ -608,6 +611,7 @@
 				9CE194FA22F763DE00C26F35 /* Informacao.swift in Sources */,
 				9CE194FC22F7751800C26F35 /* CheckInternet.swift in Sources */,
 				CE41469E1A1B944D0037F03C /* RAMFrameItemAnimation.swift in Sources */,
+				9C7CD77C2318C37900380FC2 /* ClipLogin.swift in Sources */,
 				CE90A8401A1C7C14002D8931 /* RAMAnimatedTabBarController.swift in Sources */,
 				9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */,
 				CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */,

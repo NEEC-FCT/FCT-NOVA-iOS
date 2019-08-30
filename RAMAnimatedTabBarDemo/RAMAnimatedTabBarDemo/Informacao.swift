@@ -17,6 +17,27 @@ class Informacao: UIViewController  , WKNavigationDelegate {
     
     @IBOutlet weak var webview: WKWebView!
     
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBAction func indexChanges(_ sender: Any) {
+        
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0: break
+           
+        case 1:
+            
+            self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            break
+           
+        default:
+            break
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //no caso de nao ter net tem de ter acesso a isto
