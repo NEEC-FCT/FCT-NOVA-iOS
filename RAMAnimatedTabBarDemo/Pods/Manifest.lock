@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.2)
   - EAIntroView (2.12.0):
     - EARestrictedScrollView (~> 1.1.0)
   - EARestrictedScrollView (1.1.0)
@@ -59,6 +60,7 @@ PODS:
   - SMPageControl (1.2)
 
 DEPENDENCIES:
+  - Alamofire
   - EAIntroView
   - Firebase/Analytics
   - FSCalendar
@@ -67,6 +69,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - EAIntroView
     - EARestrictedScrollView
     - Firebase
@@ -81,6 +84,7 @@ SPEC REPOS:
     - SMPageControl
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   EAIntroView: 249559079ddfdbe80e5bcb755c04c3b964b2ac27
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
   Firebase: 5090da4bb82900179004133bb2b2178919387fd9
@@ -94,6 +98,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
 
-PODFILE CHECKSUM: 9a31e06d494504d5584f915ee0eec73f81ae9ecf
+PODFILE CHECKSUM: 5bd6a502739af25040920fa11701199ae22d57ad
 
 COCOAPODS: 1.5.3
