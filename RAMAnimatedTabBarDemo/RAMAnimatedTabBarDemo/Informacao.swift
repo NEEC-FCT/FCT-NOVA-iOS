@@ -77,6 +77,8 @@ class Informacao: UIViewController  , WKNavigationDelegate {
         actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
 
+        actionButton.buttonColor = .red
+        
         //Load Webview
         let url = URL (string: "https://fctapp.neec-fct.com/Informacao/")
         let requestObj = URLRequest(url: url!)
