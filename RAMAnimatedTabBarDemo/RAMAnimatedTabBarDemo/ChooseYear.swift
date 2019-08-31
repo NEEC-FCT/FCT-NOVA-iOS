@@ -51,9 +51,9 @@ class ChooseYear: UIViewController  {
                 print("error")
             }
             
-         /*   DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "gotoID", sender: nil)
-            }*/
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "gotohorario", sender: nil)
+            }
             
             
         }

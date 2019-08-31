@@ -295,10 +295,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="CiS-KG-dtQ"/>
                     </view>
+                    <connections>
+                        <segue destination="qsw-0K-Cwh" kind="show" identifier="gotohorario" id="Luf-Cf-1yd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgx-Zb-uNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3989" y="1262"/>
+        </scene>
+        <!--Show Horario-->
+        <scene sceneID="cpE-oq-9k6">
+            <objects>
+                <viewController id="qsw-0K-Cwh" customClass="showHorario" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J2L-hV-NjX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XUb-q6-vhh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5O-9o-XW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4960" y="1262"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="ovl-w5-59e">
