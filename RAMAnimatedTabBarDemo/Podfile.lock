@@ -58,6 +58,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - SMPageControl (1.2)
+  - SwiftSoup (1.7.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - FSCalendar
   - JJFloatingActionButton
   - SMPageControl
+  - SwiftSoup
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -82,6 +84,7 @@ SPEC REPOS:
     - JJFloatingActionButton
     - nanopb
     - SMPageControl
+    - SwiftSoup
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -97,7 +100,8 @@ SPEC CHECKSUMS:
   JJFloatingActionButton: 8d3fc4b4c389c6984583cc371fd89deb819fa521
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
+  SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
 
-PODFILE CHECKSUM: 5bd6a502739af25040920fa11701199ae22d57ad
+PODFILE CHECKSUM: d982f80d26c60903bedb959bf9e3531804c74232
 
 COCOAPODS: 1.5.3

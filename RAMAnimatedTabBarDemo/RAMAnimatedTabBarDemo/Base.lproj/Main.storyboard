@@ -108,7 +108,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dQk-Nw-Slt">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bhg-bV-TrN">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bhg-bV-TrN">
                             <rect key="frame" x="50" y="7" width="275" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -278,11 +278,27 @@
                         <outlet property="loginButton" destination="BlL-np-NW2" id="YWk-pI-QI6"/>
                         <outlet property="logintext" destination="Xf2-l5-kFD" id="4cV-Zd-SoN"/>
                         <outlet property="passwordtext" destination="L2g-VS-V3k" id="a4M-Y8-wfZ"/>
+                        <segue destination="UWP-He-vFQ" kind="show" identifier="gotoID" id="sUe-SX-eIu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VaG-HZ-i4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3108" y="1263.4182908545729"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NOR-ii-fns">
+            <objects>
+                <viewController id="UWP-He-vFQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MCJ-oQ-UWx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="CiS-KG-dtQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgx-Zb-uNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3989" y="1262"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="ovl-w5-59e">

@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import Alamofire
+import SwiftSoup
 
 
 class ClipLogin: UIViewController  {
@@ -47,7 +47,36 @@ class ClipLogin: UIViewController  {
         {
             print(message)
             print("-------")
-            print( String(decoding: data!, as: UTF8.self) )
+            let html = String(decoding: data!, as: UTF8.self)
+            //print( html )
+            
+            do {
+                let doc: Document = try SwiftSoup.parse(html)
+                let links: Array<Element> = try doc.select("a[href]").array()
+                for link in links {
+                    let linkHref = try link.attr("href")
+                    let matched = matches(for: "/utente/eu/aluno[?][_a-zA-Z0-9=&.]*aluno=[0-9]*", in: linkHref)
+                    if( matched != []){
+                        var numbers = linkHref.components(separatedBy: "&")
+                        numbers = numbers[numbers.count - 1].components(separatedBy: "=")
+                        print(numbers[1])
+                        print(try! link.text())
+                        print(matched)
+                    }
+                    
+                   
+                   
+                    
+                }
+                
+            }  catch {
+                print("error")
+            }
+            
+            DispatchQueue.main.async {
+              self.performSegue(withIdentifier: "gotoID", sender: nil)
+            }
+           
   
         }
     }
@@ -56,11 +85,26 @@ class ClipLogin: UIViewController  {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         print("Go Clip Login")
+        //gotoID
         
       
         
     }
     
+    func matches(for regex: String, in text: String) -> [String] {
+        
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let results = regex.matches(in: text,
+                                        range: NSRange(text.startIndex..., in: text))
+            return results.map {
+                String(text[Range($0.range, in: text)!])
+            }
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -123,6 +167,7 @@ class ApiService
         var request = URLRequest(url: url)
         let session = URLSession.shared
         request.httpMethod = "POST"
+        deleteCookies(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
         
         let postString = self.getPostString(params: params)
         request.httpBody = postString.data(using: .utf8)
@@ -132,6 +177,7 @@ class ApiService
             if let httpResponse = response as? HTTPURLResponse, let fields = httpResponse.allHeaderFields as? [String : String] {
                 let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: response!.url!)
                 HTTPCookieStorage.shared.setCookies(cookies, for: response!.url!, mainDocumentURL: nil)
+                    result.message = "False"
                 for cookie in cookies {
                     var cookieProperties = [HTTPCookiePropertyKey : AnyObject]()
                     cookieProperties[HTTPCookiePropertyKey.name] = cookie.name as AnyObject
@@ -146,8 +192,11 @@ class ApiService
                     
                     print("Cookies")
                     print("name: \(cookie.name) value: \(cookie.value)")
+                    if( cookie.name == "JServSessionIdroot1112" ){
+                        result.message = "Success"
+                    }
                 }
-                result.message = "Success"
+          
                 result.data = data
           
             }
@@ -156,4 +205,34 @@ class ApiService
         task.resume()
        
     }
+    
+    
+    
+}
+
+
+enum Result {
+    case success(HTTPURLResponse, Data)
+    case failure(Error)
+}
+
+func readCookie(forURL url: URL) -> [HTTPCookie] {
+    let cookieStorage = HTTPCookieStorage.shared
+    let cookies = cookieStorage.cookies(for: url) ?? []
+    return cookies
+}
+
+func deleteCookies(forURL url: URL) {
+    let cookieStorage = HTTPCookieStorage.shared
+    
+    for cookie in readCookie(forURL: url) {
+        cookieStorage.deleteCookie(cookie)
+    }
+}
+
+func storeCookies(_ cookies: [HTTPCookie], forURL url: URL) {
+    let cookieStorage = HTTPCookieStorage.shared
+    cookieStorage.setCookies(cookies,
+                             for: url,
+                             mainDocumentURL: nil)
 }
