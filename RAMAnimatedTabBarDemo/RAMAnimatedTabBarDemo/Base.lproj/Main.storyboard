@@ -285,10 +285,10 @@
             </objects>
             <point key="canvasLocation" x="3108" y="1263.4182908545729"/>
         </scene>
-        <!--View Controller-->
+        <!--Choose Year-->
         <scene sceneID="NOR-ii-fns">
             <objects>
-                <viewController id="UWP-He-vFQ" sceneMemberID="viewController">
+                <viewController id="UWP-He-vFQ" customClass="ChooseYear" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MCJ-oQ-UWx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
