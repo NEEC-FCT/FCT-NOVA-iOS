@@ -293,12 +293,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FQA-EV-INv">
-                                <rect key="frame" x="67" y="173" width="240" height="354"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FQA-EV-INv">
+                                <rect key="frame" x="67" y="155" width="240" height="372"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="i2h-pY-bL2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="i2h-pY-bL2">
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i2h-pY-bL2" id="NWP-Pn-OO3">
@@ -307,12 +306,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="FNZ-g3-CUc" id="vjo-ar-B6w"/>
+                                    <outlet property="delegate" destination="FNZ-g3-CUc" id="AgQ-DJ-z8k"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rf3-Wh-Jq0" firstAttribute="bottom" secondItem="FQA-EV-INv" secondAttribute="bottom" constant="91" id="2Z8-Ns-aVS"/>
+                            <constraint firstItem="FQA-EV-INv" firstAttribute="top" secondItem="rf3-Wh-Jq0" secondAttribute="top" constant="91" id="7HM-O7-qHK"/>
+                            <constraint firstItem="rf3-Wh-Jq0" firstAttribute="trailing" secondItem="FQA-EV-INv" secondAttribute="trailing" constant="68" id="KIs-fn-VHi"/>
+                            <constraint firstItem="FQA-EV-INv" firstAttribute="leading" secondItem="rf3-Wh-Jq0" secondAttribute="leading" constant="67" id="QlY-Qo-2tG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rf3-Wh-Jq0"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="FQA-EV-INv" id="Vu2-H3-88i"/>
                         <segue destination="UWP-He-vFQ" kind="show" identifier="chooseYear" id="su5-CG-P3F"/>
                     </connections>
                 </viewController>
@@ -351,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5O-9o-XW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5958" y="1227"/>
+            <point key="canvasLocation" x="5957.6000000000004" y="1226.5367316341831"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="ovl-w5-59e">

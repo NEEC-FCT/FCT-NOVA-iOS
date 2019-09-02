@@ -10,19 +10,48 @@ import Foundation
 import UIKit
 
 
-class studenNumber: UIViewController  {
+class studenNumber: UIViewController , UITableViewDelegate , UITableViewDataSource {
+    
+    
+    var numero = [String]()
+    var texto  = [String]()
+    var url  = [String]()
+    @IBOutlet weak var tableView: UITableView!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return numero.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = texto[indexPath.row]
+        return cell
+    }
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\(texto[indexPath.row])!")
+        
+        //Muda de view
+        
+        DispatchQueue.main.async {
+            let defaults = UserDefaults.standard
+            defaults.set(self.url, forKey: "urlSelect")
+            self.performSegue(withIdentifier: "chooseYear", sender: nil)
+        }
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        print("Select NUmber")
-        print("Recebi")
         let defaults = UserDefaults.standard
-        let number = defaults.stringArray(forKey: "numero") ?? [String]()
-        let texto = defaults.stringArray(forKey: "texto") ?? [String]()
-        let url = defaults.stringArray(forKey: "url") ?? [String]()
-        print(number)
+        numero = defaults.stringArray(forKey: "numero") ?? [String]()
+         texto = defaults.stringArray(forKey: "texto") ?? [String]()
+         url = defaults.stringArray(forKey: "url") ?? [String]()
+        //print(numero)
+        tableView.dataSource = self
+        tableView.delegate = self
         //gotoID
         
 
