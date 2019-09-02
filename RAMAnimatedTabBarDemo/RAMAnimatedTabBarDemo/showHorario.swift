@@ -19,7 +19,7 @@ class showHorario: UIViewController  {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         print("Show horario")
-           ApiService.callGetHorario(year: "2019/20", studentNumberId: "88508", semester: 1, finish: finishGetHorario)
+           ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: finishGetHorario)
         //gotoID
     
         
@@ -34,7 +34,7 @@ class showHorario: UIViewController  {
             print("----Horario---")
             
             let html = String(decoding: data!, as: UTF8.self)
-            print( html )
+            //print( html )
             
             do {
                 let doc: Document = try SwiftSoup.parse(html)
@@ -58,7 +58,6 @@ class showHorario: UIViewController  {
                         for item in stringArray {
                             if let number = Int(item) {
                                scheduleDayNumber = number
-                                print("number: \(number)")
                                 break
                             }
                         }
@@ -69,23 +68,20 @@ class showHorario: UIViewController  {
                         var scheduleClassType = turno.suffix(5);
                         scheduleClassType += href[8].suffix(href[8].count - 1);
                         
-                        var scheduleClassName = try td.attr("title");
-                        var scheduleClassNameMin = child.get(0);
-                        
-                        
+                        let scheduleClassName = try td.attr("title");
+                        let scheduleClassNameMin:String = try child.get(0).html()
           
-                   
-                        
                         
                         var scheduleClassRoom:String? = nil ;
+                        print("count " + String(child.array().count ))
                         
-                        
-                        if (child.size() > 4){
+                        if (child.array().count > 4){
+                            print("Entrei no child")
                             scheduleClassRoom = child.get(4).data();
                         }
                         
                         
-                        var scheduleClassDuration = try td.attr("rowspan");
+                        let scheduleClassDuration = try td.attr("rowspan");
                         
                         // Calculate scheduleClassHourStart & End
                         var scheduleClassHourStart:String? = nil;
@@ -151,6 +147,7 @@ class showHorario: UIViewController  {
                         print(scheduleClassHourStart);
                         print(scheduleClassHourEnd);
                         print(scheduleClassRoom);
+               
                         
                       
                         
@@ -173,6 +170,18 @@ class showHorario: UIViewController  {
     }
     
     
+}
+
+extension String {
+    
+    func slice(from: String, to: String) -> String? {
+        
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                String(self[substringFrom..<substringTo])
+            }
+        }
+    }
 }
 
 
