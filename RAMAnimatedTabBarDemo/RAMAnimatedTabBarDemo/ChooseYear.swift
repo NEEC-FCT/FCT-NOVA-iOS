@@ -11,16 +11,51 @@ import Foundation
 import SwiftSoup
 
 
-class ChooseYear: UIViewController  {
+class ChooseYear: UIViewController , UITableViewDelegate , UITableViewDataSource  {
 
 
+    var urlSelect:String = ""
+    var years = [String]()
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return years.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = years[indexPath.row]
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\(years[indexPath.row])!")
+        
+        //Muda de view
+
+        DispatchQueue.main.async {
+            let defaults = UserDefaults.standard
+            defaults.set(String(self.years[indexPath.row]), forKey: "urlSelect")
+                 self.performSegue(withIdentifier: "gotohorario", sender: nil)
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        tableView.dataSource = self
+        tableView.delegate = self
+        let defaults = UserDefaults.standard
+        urlSelect = defaults.string(forKey: "urlSelect")!
         print("Select Year")
+        print(urlSelect)
         //gotoID
         
-         ApiService.callGetYears(url: URL(string: "https://clip.unl.pt/utente/eu/aluno?aluno=88508")!, finish: finishGetYear)
+         ApiService.callGetYears(url: URL(string: "https://clip.unl.pt" + urlSelect)!, finish: finishGetYear)
         
         
     }
@@ -42,7 +77,8 @@ class ChooseYear: UIViewController  {
                     let matched = matches(for: "/utente/eu/aluno/ano_lectivo[?][_a-zA-Z0-9=;&.%]*ano_lectivo=[0-9]*", in: linkHref)
                     if( matched != []){
                         let year = try link.text()
-                        print(year)
+                        years.append(year)
+                        //print(year)
                     }
                     
                 }
@@ -52,7 +88,8 @@ class ChooseYear: UIViewController  {
             }
             
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "gotohorario", sender: nil)
+                print(self.years)
+                self.tableView.reloadData()
             }
             
             
