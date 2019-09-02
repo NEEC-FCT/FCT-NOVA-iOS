@@ -53,8 +53,18 @@ class showHorario: UIViewController  {
                         let horas_inicio = try tr.child(0).html();
                         
                         let horas_fim = tr.child(2);
-                         print("h fim")
-                        print(horas_fim)
+                        print("h fim" + String(try tr.child(2).html().count))
+                        //Teoria ir ver sala
+                        var scheduleClassRoom:String? = nil ;
+                        
+                        
+                        //
+                        if( try tr.child(2).html().count > 250 ){
+                         
+                            scheduleClassRoom = String(try tr.child(2).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
+                           
+                        }
+                       // print(horas_fim)
                         
                         var scheduleDayNumber:Int = -1
                         let stringArray = String(dia).components(separatedBy: CharacterSet.decimalDigits.inverted)
@@ -75,9 +85,7 @@ class showHorario: UIViewController  {
                         let scheduleClassNameMin:String = try child.get(0).html()
           
                         
-                        var scheduleClassRoom:String? = nil ;
-            
-                        
+                     
                         
                         let scheduleClassDuration = try td.attr("rowspan");
                         
