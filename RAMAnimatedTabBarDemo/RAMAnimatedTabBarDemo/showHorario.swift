@@ -34,7 +34,7 @@ class showHorario: UIViewController  {
             print("----Horario---")
             
             let html = String(decoding: data!, as: UTF8.self)
-            print( html )
+            //print( html )
             
             do {
                 let doc: Document = try SwiftSoup.parse(html)
@@ -53,17 +53,35 @@ class showHorario: UIViewController  {
                         let horas_inicio = try tr.child(0).html();
                         
                         let horas_fim = tr.child(2);
-                        print("h fim" + String(try tr.child(2).html().count))
                         //Teoria ir ver sala
                         var scheduleClassRoom:String? = nil ;
-                        
-                        
                         //
                         if( try tr.child(2).html().count > 250 ){
                          
                             scheduleClassRoom = String(try tr.child(2).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
                            
                         }
+                        if( try tr.child(3).html().count > 250 ){
+                            
+                            scheduleClassRoom = String(try tr.child(3).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
+                            
+                        }
+                        
+                        if( try tr.child(4).html().count > 250 ){
+                            
+                            scheduleClassRoom = String(try tr.child(4).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
+                            
+                        }
+                        
+                        if( try tr.child(5).html().count > 250 ){
+                            
+                            scheduleClassRoom = String(try tr.child(5).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
+                            
+                        }
+                        
+                        //print("Continua")
+                        //print( try tr.child(6).html() )
+                
                        // print(horas_fim)
                         
                         var scheduleDayNumber:Int = -1
@@ -94,19 +112,16 @@ class showHorario: UIViewController  {
                         var scheduleClassHourEnd :String? = nil;
                         
                         
-                        
-                      
-                        
-                        
+
                         
                         
                         // Create scheduleClass
                         print("Dia semana " + String(scheduleDayNumber))
-                        print(scheduleClassName);
-                        print(scheduleClassNameMin);
-                        print(scheduleClassType);
-                        print(scheduleClassHourStart);
-                        print(scheduleClassHourEnd);
+                        print(String(scheduleClassName));
+                        print(String(scheduleClassNameMin));
+                        print(String(scheduleClassType));
+                        print(String(scheduleClassHourStart!));
+                        print( scheduleClassHourEnd );
                         print(scheduleClassRoom);
                
                         
