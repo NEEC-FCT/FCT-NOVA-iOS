@@ -53,22 +53,15 @@ class showHorario: UIViewController  {
                         let horas_inicio = try tr.child(0).html();
                         
                         let horas_fim = tr.child(1);
-                        print("Fim")
-                        //print( try tr.child(1).html())
                         //Teoria ir ver sala
                         var scheduleClassRoom:String? = nil ;
                         if (child.count > 4){
-                            print(try child[4].outerHtml())
+                            //print(try child[4].outerHtml())
                             scheduleClassRoom =  try child[4].outerHtml()
                             
                         }
                 
-                     
-                        
-                        //print("Continua")
-                        //print( try tr.child(6).html() )
-                
-                       // print(horas_fim)
+                    
                         
                         var scheduleDayNumber:Int = -1
                         let stringArray = String(dia).components(separatedBy: CharacterSet.decimalDigits.inverted)
@@ -79,8 +72,6 @@ class showHorario: UIViewController  {
                             }
                         }
                         
-                
-                          //  Character.getNumericValue(dia.charAt(dia.length() - 1));
                       
                         var scheduleClassType = String(turno.suffix(1));
                         scheduleClassType += String(href[8].last!)
@@ -88,19 +79,35 @@ class showHorario: UIViewController  {
                         let scheduleClassName = try td.attr("title");
                         let scheduleClassNameMin:String = try child[0].outerHtml().slice(from: "<b>", to: "</b>")!
           
-                        
-                     
-                        
                         let scheduleClassDuration = try td.attr("rowspan");
-                        
+                        let dateDuration = ( Int(scheduleClassDuration)! / 2);
                         // Calculate scheduleClassHourStart & End
-                        var scheduleClassHourStart:String? = horas_inicio;
+                        let scheduleClassHourStart:String? = horas_inicio;
                         var scheduleClassHourEnd :String? = nil;
                         
-                        
+                        if( try horas_fim.html().count == 1){
+                            print("caiu bem")
+                        }
+                        else{
+                            
+                            let separador = horas_inicio.components(separatedBy: ":")
+                            let HourStar = separador[0]
+                            let  MinStart = separador[1]
+                            let startDate  = Calendar.current.date(bySettingHour: Int(HourStar)!, minute: Int(MinStart)!, second: 0, of: Date())!
 
-                        
-                        
+                            let calendar = Calendar.current
+                            let date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
+                            let hour = calendar.component(.hour, from: date!)
+                            let minutes = calendar.component(.minute, from: date!)
+                            if( minutes == 0){
+                                scheduleClassHourEnd = String(hour) + ":00"
+                            }
+                            else{
+                                scheduleClassHourEnd = String(hour) + ":" + String(minutes)
+                            }
+                            
+                        }
+                    
                         // Create scheduleClass
                         
                         print("Dia semana " + String(scheduleDayNumber))
@@ -108,8 +115,8 @@ class showHorario: UIViewController  {
                         print(String(scheduleClassNameMin));
                         print(String(scheduleClassType));
                         print(String(scheduleClassHourStart!));
-                        print( scheduleClassHourEnd );
-                        print(scheduleClassRoom);
+                        print( scheduleClassHourEnd! );
+                        print(scheduleClassRoom!);
                
                         
                       
