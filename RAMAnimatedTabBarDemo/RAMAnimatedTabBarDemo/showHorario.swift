@@ -34,7 +34,7 @@ class showHorario: UIViewController  {
             print("----Horario---")
             
             let html = String(decoding: data!, as: UTF8.self)
-            //print( html )
+            print( html )
             
             do {
                 let doc: Document = try SwiftSoup.parse(html)
@@ -50,8 +50,11 @@ class showHorario: UIViewController  {
                         let dia = href[9];
                         let turno = href[7].uppercased();
                         
-                        var horas_inicio = tr.child(0);
-                        let horas_fim = tr.child(1);
+                        let horas_inicio = try tr.child(0).html();
+                        
+                        let horas_fim = tr.child(2);
+                         print("h fim")
+                        print(horas_fim)
                         
                         var scheduleDayNumber:Int = -1
                         let stringArray = String(dia).components(separatedBy: CharacterSet.decimalDigits.inverted)
@@ -73,68 +76,18 @@ class showHorario: UIViewController  {
           
                         
                         var scheduleClassRoom:String? = nil ;
-                        print("count " + String(child.array().count ))
-                        
-                        if (child.array().count > 4){
-                            print("Entrei no child")
-                            scheduleClassRoom = child.get(4).data();
-                        }
+            
                         
                         
                         let scheduleClassDuration = try td.attr("rowspan");
                         
                         // Calculate scheduleClassHourStart & End
-                        var scheduleClassHourStart:String? = nil;
+                        var scheduleClassHourStart:String? = horas_inicio;
                         var scheduleClassHourEnd :String? = nil;
                         
                         
                         
-                        do {
-                            
-                            
-                        let format1 = DateFormatter()
-                        format1.dateFormat = "k:mm"
-            
-                            let dateDuration = ( Int(scheduleClassDuration)! / 2);
-                        
-                            if (try horas_fim.text().count == 1) {
-                        // Start hour
-                                /*
-                            scheduleClassHourStart = try horas_inicio.text();
-                                let dateStart = format1.date(from: scheduleClassHourStart!);
-                        
-                                let calendar1 = NSCalendar.current.date(from: dateStart)
-                              
-                        //calendar1.setTime(dateStart);
-                                calendar1.date(from: dateStart)
-                                
-             
-                        calendar1.add(Calendar.HOUR, dateDuration);
-                        
-                        // End hour
-                        scheduleClassHourEnd = calendar1.get(Calendar.HOUR_OF_DAY) + ":" + calendar1.get(Calendar.MINUTE) + "0";*/
-                        } else {
-                        // Calculate start hour
-                                /*
-                                let dateStart = format1.date(from: horas_fim.text());
-                        
-                        // Subtract 30 minutes to the start hour
-                                let calendar1 = NSCalendar.current
-                        calendar1.setTime(dateStart);
-                        calendar1.add(Calendar.MINUTE, -30);
-                        
-                        scheduleClassHourStart = calendar1.get(Calendar.HOUR_OF_DAY) + ":" + calendar1.get(Calendar.MINUTE);
-                        
-                        // Calculate end hour
-                      //  calendar1.add(Calendar.HOUR_OF_DAY, dateDuration);
-                        Calendar.current.date(byAdding: .day, value: dateDuration, to: calendar1)
-                        
-                        scheduleClassHourEnd = calendar1.get(Calendar.HOUR_OF_DAY) + ":" + calendar1.get(Calendar.MINUTE);*/
-                        }
-                        
-                        } catch {
-                            print("error 2 catch")
-                        }
+                      
                         
                         
                         
