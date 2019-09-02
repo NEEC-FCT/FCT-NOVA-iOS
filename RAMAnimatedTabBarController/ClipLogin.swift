@@ -18,6 +18,10 @@ class ClipLogin: UIViewController  {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    var numero = [String]()
+    var texto  = [String]()
+    var url  = [String]()
+    
     
     @IBAction func loginClicked(_ sender: Any) {
         
@@ -56,8 +60,11 @@ class ClipLogin: UIViewController  {
                         var numbers = linkHref.components(separatedBy: "&")
                         numbers = numbers[numbers.count - 1].components(separatedBy: "=")
                         print(numbers[1])
+                        numero.append(numbers[1])
                         print(try! link.text())
+                        texto.append(try! link.text())
                         print(matched)
+                        url.append(matched[0])
                     }
                     
                    
@@ -70,6 +77,10 @@ class ClipLogin: UIViewController  {
             }
             
             DispatchQueue.main.async {
+                let defaults = UserDefaults.standard
+                defaults.set(self.numero, forKey: "numero")
+                defaults.set(self.texto, forKey: "texto")
+                defaults.set(self.url, forKey: "url")
               self.performSegue(withIdentifier: "gotoID", sender: nil)
             }
            

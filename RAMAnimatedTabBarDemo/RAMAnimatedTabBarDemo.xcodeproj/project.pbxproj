@@ -29,6 +29,7 @@
 		9C06C910231A199A00911147 /* ChooseYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C06C90F231A199A00911147 /* ChooseYear.swift */; };
 		9C06C912231A1B0F00911147 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C06C911231A1B0F00911147 /* ApiService.swift */; };
 		9C06C914231A1DA300911147 /* showHorario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C06C913231A1DA300911147 /* showHorario.swift */; };
+		9C06C916231D697000911147 /* studenNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C06C915231D697000911147 /* studenNumber.swift */; };
 		9C7CD77C2318C37900380FC2 /* ClipLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD77B2318C37900380FC2 /* ClipLogin.swift */; };
 		9C9CC4C822D9F53D002A0D38 /* Mapa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4C722D9F53D002A0D38 /* Mapa.swift */; };
 		9C9CC4CB22DA379D002A0D38 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9CC4CA22DA379C002A0D38 /* WebKit.framework */; };
@@ -106,6 +107,7 @@
 		9C06C90F231A199A00911147 /* ChooseYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseYear.swift; sourceTree = "<group>"; };
 		9C06C911231A1B0F00911147 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		9C06C913231A1DA300911147 /* showHorario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showHorario.swift; sourceTree = "<group>"; };
+		9C06C915231D697000911147 /* studenNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studenNumber.swift; sourceTree = "<group>"; };
 		9C7CD77B2318C37900380FC2 /* ClipLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipLogin.swift; path = ../../RAMAnimatedTabBarController/ClipLogin.swift; sourceTree = "<group>"; };
 		9C9CC4C722D9F53D002A0D38 /* Mapa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapa.swift; sourceTree = "<group>"; };
 		9C9CC4CA22DA379C002A0D38 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -258,6 +260,7 @@
 				9C06C90F231A199A00911147 /* ChooseYear.swift */,
 				9C06C911231A1B0F00911147 /* ApiService.swift */,
 				9C06C913231A1DA300911147 /* showHorario.swift */,
+				9C06C915231D697000911147 /* studenNumber.swift */,
 			);
 			path = RAMAnimatedTabBarDemo;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C06C910231A199A00911147 /* ChooseYear.swift in Sources */,
+				9C06C916231D697000911147 /* studenNumber.swift in Sources */,
 				9CE194FA22F763DE00C26F35 /* Informacao.swift in Sources */,
 				9C06C914231A1DA300911147 /* showHorario.swift in Sources */,
 				9CE194FC22F7751800C26F35 /* CheckInternet.swift in Sources */,

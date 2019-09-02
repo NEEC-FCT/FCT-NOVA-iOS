@@ -119,9 +119,6 @@ class showHorario: UIViewController  {
                         print(scheduleClassRoom!);
                
                         
-                      
-                        
-                        
                     }
                     
                 }
