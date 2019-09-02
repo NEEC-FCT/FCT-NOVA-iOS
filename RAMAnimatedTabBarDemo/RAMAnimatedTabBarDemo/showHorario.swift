@@ -34,7 +34,7 @@ class showHorario: UIViewController  {
             print("----Horario---")
             
             let html = String(decoding: data!, as: UTF8.self)
-            //print( html )
+           // print( html )
             
             do {
                 let doc: Document = try SwiftSoup.parse(html)
@@ -44,40 +44,26 @@ class showHorario: UIViewController  {
                     let tds = try tr.select("td[class~=turno.* celulaDeCalendario]");
                     
                     for td in tds {
-                        let child  = td.child(0).children();
+                        let child  = td.child(0).getChildNodes();
             
-                        var href = try child.get(2).attr("href").split(separator: "&");
+                        var href = try child[2].attr("href").split(separator: "&");
                         let dia = href[9];
                         let turno = href[7].uppercased();
                         
                         let horas_inicio = try tr.child(0).html();
                         
-                        let horas_fim = tr.child(2);
+                        let horas_fim = tr.child(1);
+                        print("Fim")
+                        //print( try tr.child(1).html())
                         //Teoria ir ver sala
                         var scheduleClassRoom:String? = nil ;
-                        //
-                        if( try tr.child(2).html().count > 250 ){
-                         
-                            scheduleClassRoom = String(try tr.child(2).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
-                           
-                        }
-                        if( try tr.child(3).html().count > 250 ){
-                            
-                            scheduleClassRoom = String(try tr.child(3).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
+                        if (child.count > 4){
+                            print(try child[4].outerHtml())
+                            scheduleClassRoom =  try child[4].outerHtml()
                             
                         }
-                        
-                        if( try tr.child(4).html().count > 250 ){
-                            
-                            scheduleClassRoom = String(try tr.child(4).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
-                            
-                        }
-                        
-                        if( try tr.child(5).html().count > 250 ){
-                            
-                            scheduleClassRoom = String(try tr.child(5).html()).slice(from: "</a>\n <br>", to: "\n</div>")!
-                            
-                        }
+                
+                     
                         
                         //print("Continua")
                         //print( try tr.child(6).html() )
@@ -100,7 +86,7 @@ class showHorario: UIViewController  {
                         scheduleClassType += String(href[8].last!)
                         
                         let scheduleClassName = try td.attr("title");
-                        let scheduleClassNameMin:String = try child.get(0).html()
+                        let scheduleClassNameMin:String = try child[0].outerHtml().slice(from: "<b>", to: "</b>")!
           
                         
                      
@@ -116,6 +102,7 @@ class showHorario: UIViewController  {
                         
                         
                         // Create scheduleClass
+                        
                         print("Dia semana " + String(scheduleDayNumber))
                         print(String(scheduleClassName));
                         print(String(scheduleClassNameMin));
