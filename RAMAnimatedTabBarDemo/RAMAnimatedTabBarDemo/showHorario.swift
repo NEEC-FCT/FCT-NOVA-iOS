@@ -65,8 +65,8 @@ class showHorario: UIViewController  {
                 
                           //  Character.getNumericValue(dia.charAt(dia.length() - 1));
                       
-                        var scheduleClassType = turno.suffix(5);
-                        scheduleClassType += href[8].suffix(href[8].count - 1);
+                        var scheduleClassType = String(turno.suffix(1));
+                        scheduleClassType += String(href[8].last!)
                         
                         let scheduleClassName = try td.attr("title");
                         let scheduleClassNameMin:String = try child.get(0).html()
