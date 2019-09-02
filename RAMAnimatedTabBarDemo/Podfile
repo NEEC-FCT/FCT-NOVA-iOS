@@ -17,7 +17,6 @@ target 'RAMAnimatedTabBarDemo' do
   pod 'EAIntroView'
   pod 'SMPageControl'
   pod 'Firebase/Analytics'
-  pod 'Alamofire'
   pod 'SwiftSoup'
 
 
