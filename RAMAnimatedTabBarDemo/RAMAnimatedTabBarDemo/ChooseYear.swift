@@ -54,9 +54,18 @@ class ChooseYear: UIViewController , UITableViewDelegate , UITableViewDataSource
         urlSelect = defaults.string(forKey: "urlSelect")!
         print("Select Year")
         print(urlSelect)
-        //gotoID
-        self.showSpinner(onView: self.view)
-         ApiService.callGetYears(url: URL(string: "https://clip.unl.pt" + urlSelect)!, finish: finishGetYear)
+        if( UserDefaults.standard.object(forKey: "anos") != nil  ){
+            let defaults = UserDefaults.standard
+            self.years = defaults.stringArray(forKey: "anos") ?? [String]()
+            print(self.years)
+            self.tableView.reloadData()
+        }
+        else{
+            //gotoID
+            self.showSpinner(onView: self.view)
+            ApiService.callGetYears(url: URL(string: "https://clip.unl.pt" + urlSelect)!, finish: finishGetYear)
+        }
+
     }
     
     func finishGetYear (message:String, data:Data?) -> Void
@@ -88,6 +97,8 @@ class ChooseYear: UIViewController , UITableViewDelegate , UITableViewDataSource
                 
                 self.removeSpinner()
                 print(self.years)
+                let defaults = UserDefaults.standard
+                defaults.set(self.years, forKey: "anos")
                 self.tableView.reloadData()
             }
             

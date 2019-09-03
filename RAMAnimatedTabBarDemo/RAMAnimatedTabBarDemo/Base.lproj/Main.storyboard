@@ -127,6 +127,7 @@
                         <outlet property="webview" destination="WpS-rj-aEC" id="7fJ-LY-xrv"/>
                         <segue destination="6PT-sn-jwR" kind="show" identifier="seguranca" id="mhy-ks-Lkh"/>
                         <segue destination="BkH-CD-FAH" kind="show" identifier="cliplogin" id="q2A-mr-qMi"/>
+                        <segue destination="FNZ-g3-CUc" kind="show" identifier="allogin" id="uG3-Qy-WWg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -860,4 +861,7 @@
         <image name="news" width="25" height="25"/>
         <image name="paperclip" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="uG3-Qy-WWg"/>
+    </inferredMetricsTieBreakers>
 </document>

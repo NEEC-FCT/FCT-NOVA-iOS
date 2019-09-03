@@ -98,6 +98,8 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        
         print("Show horario")
         self.showSpinner(onView: self.view)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "aulas")

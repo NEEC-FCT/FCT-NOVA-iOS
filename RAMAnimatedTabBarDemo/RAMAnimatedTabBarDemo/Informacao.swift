@@ -28,7 +28,14 @@ class Informacao: UIViewController  , WKNavigationDelegate {
            
         case 1:
             segmentedControl.selectedSegmentIndex = 0
-            self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            if( UserDefaults.standard.object(forKey: "password") != nil &&  UserDefaults.standard.object(forKey: "username") != nil){
+                self.performSegue(withIdentifier: "allogin", sender: nil)
+                
+            }
+            else{
+                self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            }
+
             break
            
         default:

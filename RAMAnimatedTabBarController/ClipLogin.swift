@@ -106,10 +106,6 @@ class ClipLogin: UIViewController  {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         print("Go Clip Login")
-        if( UserDefaults.standard.object(forKey: "password") != nil &&  UserDefaults.standard.object(forKey: "username") != nil){
-            self.performSegue(withIdentifier: "gotoID", sender: nil)
-            
-        }
 
     }
     
