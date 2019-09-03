@@ -34,6 +34,16 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     var ano:String = ""
     var idAluno:String = ""
     
+    
+    func clean(){
+         dataS = [CellData]()
+         dataT = [CellData]()
+         dataQ = [CellData]()
+         dataQI = [CellData]()
+         dataSEX = [CellData]()
+         current = [CellData]()
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var bar: UISegmentedControl!
@@ -99,7 +109,9 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         actionButton.buttonImage = UIImage(named: "gears")
         actionButton.addItem(title: "Logout", image: UIImage(named: "open-exit-door")?.withRenderingMode(.alwaysTemplate)) { item in
             
-               self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "RAMAnimatedTabBarController") as! Informacao
+            self.present(newViewController, animated: true, completion: nil)
             
         }
         actionButton.addItem(title: "Mudar ano", image: UIImage(named: "calendar")?.withRenderingMode(.alwaysTemplate)) { item in
@@ -114,6 +126,8 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 print("1")
                 let defaults = UserDefaults.standard
                 defaults.set(1, forKey: "semestreSelected")
+                  self.showSpinner(onView: self.view)
+                self.clean()
                 ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: self.finishGetHorario)
             }))
             
@@ -121,6 +135,8 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 print("2")
                 let defaults = UserDefaults.standard
                 defaults.set(2, forKey: "semestreSelected")
+                  self.showSpinner(onView: self.view)
+                self.clean()
                 ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 2, finish: self.finishGetHorario)
             }))
             
@@ -128,6 +144,8 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 print("3")
                 let defaults = UserDefaults.standard
                 defaults.set(3, forKey: "semestreSelected")
+                  self.showSpinner(onView: self.view)
+                self.clean()
                 ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 3, finish: self.finishGetHorario)
             }))
             
@@ -242,21 +260,21 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         print(String(scheduleClassType));
                         print(String(scheduleClassHourStart!));
                         print( scheduleClassHourEnd! );
-                        print(scheduleClassRoom!);
+                        print(scheduleClassRoom  ?? "");
                         if(scheduleDayNumber == 2){
-                          dataS.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                          dataS.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 3){
-                            dataT.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                            dataT.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 4){
-                            dataQ.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                            dataQ.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 5){
-                            dataQI.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                            dataQI.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 6){
-                            dataSEX.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                            dataSEX.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                       
                     }
