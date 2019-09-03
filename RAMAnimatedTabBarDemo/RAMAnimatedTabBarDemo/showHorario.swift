@@ -108,10 +108,10 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         semestre = defaults.integer(forKey: "semestreSelected")
         id =  defaults.string(forKey: "IDaluno")!
         ano = defaults.string(forKey: "urlSelect")!
-        let escolhidoTotal = defaults.string(forKey: "escolhidoTotal")!
+        let escolhidoTotal = defaults.string(forKey: "escolhidoTotal") ?? " "
         print("Recebi " + id + " " + ano)
 
-        if( escolhidoTotal != (id + ano) && UserDefaults.standard.object(forKey: "html") != nil){
+        if( escolhidoTotal == (id + ano) && UserDefaults.standard.object(forKey: "html") != nil){
            
             html = defaults.data(forKey: "html")!
             
