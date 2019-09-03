@@ -27,7 +27,7 @@ class Informacao: UIViewController  , WKNavigationDelegate {
         case 0: break
            
         case 1:
-            
+            segmentedControl.selectedSegmentIndex = 0
             self.performSegue(withIdentifier: "cliplogin", sender: nil)
             break
            
@@ -45,7 +45,7 @@ class Informacao: UIViewController  , WKNavigationDelegate {
         webview.navigationDelegate = self
         //FAB
         let actionButton = JJFloatingActionButton()
-        actionButton.buttonImage = UIImage(named: "security")
+        actionButton.buttonImage = UIImage(named: "sos-warning")
         actionButton.addItem(title: "Alarme de evacuação", image: UIImage(named: "firealarm")?.withRenderingMode(.alwaysTemplate)) { item in
             
             UserDefaults.standard.set(6, forKey: "open")
