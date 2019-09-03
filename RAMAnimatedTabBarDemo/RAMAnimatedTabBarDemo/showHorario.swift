@@ -10,6 +10,7 @@
 import UIKit
 import Foundation
 import SwiftSoup
+import JJFloatingActionButton
 
 
 struct CellData {
@@ -22,7 +23,6 @@ struct CellData {
 }
 
 
-
 class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
     var dataS = [CellData]()
@@ -31,6 +31,8 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     var dataQI = [CellData]()
     var dataSEX = [CellData]()
     var current = [CellData]()
+    var ano:String = ""
+    var idAluno:String = ""
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -91,6 +93,55 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "aulas")
         tableView.dataSource = self
         tableView.delegate = self
+        
+        //FAB
+        let actionButton = JJFloatingActionButton()
+        actionButton.buttonImage = UIImage(named: "gears")
+        actionButton.addItem(title: "Logout", image: UIImage(named: "open-exit-door")?.withRenderingMode(.alwaysTemplate)) { item in
+            
+               self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            
+        }
+        actionButton.addItem(title: "Mudar ano", image: UIImage(named: "calendar")?.withRenderingMode(.alwaysTemplate)) { item in
+                  self.performSegue(withIdentifier: "chooseYear", sender: nil)
+          
+        }
+        actionButton.addItem(title: "Mudar semestre", image: UIImage(named: "notebook")?.withRenderingMode(.alwaysTemplate)) { item in
+            
+            let alert = UIAlertController(title: "Escolha o semestre", message: "", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "1º Semestre", style: .default, handler: { action in
+                print("1")
+                let defaults = UserDefaults.standard
+                defaults.set(1, forKey: "semestreSelected")
+                ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: self.finishGetHorario)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "2º Semestre", style: .default, handler: { action in
+                print("2")
+                let defaults = UserDefaults.standard
+                defaults.set(2, forKey: "semestreSelected")
+                ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 2, finish: self.finishGetHorario)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "2º Trimestre", style: .default, handler: { action in
+                print("3")
+                let defaults = UserDefaults.standard
+                defaults.set(3, forKey: "semestreSelected")
+                ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 3, finish: self.finishGetHorario)
+            }))
+            
+            self.present(alert, animated: true)
+            
+        }
+        
+        view.addSubview(actionButton)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        
+        actionButton.buttonColor = UIColor(red:0.45, green:0.78, blue:0.93, alpha:1.0)
         
         
         ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: finishGetHorario)

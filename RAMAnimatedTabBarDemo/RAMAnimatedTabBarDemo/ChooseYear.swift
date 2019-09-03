@@ -66,7 +66,7 @@ class ChooseYear: UIViewController , UITableViewDelegate , UITableViewDataSource
             print(message)
             print("-------")
             let html = String(decoding: data!, as: UTF8.self)
-            //print( html )
+            print( html )
             
             do {
                 let doc: Document = try SwiftSoup.parse(html)
