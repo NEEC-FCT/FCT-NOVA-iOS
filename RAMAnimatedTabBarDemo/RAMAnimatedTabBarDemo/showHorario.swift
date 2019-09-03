@@ -104,12 +104,12 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             print(message)
             print("----Horario---")
             
-           
-            let html = String(decoding: data!, as: UTF8.self)
+
+            let html = String(data: data!, encoding: .isoLatin1)
            // print( html )
             
             do {
-                let doc: Document = try SwiftSoup.parse(html)
+                let doc: Document = try SwiftSoup.parse(html!)
                 let trs: Array<Element> = try doc.select("tr[valign=center]").array()
                 for tr in trs {
                     
