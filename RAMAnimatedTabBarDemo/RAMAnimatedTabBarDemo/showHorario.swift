@@ -91,7 +91,9 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "aulas")
         tableView.dataSource = self
         tableView.delegate = self
-           ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: finishGetHorario)
+        
+        
+        ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: finishGetHorario)
         //gotoID
     
         
