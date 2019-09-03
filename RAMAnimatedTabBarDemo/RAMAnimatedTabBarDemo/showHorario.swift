@@ -31,8 +31,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     var dataQI = [CellData]()
     var dataSEX = [CellData]()
     var current = [CellData]()
-    var ano:String = ""
-    var idAluno:String = ""
+
     
     
     func clean(){
@@ -95,10 +94,95 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         return cell
     }
     
+    
+    var id:String = ""
+    var ano:String = ""
+    var semestre:Int = 1
+    var html:Data? = nil
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
+        let defaults = UserDefaults.standard
+        semestre = defaults.integer(forKey: "semestreSelected")
+        id =  defaults.string(forKey: "IDaluno")!
+        ano = defaults.string(forKey: "urlSelect")!
+        let escolhidoTotal = defaults.string(forKey: "escolhidoTotal")!
+        print("Recebi " + id + " " + ano)
+
+        if( escolhidoTotal != (id + ano) && UserDefaults.standard.object(forKey: "html") != nil){
+           
+            html = defaults.data(forKey: "html")!
+            
+            print("Show horario")
+            self.showSpinner(onView: self.view)
+            self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "aulas")
+            tableView.dataSource = self
+            tableView.delegate = self
+            
+            //FAB
+            let actionButton = JJFloatingActionButton()
+            actionButton.buttonImage = UIImage(named: "gears")
+            actionButton.addItem(title: "Logout", image: UIImage(named: "open-exit-door")?.withRenderingMode(.alwaysTemplate)) { item in
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+                self.present(newViewController, animated: true, completion: nil)
+                
+            }
+            actionButton.addItem(title: "Mudar ano", image: UIImage(named: "calendar")?.withRenderingMode(.alwaysTemplate)) { item in
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+            actionButton.addItem(title: "Mudar semestre", image: UIImage(named: "notebook")?.withRenderingMode(.alwaysTemplate)) { item in
+                
+                let alert = UIAlertController(title: "Escolha o semestre", message: "", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "1º Semestre", style: .default, handler: { action in
+                    print("1")
+                    let defaults = UserDefaults.standard
+                    defaults.set(1, forKey: "semestreSelected")
+                    self.showSpinner(onView: self.view)
+                    self.clean()
+                    ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: 1, finish: self.finishGetHorario)
+                }))
+                
+                alert.addAction(UIAlertAction(title: "2º Semestre", style: .default, handler: { action in
+                    print("2")
+                    let defaults = UserDefaults.standard
+                    defaults.set(2, forKey: "semestreSelected")
+                    self.showSpinner(onView: self.view)
+                    self.clean()
+                    ApiService.callGetHorario(year: self.ano, studentNumberId: self.id, semester: 2, finish: self.finishGetHorario)
+                }))
+                
+                alert.addAction(UIAlertAction(title: "2º Trimestre", style: .default, handler: { action in
+                    print("3")
+                    let defaults = UserDefaults.standard
+                    defaults.set(3, forKey: "semestreSelected")
+                    self.showSpinner(onView: self.view)
+                    self.clean()
+                    ApiService.callGetHorario(year: self.ano, studentNumberId: self.id, semester: self.semestre, finish: self.finishGetHorario)
+                }))
+                
+                self.present(alert, animated: true)
+                
+            }
+            
+            view.addSubview(actionButton)
+            actionButton.translatesAutoresizingMaskIntoConstraints = false
+            
+            actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+            
+            actionButton.buttonColor = UIColor(red:0.45, green:0.78, blue:0.93, alpha:1.0)
+            
+            
+            finishGetHorario(message: "nada" ,data: html)
+            //gotoID
+        }
+        else{
+   
         
         print("Show horario")
         self.showSpinner(onView: self.view)
@@ -129,7 +213,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 defaults.set(1, forKey: "semestreSelected")
                   self.showSpinner(onView: self.view)
                 self.clean()
-                ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: self.finishGetHorario)
+                ApiService.callGetHorario(year: self.ano, studentNumberId: self.id, semester: 1, finish: self.finishGetHorario)
             }))
             
             alert.addAction(UIAlertAction(title: "2º Semestre", style: .default, handler: { action in
@@ -138,7 +222,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 defaults.set(2, forKey: "semestreSelected")
                   self.showSpinner(onView: self.view)
                 self.clean()
-                ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 2, finish: self.finishGetHorario)
+                ApiService.callGetHorario(year: self.ano, studentNumberId: self.id, semester: 2, finish: self.finishGetHorario)
             }))
             
             alert.addAction(UIAlertAction(title: "2º Trimestre", style: .default, handler: { action in
@@ -147,7 +231,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 defaults.set(3, forKey: "semestreSelected")
                   self.showSpinner(onView: self.view)
                 self.clean()
-                ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 3, finish: self.finishGetHorario)
+                ApiService.callGetHorario(year: self.ano, studentNumberId: self.id, semester: 3, finish: self.finishGetHorario)
             }))
             
             self.present(alert, animated: true)
@@ -163,10 +247,10 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         actionButton.buttonColor = UIColor(red:0.45, green:0.78, blue:0.93, alpha:1.0)
         
         
-        ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: finishGetHorario)
+        ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: self.semestre , finish: finishGetHorario)
         //gotoID
     
-        
+        }
     }
     
     
@@ -174,6 +258,11 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     {
         do
         {
+          
+            let defaults = UserDefaults.standard
+            defaults.set(data, forKey: "html")
+            defaults.set(self.id + self.ano, forKey:"escolhidoTotal")
+            
             print(message)
             print("----Horario---")
             

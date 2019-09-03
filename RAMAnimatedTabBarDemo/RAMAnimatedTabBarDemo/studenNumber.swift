@@ -36,6 +36,11 @@ class studenNumber: UIViewController , UITableViewDelegate , UITableViewDataSour
         DispatchQueue.main.async {
             let defaults = UserDefaults.standard
             defaults.set(String(self.url[indexPath.row]), forKey: "urlSelect")
+            let ID = String(self.url[indexPath.row]).components(separatedBy: "=")[1]
+            print("ID")
+            print( ID )
+            defaults.set( ID , forKey: "IDaluno")
+            
             self.performSegue(withIdentifier: "chooseYear", sender: nil)
         }
         

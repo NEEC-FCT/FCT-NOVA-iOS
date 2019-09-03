@@ -38,7 +38,9 @@ class ChooseYear: UIViewController , UITableViewDelegate , UITableViewDataSource
         DispatchQueue.main.async {
             let defaults = UserDefaults.standard
             defaults.set(String(self.years[indexPath.row]), forKey: "urlSelect")
-                 self.performSegue(withIdentifier: "gotohorario", sender: nil)
+            defaults.set(1, forKey: "semestreSelected")
+            
+            self.performSegue(withIdentifier: "gotohorario", sender: nil)
         }
         
     }
