@@ -394,6 +394,9 @@
                                     <segment title="Sexta"/>
                                 </segments>
                                 <color key="tintColor" red="0.48263823989999999" green="0.74192720649999999" blue="0.033854000269999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changedDay:" destination="qsw-0K-Cwh" eventType="valueChanged" id="APe-S0-yry"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XwY-hA-89m">
                                 <rect key="frame" x="0.0" y="99" width="375" height="519"/>
@@ -512,6 +515,7 @@
                         <viewLayoutGuide key="safeArea" id="XUb-q6-vhh"/>
                     </view>
                     <connections>
+                        <outlet property="bar" destination="gjC-Om-9Fy" id="2Ga-2i-7dm"/>
                         <outlet property="tableView" destination="XwY-hA-89m" id="r0i-2W-F9E"/>
                     </connections>
                 </viewController>

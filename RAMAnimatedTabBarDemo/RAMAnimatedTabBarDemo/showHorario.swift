@@ -34,18 +34,52 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var bar: UISegmentedControl!
+    
+    @IBAction func changedDay(_ sender: Any) {
+        
+        switch bar.selectedSegmentIndex
+        {
+        case 0:
+            current = dataS
+              break;
+        case 1:
+            current = dataT
+              break;
+        case 2:
+            current = dataQ
+              break;
+        case 3:
+            current = dataQI
+              break;
+        case 4:
+           current = dataSEX
+              break;
+        default:
+            break;
+        }
+        
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataS.count
+        return current.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
             as! HeadlineTableViewCel
-        cell.nomeAula?.text = dataS[indexPath.row].nome!
-        cell.inicioHora?.text =  dataS[indexPath.row].horaInicio!
-        cell.fimHora?.text = dataS[indexPath.row].horaFim!
-        cell.sala?.text = dataS[indexPath.row].sala!
+        cell.nomeAula?.text = current[indexPath.row].nome!
+        cell.inicioHora?.text =  current[indexPath.row].horaInicio!
+        cell.fimHora?.text = current[indexPath.row].horaFim!
+        cell.sala?.text = current[indexPath.row].sala!
         return cell
     }
     
@@ -169,6 +203,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         else if (scheduleDayNumber == 6){
                             dataSEX.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
                         }
+                      
                     }
                     
                 }
@@ -178,7 +213,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             }
             
             DispatchQueue.main.async {
-                print(self.dataS)
+                self.current = self.dataS
                 self.tableView.reloadData()
             }
             
