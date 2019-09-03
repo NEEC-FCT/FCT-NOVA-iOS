@@ -104,6 +104,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             print(message)
             print("----Horario---")
             
+           
             let html = String(decoding: data!, as: UTF8.self)
            // print( html )
             

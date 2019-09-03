@@ -42,7 +42,7 @@ class ApiService
         let session = URLSession.shared
         request.httpMethod = "GET"
         let cookies = readCookie(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
-        print("Cookies before request: ", cookies)
+        //print("Cookies before request: ", cookies)
         
         var result:(message:String, data:Data?) = (message: "Fail", data: nil)
         let task = session.dataTask(with: request) { data, response, error in
@@ -75,8 +75,8 @@ class ApiService
         var request = URLRequest(url: url)
         let session = URLSession.shared
         request.httpMethod = "GET"
-        let cookies = readCookie(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
-        print("Cookies before request: ", cookies)
+        _ = readCookie(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
+      //  print("Cookies before request: ", cookies)
         
         var result:(message:String, data:Data?) = (message: "Fail", data: nil)
         let task = session.dataTask(with: request) { data, response, error in
