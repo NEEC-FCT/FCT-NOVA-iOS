@@ -12,13 +12,50 @@ import Foundation
 import SwiftSoup
 
 
-class showHorario: UIViewController  {
+struct CellData {
+    let horaInicio: String?
+    let horaFim: String?
+    let nome:String?
+    let sala: String?
     
+    
+}
 
+
+
+class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSource {
+    
+    var dataS = [CellData]()
+    var dataT = [CellData]()
+    var dataQ = [CellData]()
+    var dataQI = [CellData]()
+    var dataSEX = [CellData]()
+    var current = [CellData]()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataS.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+            as! HeadlineTableViewCel
+        cell.nomeAula?.text = dataS[indexPath.row].nome!
+        cell.inicioHora?.text =  dataS[indexPath.row].horaInicio!
+        cell.fimHora?.text = dataS[indexPath.row].horaFim!
+        cell.sala?.text = dataS[indexPath.row].sala!
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         print("Show horario")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "aulas")
+        tableView.dataSource = self
+        tableView.delegate = self
            ApiService.callGetHorario(year: "2018/19", studentNumberId: "88508", semester: 1, finish: finishGetHorario)
         //gotoID
     
@@ -117,14 +154,32 @@ class showHorario: UIViewController  {
                         print(String(scheduleClassHourStart!));
                         print( scheduleClassHourEnd! );
                         print(scheduleClassRoom!);
-               
-                        
+                        if(scheduleDayNumber == 2){
+                          dataS.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                        }
+                        else if (scheduleDayNumber == 3){
+                            dataT.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                        }
+                        else if (scheduleDayNumber == 4){
+                            dataQ.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                        }
+                        else if (scheduleDayNumber == 5){
+                            dataQI.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                        }
+                        else if (scheduleDayNumber == 6){
+                            dataSEX.append(CellData.init(horaInicio: scheduleClassHourStart!, horaFim: scheduleClassHourEnd! , nome: scheduleClassName, sala: scheduleClassRoom!))
+                        }
                     }
                     
                 }
                 
             }  catch {
                 print("error")
+            }
+            
+            DispatchQueue.main.async {
+                print(self.dataS)
+                self.tableView.reloadData()
             }
             
             
@@ -138,6 +193,8 @@ class showHorario: UIViewController  {
     
     
 }
+
+
 
 extension String {
     
