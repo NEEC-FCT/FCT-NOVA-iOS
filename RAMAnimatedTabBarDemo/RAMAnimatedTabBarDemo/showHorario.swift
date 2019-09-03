@@ -110,13 +110,12 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         actionButton.addItem(title: "Logout", image: UIImage(named: "open-exit-door")?.withRenderingMode(.alwaysTemplate)) { item in
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "RAMAnimatedTabBarController") as! Informacao
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
             self.present(newViewController, animated: true, completion: nil)
             
         }
         actionButton.addItem(title: "Mudar ano", image: UIImage(named: "calendar")?.withRenderingMode(.alwaysTemplate)) { item in
-                  self.performSegue(withIdentifier: "chooseYear", sender: nil)
-          
+             _ = self.navigationController?.popViewController(animated: true)
         }
         actionButton.addItem(title: "Mudar semestre", image: UIImage(named: "notebook")?.withRenderingMode(.alwaysTemplate)) { item in
             
