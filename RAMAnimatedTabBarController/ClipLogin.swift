@@ -31,7 +31,7 @@ class ClipLogin: UIViewController  {
         let params = ["identificador": logintext.text!,
                       "senha":passwordtext.text!
                 ]
-        
+        self.showSpinner(onView: self.view)
         
         ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: finishPost)
 
@@ -42,6 +42,8 @@ class ClipLogin: UIViewController  {
     
     func finishPost (message:String, data:Data?) -> Void
     {
+        
+        self.removeSpinner()
         do
         {
             print(message)
@@ -91,6 +93,8 @@ class ClipLogin: UIViewController  {
                 defaults.set(self.numero, forKey: "numero")
                 defaults.set(self.texto, forKey: "texto")
                 defaults.set(self.url, forKey: "url")
+                defaults.set(self.logintext.text!, forKey: "password")
+                defaults.set(self.passwordtext.text!, forKey: "username")
               self.performSegue(withIdentifier: "gotoID", sender: nil)
             }
         }
@@ -102,10 +106,11 @@ class ClipLogin: UIViewController  {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         print("Go Clip Login")
-        //gotoID
-        
-      
-        
+        if( UserDefaults.standard.object(forKey: "password") != nil &&  UserDefaults.standard.object(forKey: "username") != nil){
+            self.performSegue(withIdentifier: "gotoID", sender: nil)
+            
+        }
+
     }
     
     func matches(for regex: String, in text: String) -> [String] {

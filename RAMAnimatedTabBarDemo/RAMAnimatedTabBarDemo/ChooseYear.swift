@@ -47,6 +47,7 @@ class ChooseYear: UIViewController , UITableViewDelegate , UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        //Check clip login
         tableView.dataSource = self
         tableView.delegate = self
         let defaults = UserDefaults.standard
@@ -56,8 +57,6 @@ class ChooseYear: UIViewController , UITableViewDelegate , UITableViewDataSource
         //gotoID
         self.showSpinner(onView: self.view)
          ApiService.callGetYears(url: URL(string: "https://clip.unl.pt" + urlSelect)!, finish: finishGetYear)
-        
-        
     }
     
     func finishGetYear (message:String, data:Data?) -> Void
@@ -78,9 +77,7 @@ class ChooseYear: UIViewController , UITableViewDelegate , UITableViewDataSource
                     if( matched != []){
                         let year = try link.text()
                         years.append(year)
-                        //print(year)
                     }
-                    
                 }
                 
             }  catch {
