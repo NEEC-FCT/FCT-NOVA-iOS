@@ -144,6 +144,17 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                     defaults.set(1, forKey: "semestreSelected")
                     self.showSpinner(onView: self.view)
                     self.clean()
+                    //Get Cookies
+                 
+                    let username = defaults.integer(forKey: "username")
+                    let password  = defaults.integer(forKey: "password")
+                    let params = ["identificador": username,
+                                  "senha":password
+                    ]
+                    self.showSpinner(onView: self.view)
+                    
+                    ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: self.finishCookies)
+                    //Get horario
                     ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: 1, finish: self.finishGetHorario)
                 }))
                 
@@ -195,6 +206,13 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         actionButton.buttonImage = UIImage(named: "gears")
         actionButton.addItem(title: "Logout", image: UIImage(named: "open-exit-door")?.withRenderingMode(.alwaysTemplate)) { item in
             
+             DispatchQueue.main.async {
+                let defaults = UserDefaults.standard
+                defaults.set( nil , forKey: "username")
+                defaults.set( nil , forKey: "password")
+                defaults.synchronize()
+            }
+   
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
             self.present(newViewController, animated: true, completion: nil)
@@ -251,6 +269,12 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         //gotoID
     
         }
+    }
+    
+    func finishCookies(message:String, data:Data?) -> Void
+    {
+    
+        print("Got cookie")
     }
     
     

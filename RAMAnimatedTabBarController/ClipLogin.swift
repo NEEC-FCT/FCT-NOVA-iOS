@@ -93,8 +93,8 @@ class ClipLogin: UIViewController  {
                 defaults.set(self.numero, forKey: "numero")
                 defaults.set(self.texto, forKey: "texto")
                 defaults.set(self.url, forKey: "url")
-                defaults.set(self.logintext.text!, forKey: "password")
-                defaults.set(self.passwordtext.text!, forKey: "username")
+                defaults.set(self.logintext.text!, forKey: "username")
+                defaults.set(self.passwordtext.text!, forKey: "password")
               self.performSegue(withIdentifier: "gotoID", sender: nil)
             }
         }

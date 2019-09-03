@@ -28,7 +28,8 @@ class Informacao: UIViewController  , WKNavigationDelegate {
            
         case 1:
             segmentedControl.selectedSegmentIndex = 0
-            if( UserDefaults.standard.object(forKey: "password") != nil &&  UserDefaults.standard.object(forKey: "username") != nil){
+           
+            if( UserDefaults.standard.string(forKey: "password") != nil &&  UserDefaults.standard.string(forKey: "username") != nil){
                 self.performSegue(withIdentifier: "allogin", sender: nil)
                 
             }
