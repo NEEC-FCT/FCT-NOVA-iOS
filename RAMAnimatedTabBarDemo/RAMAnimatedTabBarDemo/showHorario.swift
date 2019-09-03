@@ -87,6 +87,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         print("Show horario")
+        self.showSpinner(onView: self.view)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "aulas")
         tableView.dataSource = self
         tableView.delegate = self
@@ -214,6 +215,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             }
             
             DispatchQueue.main.async {
+                self.removeSpinner()
                 self.current = self.dataS
                 self.tableView.reloadData()
             }

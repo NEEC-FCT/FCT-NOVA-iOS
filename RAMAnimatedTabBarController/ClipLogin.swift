@@ -27,10 +27,9 @@ class ClipLogin: UIViewController  {
         
         print( logintext.text!)
         print( passwordtext.text!)
-   
-        
-        let params = ["identificador":"jm.veloso",
-                      "senha":"3wdvjcffez"
+
+        let params = ["identificador": logintext.text!,
+                      "senha":passwordtext.text!
                 ]
         
         
@@ -75,7 +74,18 @@ class ClipLogin: UIViewController  {
             }  catch {
                 print("error")
             }
-            
+        
+            if( self.numero.count == 0) {
+                let refreshAlert = UIAlertController(title: "Login", message: "Acesso errado ou questionários por preencher.", preferredStyle: UIAlertController.Style.alert)
+                
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    print("Handle Ok logic here")
+                }))
+                
+                present(refreshAlert, animated: true, completion: nil)
+                
+             }
+            else{
             DispatchQueue.main.async {
                 let defaults = UserDefaults.standard
                 defaults.set(self.numero, forKey: "numero")
@@ -83,7 +93,7 @@ class ClipLogin: UIViewController  {
                 defaults.set(self.url, forKey: "url")
               self.performSegue(withIdentifier: "gotoID", sender: nil)
             }
-           
+        }
   
         }
     }
