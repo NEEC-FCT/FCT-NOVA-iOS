@@ -126,6 +126,8 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             actionButton.buttonImage = UIImage(named: "gears")
             actionButton.addItem(title: "Logout", image: UIImage(named: "open-exit-door")?.withRenderingMode(.alwaysTemplate)) { item in
                 
+                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.removeObject(forKey: "password")
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
                 self.present(newViewController, animated: true, completion: nil)
@@ -139,21 +141,11 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 let alert = UIAlertController(title: "Escolha o semestre", message: "", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "1º Semestre", style: .default, handler: { action in
-                    print("vou cookies1")
                     let defaults = UserDefaults.standard
                     defaults.set(1, forKey: "semestreSelected")
                     self.showSpinner(onView: self.view)
                     self.clean()
-                    //Get Cookies
-                 
-                    let username = defaults.integer(forKey: "username")
-                    let password  = defaults.integer(forKey: "password")
-                    let params = ["identificador": username,
-                                  "senha":password
-                    ]
-                    self.showSpinner(onView: self.view)
-                    
-                    ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: self.finishCookies)
+                    ApiService.callGetHorario(year: self.ano, studentNumberId: self.id, semester: 1, finish: self.finishGetHorario)
          
                 }))
                 
@@ -293,7 +285,10 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             
 
             let html = String(data: data!, encoding: .isoLatin1)
-            print( html )
+            //print( html )
+            if (  html?.contains("Senha") ?? false  ){
+                print("Faz login")
+            }
             
             do {
                 let doc: Document = try SwiftSoup.parse(html!)
