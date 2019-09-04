@@ -267,7 +267,9 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     
         //Get horario
         print("Got cookie")
-        ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: 1, finish: self.finishGetHorario)
+        DispatchQueue.main.async {
+        ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: self.semestre, finish: self.finishGetHorario)
+        }
     }
     
     
@@ -288,6 +290,15 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             //print( html )
             if (  html?.contains("Senha") ?? false  ){
                 print("Faz login")
+                let defaults = UserDefaults.standard
+                let logintext = defaults.string(forKey: "username")
+                let passwor =  defaults.string(forKey: "password")
+                let params = ["identificador": logintext,
+                              "senha":passwor
+                ]
+                
+                ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: finishCookies)
+
             }
             
             do {
