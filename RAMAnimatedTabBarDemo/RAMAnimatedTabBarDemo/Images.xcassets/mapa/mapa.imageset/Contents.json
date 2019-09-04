@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-pontos-de-interesse-filled-50.png",
+      "filename" : "mapicon-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-pontos-de-interesse-filled-51.png",
+      "filename" : "mapicon-3.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-pontos-de-interesse-filled-52.png",
+      "filename" : "mapicon-4.png",
       "scale" : "3x"
     }
   ],

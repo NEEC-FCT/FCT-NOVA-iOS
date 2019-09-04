@@ -139,7 +139,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 let alert = UIAlertController(title: "Escolha o semestre", message: "", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "1º Semestre", style: .default, handler: { action in
-                    print("1")
+                    print("vou cookies1")
                     let defaults = UserDefaults.standard
                     defaults.set(1, forKey: "semestreSelected")
                     self.showSpinner(onView: self.view)
@@ -154,8 +154,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                     self.showSpinner(onView: self.view)
                     
                     ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: self.finishCookies)
-                    //Get horario
-                    ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: 1, finish: self.finishGetHorario)
+         
                 }))
                 
                 alert.addAction(UIAlertAction(title: "2º Semestre", style: .default, handler: { action in
@@ -274,7 +273,9 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     func finishCookies(message:String, data:Data?) -> Void
     {
     
+        //Get horario
         print("Got cookie")
+        ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: 1, finish: self.finishGetHorario)
     }
     
     
@@ -292,7 +293,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             
 
             let html = String(data: data!, encoding: .isoLatin1)
-           // print( html )
+            print( html )
             
             do {
                 let doc: Document = try SwiftSoup.parse(html!)
