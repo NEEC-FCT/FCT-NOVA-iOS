@@ -337,8 +337,9 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         let dateDuration = ( Int(scheduleClassDuration)! / 2);
                         // Calculate scheduleClassHourStart & End
                         print(horas_inicio)
-                        /*
-                        let scheduleClassHourStart:String? = horas_inicio;
+                       
+                        let scheduleClassHourStart:String? = try horas_inicio.html();
+                         /*
                         var scheduleClassHourEnd :String? = nil;
                         
                       
@@ -372,19 +373,19 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         print(scheduleClassRoom  ?? "");
                         
                         if(scheduleDayNumber == 2){
-                          dataS.append(CellData.init(horaInicio:  "acabar", horaFim: "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                          dataS.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim: "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 3){
-                            dataT.append(CellData.init(horaInicio:  "acabar", horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            dataT.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 4){
-                            dataQ.append(CellData.init(horaInicio:  "acabar", horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            dataQ.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 5){
-                            dataQI.append(CellData.init(horaInicio:  "acabar", horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            dataQI.append(CellData.init(horaInicio: scheduleClassHourStart, horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 6){
-                            dataSEX.append(CellData.init(horaInicio:  "acabar", horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            dataSEX.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                       
                     }
