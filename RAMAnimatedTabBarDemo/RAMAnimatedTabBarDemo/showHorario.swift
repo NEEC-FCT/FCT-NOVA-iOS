@@ -111,7 +111,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         ano = defaults.string(forKey: "urlSelect")!
         let escolhidoTotal = defaults.string(forKey: "escolhidoTotal") ?? " "
         print("Recebi " + id + " " + ano)
-
+     
         if( escolhidoTotal == (id + ano) && UserDefaults.standard.object(forKey: "html") != nil){
            
             html = defaults.data(forKey: "html")!
@@ -121,6 +121,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "aulas")
             tableView.dataSource = self
             tableView.delegate = self
+            tableView.tableFooterView = UIView()
             
             //FAB
             let actionButton = JJFloatingActionButton()
@@ -288,7 +289,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             
 
             let html = String(data: data!, encoding: .isoLatin1)
-            //print( html )
+            print( html )
 
             
             do {
