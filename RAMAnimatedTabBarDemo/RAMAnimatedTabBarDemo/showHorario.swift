@@ -31,6 +31,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     var dataQI = [CellData]()
     var dataSEX = [CellData]()
     var current = [CellData]()
+    var lastDate = ""
 
     
     
@@ -310,7 +311,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         //Teoria ir ver sala
                         var scheduleClassRoom:String? = nil ;
                         if (child.count > 4){
-                            print(try child[4].outerHtml())
+                            //print(try child[4].outerHtml())
                             scheduleClassRoom =  try child[4].outerHtml()
                             
                         }
@@ -334,21 +335,25 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         let scheduleClassNameMin:String = try child[0].outerHtml().slice(from: "<b>", to: "</b>")!
           
                         let scheduleClassDuration = try td.attr("rowspan");
-                        let dateDuration = ( Int(scheduleClassDuration)! / 2);
+                        var dateDuration = ( Int(scheduleClassDuration)! / 2);
                         // Calculate scheduleClassHourStart & End
-                        print(horas_inicio)
-                       
-                        let scheduleClassHourStart:String? = try horas_inicio.html();
-                         /*
-                        var scheduleClassHourEnd :String? = nil;
+                      //  print( "last-> " , horas_inicio)
                         
+                       
+                        var scheduleClassHourStart:String? = try horas_inicio.html();
+                        
+                        var scheduleClassHourEnd :String? = nil;
+                         let separador = try horas_inicio.html().components(separatedBy: ":")
                       
-                            
-                            let separador = horas_inicio.components(separatedBy: ":")
-                            let HourStar = separador[0]
-                            let  MinStart = separador[1]
+                        if(  separador.count == 1 ){
+                            //print("-----> " , lastDate )
+                            dateDuration = dateDuration + 1
+                            scheduleClassHourStart = lastDate
+                            let horas = try scheduleClassHourStart!.components(separatedBy: ":")
+                            let HourStar = horas[0]
+                            let  MinStart = horas[1]
                             let startDate  = Calendar.current.date(bySettingHour: Int(HourStar)!, minute: Int(MinStart)!, second: 0, of: Date())!
-
+                            
                             let calendar = Calendar.current
                             let date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
                             let hour = calendar.component(.hour, from: date!)
@@ -359,8 +364,31 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                             else{
                                 scheduleClassHourEnd = String(hour) + ":" + String(minutes)
                             }
-                            */
+                       
                       
+                        }
+                        else{
+                            
+                            let HourStar = separador[0]
+                            let  MinStart = separador[1]
+                            let startDate  = Calendar.current.date(bySettingHour: Int(HourStar)!, minute: Int(MinStart)!, second: 0, of: Date())!
+                            
+                            let calendar = Calendar.current
+                            let date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
+                            let hour = calendar.component(.hour, from: date!)
+                            let minutes = calendar.component(.minute, from: date!)
+                            if( minutes == 0){
+                                scheduleClassHourEnd = String(hour) + ":00"
+                            }
+                            else{
+                                scheduleClassHourEnd = String(hour) + ":" + String(minutes)
+                            }
+                        }
+                   
+                        if( try horas_inicio.html().contains(":")){
+                           lastDate = try horas_inicio.html()
+                        }
+                       
                     
                         // Create scheduleClass
                         
@@ -368,24 +396,24 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         print(String(scheduleClassName ));
                         print(String(scheduleClassNameMin ));
                         print(String(scheduleClassType ));
-                     //   print(String(scheduleClassHourStart ?? ""));
-                      //  print( scheduleClassHourEnd ?? "");
+                        print(String(scheduleClassHourStart ?? ""));
+                        print( scheduleClassHourEnd ?? "");
                         print(scheduleClassRoom  ?? "");
                         
                         if(scheduleDayNumber == 2){
-                          dataS.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim: "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                          dataS.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim: scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 3){
-                            dataT.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            dataT.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 4){
-                            dataQ.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            dataQ.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 5){
-                            dataQI.append(CellData.init(horaInicio: scheduleClassHourStart, horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            dataQI.append(CellData.init(horaInicio: scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 6){
-                            dataSEX.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  "acabar" , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            dataSEX.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
                         }
                       
                     }
