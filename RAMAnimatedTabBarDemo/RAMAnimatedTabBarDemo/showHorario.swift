@@ -102,6 +102,15 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     var html:Data? = nil
     
     
+    func finishPost (message:String, data:Data?) -> Void {
+        
+     DispatchQueue.main.async {
+        print("Volta ao horario")
+        ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: self.semestre , finish: self.finishGetHorario)
+         self.removeSpinner()
+        }
+      }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -289,7 +298,22 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             
 
             let html = String(data: data!, encoding: .isoLatin1)
-            print( html )
+            print( html! )
+            if( (html?.contains("geral de utente"))!){
+                let defaults = UserDefaults.standard
+                let username = defaults.string(forKey: "username")
+                let password = defaults.string(forKey: "password")
+                print("useername" , username! )
+                print("pass" , password! )
+                let params = ["identificador": username!,
+                              "senha":password!
+                ]
+                self.showSpinner(onView: self.view)
+                
+                ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: finishPost)
+
+            }
+            else{
 
             
             do {
@@ -430,6 +454,8 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 self.current = self.dataS
                 self.tableView.reloadData()
             }
+               
+        }
             
             
         }
