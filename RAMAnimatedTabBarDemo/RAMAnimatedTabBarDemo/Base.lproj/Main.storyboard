@@ -576,50 +576,17 @@
             </objects>
             <point key="canvasLocation" x="537" y="479"/>
         </scene>
-        <!--NEEC-->
+        <!--Home-->
         <scene sceneID="ttZ-oS-sRQ">
             <objects>
                 <viewController id="eCt-4k-9Vu" customClass="SobreNeec" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JgG-ft-dcB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOG-ow-s1P">
-                                <rect key="frame" x="0.0" y="55" width="375" height="563"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WYF-8o-Ekc">
-                                <rect key="frame" x="23" y="20" width="329" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="yOF-bK-kSz"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="NEEC"/>
-                                    <segment title="Equipa"/>
-                                </segments>
-                                <connections>
-                                    <action selector="toggle:" destination="eCt-4k-9Vu" eventType="valueChanged" id="CN0-g6-cIe"/>
-                                    <action selector="toggle:" destination="Ka3-35-OFg" eventType="valueChanged" id="NVp-lb-WaN"/>
-                                </connections>
-                            </segmentedControl>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="sOG-ow-s1P" firstAttribute="bottom" secondItem="kSB-yj-LRJ" secondAttribute="bottom" id="0ye-ZC-F1A"/>
-                            <constraint firstItem="WYF-8o-Ekc" firstAttribute="centerX" secondItem="sOG-ow-s1P" secondAttribute="centerX" id="8Ee-0S-3xJ"/>
-                            <constraint firstItem="sOG-ow-s1P" firstAttribute="top" secondItem="WYF-8o-Ekc" secondAttribute="bottom" constant="8" symbolic="YES" id="HbA-fi-spa"/>
-                            <constraint firstItem="WYF-8o-Ekc" firstAttribute="top" secondItem="kSB-yj-LRJ" secondAttribute="top" id="IdZ-FD-6g3"/>
-                            <constraint firstAttribute="trailing" secondItem="sOG-ow-s1P" secondAttribute="trailing" id="NLn-tH-b4r"/>
-                            <constraint firstItem="sOG-ow-s1P" firstAttribute="leading" secondItem="JgG-ft-dcB" secondAttribute="leading" id="nOQ-DP-eB6"/>
-                            <constraint firstItem="WYF-8o-Ekc" firstAttribute="leading" secondItem="kSB-yj-LRJ" secondAttribute="leading" constant="23" id="sYy-lB-9Tm"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kSB-yj-LRJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="NEEC" image="neec" id="EiX-sv-bUZ" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Home" image="casa" id="EiX-sv-bUZ" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -629,12 +596,8 @@
                             <outlet property="animation" destination="BSW-Za-y3b" id="Q93-Wg-KJV"/>
                         </connections>
                     </tabBarItem>
-                    <connections>
-                        <outlet property="webview" destination="sOG-ow-s1P" id="JCh-Kw-exG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bq-TO-3KR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Ka3-35-OFg" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="BSW-Za-y3b" customClass="RAMFumeAnimation" customModule="Animated_Tab_Bar" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
@@ -650,6 +613,47 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="-237.59999999999999" y="1227.4362818590705"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Utm-Gn-E5e">
+            <objects>
+                <viewController id="g39-q9-CLf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KCX-PV-mar">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fctedbranco" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-dQ-O8T">
+                                <rect key="frame" x="0.0" y="202" width="375" height="465"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verdefct" translatesAutoresizingMaskIntoConstraints="NO" id="0XD-iK-1D6">
+                                <rect key="frame" x="0.0" y="75" width="375" height="84"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluefundo" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-gh-GGr">
+                                <rect key="frame" x="0.0" y="178" width="375" height="81.000000000000028"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uax-dQ-O8T" firstAttribute="bottom" secondItem="eDH-Ge-2jY" secondAttribute="bottom" id="1Ao-uF-MX0"/>
+                            <constraint firstItem="CiQ-gh-GGr" firstAttribute="leading" secondItem="eDH-Ge-2jY" secondAttribute="leading" id="2sU-E7-FbF"/>
+                            <constraint firstItem="Uax-dQ-O8T" firstAttribute="top" secondItem="eDH-Ge-2jY" secondAttribute="top" constant="138" id="5FR-Sb-x1P"/>
+                            <constraint firstItem="Uax-dQ-O8T" firstAttribute="leading" secondItem="eDH-Ge-2jY" secondAttribute="leading" id="K9c-AA-N38"/>
+                            <constraint firstItem="eDH-Ge-2jY" firstAttribute="trailing" secondItem="CiQ-gh-GGr" secondAttribute="trailing" id="LZg-JU-wnd"/>
+                            <constraint firstItem="Uax-dQ-O8T" firstAttribute="trailing" secondItem="eDH-Ge-2jY" secondAttribute="trailing" id="PJL-5d-iIG"/>
+                            <constraint firstItem="eDH-Ge-2jY" firstAttribute="bottom" secondItem="0XD-iK-1D6" secondAttribute="bottom" constant="508" id="Qwx-mg-tgN"/>
+                            <constraint firstItem="0XD-iK-1D6" firstAttribute="leading" secondItem="eDH-Ge-2jY" secondAttribute="leading" id="d4z-ud-KR9"/>
+                            <constraint firstItem="0XD-iK-1D6" firstAttribute="trailing" secondItem="eDH-Ge-2jY" secondAttribute="trailing" id="ebU-rR-Xgz"/>
+                            <constraint firstItem="0XD-iK-1D6" firstAttribute="top" secondItem="eDH-Ge-2jY" secondAttribute="top" constant="11" id="jj6-md-fxg"/>
+                            <constraint firstItem="CiQ-gh-GGr" firstAttribute="top" secondItem="0XD-iK-1D6" secondAttribute="bottom" constant="19" id="tJJ-4r-pYH"/>
+                            <constraint firstItem="eDH-Ge-2jY" firstAttribute="bottom" secondItem="CiQ-gh-GGr" secondAttribute="bottom" constant="408" id="vbk-U2-6Hh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eDH-Ge-2jY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fsU-KZ-eiW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2SS-h4-MaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701.60000000000002" y="1993.8530734632686"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="rxZ-sE-b31">
@@ -851,15 +855,36 @@
             </objects>
             <point key="canvasLocation" x="1348" y="478.11094452773619"/>
         </scene>
+        <!--MenuF Ct-->
+        <scene sceneID="JEI-22-Iyo">
+            <objects>
+                <navigationController storyboardIdentifier="MenuFCT" automaticallyAdjustsScrollViewInsets="NO" id="5Px-BC-3Bi" customClass="MenuFCt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q2k-T7-q8N">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="g39-q9-CLf" kind="relationship" relationship="rootViewController" id="Nu9-N0-3vD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4zS-Lm-QTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-237.59999999999999" y="1993.8530734632686"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg5" width="320" height="568"/>
+        <image name="bluefundo" width="540" height="187"/>
         <image name="calendario" width="25" height="25"/>
+        <image name="casa" width="24" height="24"/>
+        <image name="fctedbranco" width="407" height="579"/>
         <image name="informacao" width="25" height="25"/>
         <image name="mapa" width="25" height="25"/>
-        <image name="neec" width="25" height="25"/>
         <image name="news" width="25" height="25"/>
         <image name="paperclip" width="256" height="256"/>
+        <image name="verdefct" width="540" height="361"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8tr-9g-edO"/>

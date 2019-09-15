@@ -42,6 +42,7 @@
 		9CE194FA22F763DE00C26F35 /* Informacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE194F922F763DE00C26F35 /* Informacao.swift */; };
 		9CE194FC22F7751800C26F35 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE194FB22F7751800C26F35 /* CheckInternet.swift */; };
 		9CE194FE22F8801900C26F35 /* ScreenSeguranca.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE194FD22F8801900C26F35 /* ScreenSeguranca.swift */; };
+		9CE407E2232EB1EC00EF7CAB /* MenuFCT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407E1232EB1EC00EF7CAB /* MenuFCT.swift */; };
 		C562BD4177761A8AC8BB7752 /* Pods_RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */; };
 		CE4146781A1B923D0037F03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146771A1B923D0037F03C /* AppDelegate.swift */; };
 		CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146791A1B923D0037F03C /* ViewController.swift */; };
@@ -123,6 +124,7 @@
 		9CE194F922F763DE00C26F35 /* Informacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informacao.swift; sourceTree = "<group>"; };
 		9CE194FB22F7751800C26F35 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		9CE194FD22F8801900C26F35 /* ScreenSeguranca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSeguranca.swift; sourceTree = "<group>"; };
+		9CE407E1232EB1EC00EF7CAB /* MenuFCT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFCT.swift; sourceTree = "<group>"; };
 		CE4146721A1B923D0037F03C /* Animated Tab Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animated Tab Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4146761A1B923D0037F03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4146771A1B923D0037F03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				9C06C913231A1DA300911147 /* showHorario.swift */,
 				9C06C915231D697000911147 /* studenNumber.swift */,
 				9C75360D231DEEB0003DF330 /* HeadlineTableViewCel.swift */,
+				9CE407E1232EB1EC00EF7CAB /* MenuFCT.swift */,
 			);
 			path = RAMAnimatedTabBarDemo;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				9C06C912231A1B0F00911147 /* ApiService.swift in Sources */,
 				9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */,
 				CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */,
+				9CE407E2232EB1EC00EF7CAB /* MenuFCT.swift in Sources */,
 				5ADAB94A209B0FA8006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */,
 				CE90A8431A1C8DD3002D8931 /* RAMRotationAnimation.swift in Sources */,
 				F3E056BE1A2DD57600F33DDA /* RAMFumeAnimation.swift in Sources */,
