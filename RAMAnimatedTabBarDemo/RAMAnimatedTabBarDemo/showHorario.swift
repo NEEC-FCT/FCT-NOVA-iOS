@@ -308,7 +308,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                 let params = ["identificador": username!,
                               "senha":password!
                 ]
-                self.showSpinner(onView: self.view)
+                self.removeSpinner()
                 
                 ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: finishPost)
 
@@ -356,13 +356,15 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         var scheduleClassType = String(turno.suffix(1));
                         scheduleClassType += String(href[8].last!)
                         
-                        let scheduleClassName = try td.attr("title");
+                        var scheduleClassName = try td.attr("title");
                         let scheduleClassNameMin:String = try child[0].outerHtml().slice(from: "<b>", to: "</b>")!
           
                         let scheduleClassDuration = try td.attr("rowspan");
                         var dateDuration = ( Int(scheduleClassDuration)! / 2);
-                        // Calculate scheduleClassHourStart & End
-                      //  print( "last-> " , horas_inicio)
+                      
+                        if( try horas_inicio.html().contains(":")){
+                            lastDate = try horas_inicio.html()
+                        }
                         
                        
                         var scheduleClassHourStart:String? = try horas_inicio.html();
@@ -371,18 +373,32 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                          let separador = try horas_inicio.html().components(separatedBy: ":")
                       
                         if(  separador.count == 1 ){
-                            //print("-----> " , lastDate )
+                
+                            var crawl = true
                             dateDuration = dateDuration + 1
                             scheduleClassHourStart = lastDate
-                            let horas = try scheduleClassHourStart!.components(separatedBy: ":")
-                            let HourStar = horas[0]
-                            let  MinStart = horas[1]
+                            let horas = scheduleClassHourStart!.components(separatedBy: ":")
+                            var HourStar = "8"
+                            var  MinStart = "30"
+                            if( horas.count >= 2){
+                                 HourStar = horas[0]
+                                 MinStart = horas[1]
+                                crawl = false
+                                
+                            }
+                          
+                    
                             let startDate  = Calendar.current.date(bySettingHour: Int(HourStar)!, minute: Int(MinStart)!, second: 0, of: Date())!
                             
                             let calendar = Calendar.current
                             let date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
                             let hour = calendar.component(.hour, from: date!)
                             let minutes = calendar.component(.minute, from: date!)
+                            
+                            if(crawl){
+                                scheduleClassHourStart = "8:30"
+                            }
+                            
                             if( minutes == 0){
                                 scheduleClassHourEnd = String(hour) + ":00"
                             }
@@ -410,23 +426,24 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                             }
                         }
                    
-                        if( try horas_inicio.html().contains(":")){
-                           lastDate = try horas_inicio.html()
-                        }
+                    
                        
                     
                         // Create scheduleClass
-                        
+                        /*
                         print("Dia semana " + String(scheduleDayNumber ))
                         print(String(scheduleClassName ));
                         print(String(scheduleClassNameMin ));
                         print(String(scheduleClassType ));
                         print(String(scheduleClassHourStart ?? ""));
                         print( scheduleClassHourEnd ?? "");
-                        print(scheduleClassRoom  ?? "");
+                        print(scheduleClassRoom  ?? "");*/
+                        
+                        //adiciona o tipo
+                        scheduleClassName  = scheduleClassName + " " + scheduleClassType
                         
                         if(scheduleDayNumber == 2){
-                          dataS.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim: scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                          dataS.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim: scheduleClassHourEnd , nome: scheduleClassName , sala: scheduleClassRoom ?? ""))
                         }
                         else if (scheduleDayNumber == 3){
                             dataT.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
