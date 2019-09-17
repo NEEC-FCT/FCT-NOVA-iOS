@@ -228,7 +228,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             let alert = UIAlertController(title: "Escolha o semestre", message: "", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "1º Semestre", style: .default, handler: { action in
-                print("1")
+               // print("1")
                 let defaults = UserDefaults.standard
                 defaults.set(1, forKey: "semestreSelected")
                   self.showSpinner(onView: self.view)
@@ -237,7 +237,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             }))
             
             alert.addAction(UIAlertAction(title: "2º Semestre", style: .default, handler: { action in
-                print("2")
+                //print("2")
                 let defaults = UserDefaults.standard
                 defaults.set(2, forKey: "semestreSelected")
                   self.showSpinner(onView: self.view)

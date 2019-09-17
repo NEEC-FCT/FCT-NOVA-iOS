@@ -38,6 +38,11 @@ class Informacao: UIViewController  , WKNavigationDelegate {
             }
 
             break
+            
+        case 3:
+            
+            self.performSegue(withIdentifier: "gotoAval", sender: nil)
+            break
            
         default:
             break

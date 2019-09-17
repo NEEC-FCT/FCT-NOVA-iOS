@@ -26,13 +26,13 @@ class MenuFCT: UIViewController  {
     
     
     @IBAction func powerbyClicked(_ sender: Any) {
-        guard let url = URL(string: "http://neec-fct.com/") else { return }
+        guard let url = URL(string: "https://neec-fct.com/") else { return }
         UIApplication.shared.open(url)
     }
     
     
     @IBAction func neeclogoClicked(_ sender: Any) {
-        guard let url = URL(string: "http://neec-fct.com/") else { return }
+        guard let url = URL(string: "https://neec-fct.com/") else { return }
         UIApplication.shared.open(url)
     }
     
@@ -57,7 +57,7 @@ class MenuFCT: UIViewController  {
     
     
     @IBAction func sobreClicked(_ sender: Any) {
-        guard let url = URL(string: "http://fctapp.neec-fct.com/equipa/about.html") else { return }
+        guard let url = URL(string: "https://fctapp.neec-fct.com/equipa/about.html") else { return }
         UIApplication.shared.open(url)
     }
     

@@ -13,6 +13,102 @@ import SwiftSoup
 class ApiService
 {
     
+    
+    static func callGetTestCalendar(year:String,  studentNumberId:String ,  semester:Int , finish: @escaping ((message:String, data:Data?)) -> Void)
+    {
+        
+        //Processa os dados
+        
+        let start = year.prefix(2)
+        let end = year.suffix(2)
+        let newyear = start + end
+        print("ano " + newyear)
+        
+        let STUDENT_CALENDAR_TEST_1 = "https://clip.unl.pt/utente/eu/aluno/acto_curricular/inscri%E7%E3o/testes_de_avalia%E7%E3o?institui%E7%E3o=97747&aluno=";
+        let STUDENT_CALENDAR_TEST_2 = "&ano_lectivo=";
+        let STUDENT_CALENDAR_TEST_3 = "&tipo_de_per%EDodo_lectivo=s&per%EDodo_lectivo=";
+        let STUDENT_CALENDAR_TEST_3_TRIMESTER = "&tipo_de_per%EDodo_lectivo=t&per%EDodo_lectivo=";
+        
+        var  url = STUDENT_CALENDAR_TEST_1 + studentNumberId + STUDENT_CALENDAR_TEST_2 + year;
+        if (semester == 3) {
+           url += STUDENT_CALENDAR_TEST_3_TRIMESTER + String(semester - 1);
+        }
+        else{
+           url += STUDENT_CALENDAR_TEST_3 + String(semester);
+        }
+        
+        
+        print(url)
+        
+        var request = URLRequest(url: NSURL(string: url)! as URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        let cookies = readCookie(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
+        //print("Cookies before request: ", cookies)
+        
+        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
+        let task = session.dataTask(with: request) { data, response, error in
+            if let httpResponse = response as? HTTPURLResponse, let fields = httpResponse.allHeaderFields as? [String : String] {
+                let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: response!.url!)
+                HTTPCookieStorage.shared.setCookies(cookies, for: response!.url!, mainDocumentURL: nil)
+                result.message = "False"
+                result.data = data
+                
+            }
+            finish(result)
+        }
+        task.resume()
+        
+    }
+    
+    
+    static func callGetExamCalendar(year:String,  studentNumberId:String ,  semester:Int , finish: @escaping ((message:String, data:Data?)) -> Void)
+    {
+        
+        //Processa os dados
+        
+        let start = year.prefix(2)
+        let end = year.suffix(2)
+        let newyear = start + end
+        print("ano " + newyear)
+        
+        let  STUDENT_CALENDAR_EXAM_1 = "https://clip.unl.pt/utente/eu/aluno/ano_lectivo/calend%E1rio?ano_lectivo=";
+        let STUDENT_CALENDAR_EXAM_2 = "&aluno=";
+        let STUDENT_CALENDAR_EXAM_3 = "&institui%E7%E3o=97747&tipo_de_per%EDodo_lectivo=s&per%EDodo_lectivo=";
+        let STUDENT_CALENDAR_EXAM_3_TRIMESTER = "&institui%E7%E3o=97747&tipo_de_per%EDodo_lectivo=t&per%EDodo_lectivo=";
+    
+        var url = STUDENT_CALENDAR_EXAM_1 + year + STUDENT_CALENDAR_EXAM_2 + studentNumberId;
+        // Trimester
+        if (semester == 3){
+              url += STUDENT_CALENDAR_EXAM_3_TRIMESTER + String(semester - 1);
+        }
+        else{
+              url += STUDENT_CALENDAR_EXAM_3 + String(semester);
+        }
+    
+        print(url)
+        
+        var request = URLRequest(url: NSURL(string: url)! as URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        let cookies = readCookie(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
+        //print("Cookies before request: ", cookies)
+        
+        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
+        let task = session.dataTask(with: request) { data, response, error in
+            if let httpResponse = response as? HTTPURLResponse, let fields = httpResponse.allHeaderFields as? [String : String] {
+                let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: response!.url!)
+                HTTPCookieStorage.shared.setCookies(cookies, for: response!.url!, mainDocumentURL: nil)
+                result.message = "False"
+                result.data = data
+                
+            }
+            finish(result)
+        }
+        task.resume()
+        
+    }
+    
 
     
     static func callGetHorario(year:String,  studentNumberId:String ,  semester:Int , finish: @escaping ((message:String, data:Data?)) -> Void)
