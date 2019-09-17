@@ -46,6 +46,8 @@
 		9CE407E42330A33D00EF7CAB /* avalicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407E32330A33D00EF7CAB /* avalicao.swift */; };
 		9CE407E623314E8900EF7CAB /* showFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407E523314E8900EF7CAB /* showFiles.swift */; };
 		9CE407E823315F7400EF7CAB /* showAulas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407E723315F7400EF7CAB /* showAulas.swift */; };
+		9CE407EA23317BF200EF7CAB /* chooceYearCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407E923317BF200EF7CAB /* chooceYearCalendar.swift */; };
+		9CE407EC23317F8100EF7CAB /* pickSemestreCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407EB23317F8100EF7CAB /* pickSemestreCalendar.swift */; };
 		C562BD4177761A8AC8BB7752 /* Pods_RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */; };
 		CE4146781A1B923D0037F03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146771A1B923D0037F03C /* AppDelegate.swift */; };
 		CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146791A1B923D0037F03C /* ViewController.swift */; };
@@ -131,6 +133,8 @@
 		9CE407E32330A33D00EF7CAB /* avalicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avalicao.swift; sourceTree = "<group>"; };
 		9CE407E523314E8900EF7CAB /* showFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showFiles.swift; sourceTree = "<group>"; };
 		9CE407E723315F7400EF7CAB /* showAulas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = showAulas.swift; path = ../../RAMAnimatedTabBarController/showAulas.swift; sourceTree = "<group>"; };
+		9CE407E923317BF200EF7CAB /* chooceYearCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chooceYearCalendar.swift; sourceTree = "<group>"; };
+		9CE407EB23317F8100EF7CAB /* pickSemestreCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickSemestreCalendar.swift; sourceTree = "<group>"; };
 		CE4146721A1B923D0037F03C /* Animated Tab Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animated Tab Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4146761A1B923D0037F03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4146771A1B923D0037F03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 				9CE407E723315F7400EF7CAB /* showAulas.swift */,
 				9CE407E32330A33D00EF7CAB /* avalicao.swift */,
 				9CE407E523314E8900EF7CAB /* showFiles.swift */,
+				9CE407E923317BF200EF7CAB /* chooceYearCalendar.swift */,
+				9CE407EB23317F8100EF7CAB /* pickSemestreCalendar.swift */,
 			);
 			path = RAMAnimatedTabBarDemo;
 			sourceTree = "<group>";
@@ -654,6 +660,8 @@
 				5ADAB94A209B0FA8006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */,
 				CE90A8431A1C8DD3002D8931 /* RAMRotationAnimation.swift in Sources */,
 				F3E056BE1A2DD57600F33DDA /* RAMFumeAnimation.swift in Sources */,
+				9CE407EC23317F8100EF7CAB /* pickSemestreCalendar.swift in Sources */,
+				9CE407EA23317BF200EF7CAB /* chooceYearCalendar.swift in Sources */,
 				9CE194FE22F8801900C26F35 /* ScreenSeguranca.swift in Sources */,
 				9CE407E42330A33D00EF7CAB /* avalicao.swift in Sources */,
 				CE41469F1A1B944D0037F03C /* RAMTransitionItemAnimations.swift in Sources */,
