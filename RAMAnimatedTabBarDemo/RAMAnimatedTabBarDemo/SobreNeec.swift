@@ -14,6 +14,8 @@ class SobreNeec: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

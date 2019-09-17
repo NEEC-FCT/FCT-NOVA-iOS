@@ -24,5 +24,11 @@ class MenuFCT: UIViewController  {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func faceClicked(_ sender: Any) {
+    }
+    
+    @IBAction func instaClicked(_ sender: Any) {
+    }
+    
+    
 }
