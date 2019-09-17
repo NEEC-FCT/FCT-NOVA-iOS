@@ -677,6 +677,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="horariocliked:" destination="g39-q9-CLf" eventType="touchUpInside" id="Un5-nc-076"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6g-Zv-Ibj">
                                                 <rect key="frame" x="68.5" y="0.0" width="68.5" height="54.5"/>
@@ -689,6 +692,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clipClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="im3-Uh-6kU"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEq-Rs-cMg">
                                                 <rect key="frame" x="206" y="0.0" width="68.5" height="54.5"/>
@@ -706,6 +712,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="avaliacaoClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="kOn-57-eTD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -728,6 +737,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="calenClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="rcT-sD-lZ5"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNa-KA-SfR">
                                                 <rect key="frame" x="68.5" y="0.0" width="68.5" height="54.5"/>
@@ -740,6 +752,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="mapaClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="99M-F3-tG8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDV-F7-hhV">
                                                 <rect key="frame" x="206" y="0.0" width="68.5" height="54.5"/>
@@ -752,6 +767,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="infoClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="5GJ-sw-jpG"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -774,6 +792,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="ecoClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="iQC-3H-k7l"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQU-Q4-ivo">
                                                 <rect key="frame" x="68.5" y="0.0" width="68.5" height="54.5"/>
@@ -786,6 +807,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="happyClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="Dlg-ym-Q9s"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWq-td-ma1">
                                                 <rect key="frame" x="206" y="0.0" width="68.5" height="54.5"/>
@@ -798,6 +822,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="happyClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="FJR-Hi-XKQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -831,6 +858,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sobreClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="MU9-Vq-wUs"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVh-X4-grI">
                                                 <rect key="frame" x="206" y="0.0" width="68.5" height="54.5"/>
@@ -843,6 +873,9 @@
                                                         <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="propinasClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="HTT-KP-Nwj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -857,6 +890,9 @@
                                 <state key="normal" title="POWERED BY ">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="powerbyClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="M6r-nU-MOu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vr-bF-N8I">
                                 <rect key="frame" x="192" y="631" width="76" height="27"/>
@@ -869,6 +905,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="neeclogoClicked:" destination="g39-q9-CLf" eventType="touchUpInside" id="C8y-5y-zem"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
