@@ -11,11 +11,16 @@ import Foundation
 import SwiftSoup
 
 
-class pickSemestreCalendar: UIViewController , UITableViewDelegate , UITableViewDataSource  {
+class pickType: UIViewController , UITableViewDelegate , UITableViewDataSource  {
     
     
     var urlSelect:String = ""
-    var years  = ["1º Semestre" , "2º Semestre" , "2º Trimestre"]
+    var years  = ["Acetatos" , "Problemas" , "Protocolos" , "Seminários", "Exames", "Testes" , "Textos de Apoio" , "Outros"]
+    
+    var url  = ["0ac" , "1e" , "2tr" , "3sm", "ex", "t" , "ta" , "xot"]
+    
+    
+
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -37,10 +42,10 @@ class pickSemestreCalendar: UIViewController , UITableViewDelegate , UITableView
         
         DispatchQueue.main.async {
             let defaults = UserDefaults.standard
-            defaults.set(String(indexPath.row + 1), forKey: "urlSelect")
+            defaults.set(String(indexPath.row), forKey: "urlSelect")
             defaults.set(1, forKey: "semestreSelected")
             
-            self.performSegue(withIdentifier: "goCalendary", sender: nil)
+            self.performSegue(withIdentifier: "showDocs", sender: nil)
         }
         
     }
@@ -52,11 +57,11 @@ class pickSemestreCalendar: UIViewController , UITableViewDelegate , UITableView
         //Check clip login
         tableView.dataSource = self
         tableView.delegate = self
-
+        
         
     }
     
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

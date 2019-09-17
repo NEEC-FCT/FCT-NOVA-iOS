@@ -10,16 +10,53 @@ import UIKit
 import Foundation
 import SwiftSoup
 
-class showFiles: UIViewController  {
+class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource  {
     
     var id:String = ""
     var ano:String = ""
     var semestre:Int = 1
     var html:Data? = nil
+    var years = [String]()
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return years.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = years[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\(years[indexPath.row])!")
+        
+        //Muda de view
+        
+        DispatchQueue.main.async {
+            let defaults = UserDefaults.standard
+            defaults.set(String(indexPath.row), forKey: "urlSelect")
+            defaults.set(1, forKey: "semestreSelected")
+            
+            self.performSegue(withIdentifier: "gotoTypes", sender: nil)
+        }
+        
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let defaults = UserDefaults.standard
+        self.hideKeyboardWhenTappedAround()
+        //Check clip login
+        tableView.dataSource = self
+        tableView.delegate = self
         semestre = defaults.integer(forKey: "semestreSelected")
         id =  defaults.string(forKey: "IDaluno")!
         ano = defaults.string(forKey: "urlSelect")!
@@ -57,6 +94,7 @@ class showFiles: UIViewController  {
                 print(className);
                 print(semester_final.split(separator: "=")[1]);
                 print( classID_final.split(separator: "=")[1] );
+                self.years.append(className)
                 
                  }
             else if(linkHref.matches("/utente/eu/aluno/ano_lectivo/unidades[?](.)*&tipo_de_per%EDodo_lectivo=t&(.)*")){
@@ -72,6 +110,7 @@ class showFiles: UIViewController  {
                 print(className);
                 print( classID_final.split(separator: "=")[1] );
                 print ("3")
+                self.years.append(className)
                 
                 }
             }
@@ -79,7 +118,12 @@ class showFiles: UIViewController  {
         }  catch {
             print("error")
         }
-        //Falta ser processado
+        DispatchQueue.main.async {
+            
+
+            print(self.years)
+            self.tableView.reloadData()
+        }
         
     }
     
