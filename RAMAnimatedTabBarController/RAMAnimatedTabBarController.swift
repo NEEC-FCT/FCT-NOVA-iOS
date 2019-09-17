@@ -287,7 +287,16 @@ open class RAMAnimatedTabBarController: UITabBarController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         initializeContainers()
-        setSelectIndex(from: 2, to: 2)
+        let tab = UserDefaults.standard.integer(forKey: "open")
+        UserDefaults.standard.removeObject(forKey: "open")
+        print("Tab is: " + String(tab))
+        if(tab == 0){
+            setSelectIndex(from: 2, to: 2)
+        }
+        else{
+            setSelectIndex(from: tab, to: tab)
+        }
+        
     }
 
     fileprivate func initializeContainers() {

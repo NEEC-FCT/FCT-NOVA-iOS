@@ -39,8 +39,13 @@ class Informacao: UIViewController  , WKNavigationDelegate {
 
             break
             
-        case 3:
+        case 2:
+            segmentedControl.selectedSegmentIndex = 0
+     
+            break
             
+        case 3:
+            segmentedControl.selectedSegmentIndex = 0
             self.performSegue(withIdentifier: "gotoAval", sender: nil)
             break
            

@@ -78,8 +78,6 @@
     ViewController *loginVC = (ViewController*)[storyboard instantiateViewControllerWithIdentifier:@"RAMAnimatedTabBarController"];
       [self presentViewController: loginVC animated:YES completion:NULL];
 
-    
-    
 }
 
 #pragma mark - Custom actions
