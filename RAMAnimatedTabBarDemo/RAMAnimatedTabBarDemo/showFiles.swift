@@ -24,7 +24,7 @@ class showFiles: UIViewController  {
         id =  defaults.string(forKey: "IDaluno")!
         ano = defaults.string(forKey: "urlSelect")!
         print("Recebi " + id + " " + ano)
-        ApiService.callGetgetClassesDocs(year: self.ano, course: "11174", docType: "0ac", studentNumberId: self.id, semester: self.semestre , finish: self.finishGetAvalicacao )
+        ApiService.callGetgetClassesDocs(year: self.ano , studentNumberId: self.id,  finish: self.finishGetAvalicacao )
         
         
     }
@@ -32,28 +32,49 @@ class showFiles: UIViewController  {
     func finishGetAvalicacao (message:String, data:Data?) -> Void {
         
         
-        print("Recebi")
+        print("Recebi Files")
         let html = String(data: data!, encoding: .isoLatin1)
-        //print( html! )
+        print( html! )
         do {
             let doc: Document = try SwiftSoup.parse(html!)
-            let docs: Elements = try doc.body()!.select("form[method=post]").array()[1].select("tr");
-
+            let hrefs: Elements = try doc.body()!.select("a[href]")
             
-            for doc in docs {
-                if (!doc.hasAttr("bgcolor")){ continue };
-      
+            for  href in hrefs {
                 
-                print("File data")
-                print(try doc.child(0).text());
-                print(try doc.child(1).child(0).attr("href"));
-                print( try doc.child(2).text());
-                print( try doc.child(3).text());
-                print( try doc.child(4).text());
-        
+            let linkHref = try href.attr("href");
+                
+         
+                
+            if(linkHref.matches("/utente/eu/aluno/ano_lectivo/unidades[?](.)*&tipo_de_per%EDodo_lectivo=s&(.)*")) {
+          
+                let class_url = linkHref.split(separator: "&");
+                let semester = class_url[class_url.count - 1];
+                let classID = class_url[class_url.count - 3];
+                let className = try href.text();
+                let semester_final = semester.suffix( semester.count - 1)
+                let classID_final = classID.suffix(10);
+                print("Classes")
+                print(className);
+                print(semester_final.split(separator: "=")[1]);
+                print( classID_final.split(separator: "=")[1] );
+                
+                 }
+            else if(linkHref.matches("/utente/eu/aluno/ano_lectivo/unidades[?](.)*&tipo_de_per%EDodo_lectivo=t&(.)*")){
+                
+                let class_url = linkHref.split(separator: "&");
+                
+                //String semester = class_url[class_url.length - 1];
+                let classID = class_url[class_url.count - 3];
+                
+                let className = try href.text();
+                //int semester_final = Integer.valueOf(semester.substring(semester.length() - 1));
+                 let classID_final = classID.suffix( 8 );
+                print(className);
+                print( classID_final.split(separator: "=")[1] );
+                print ("3")
+                
                 }
-                
-            
+            }
             
         }  catch {
             print("error")
@@ -65,5 +86,14 @@ class showFiles: UIViewController  {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+}
+
+
+extension String {
+    func matches(_ regex: String) -> Bool {
+        return self.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
     }
 }

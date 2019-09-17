@@ -14,6 +14,46 @@ class ApiService
 {
  
     
+    static func callGetgetClassesDocs(year:String , studentNumberId:String , finish: @escaping ((message:String, data:Data?)) -> Void){
+        
+        //URL
+        let STUDENT_CLASSES_1 = "https://clip.unl.pt/utente/eu/aluno/ano_lectivo?aluno=";
+        let STUDENT_CLASSES_2 = "&institui%E7%E3o=97747&ano_lectivo=";
+        
+        //Processa os dados
+        
+        let start = year.prefix(2)
+        let end = year.suffix(2)
+        let newyear = start + end
+        print("ano " + newyear)
+        
+        let url = STUDENT_CLASSES_1 + studentNumberId + STUDENT_CLASSES_2 + newyear;
+        
+        
+        print(url)
+        
+        var request = URLRequest(url: NSURL(string: url)! as URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        let cookies = readCookie(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
+        //print("Cookies before request: ", cookies)
+        
+        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
+        let task = session.dataTask(with: request) { data, response, error in
+            if let httpResponse = response as? HTTPURLResponse, let fields = httpResponse.allHeaderFields as? [String : String] {
+                let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: response!.url!)
+                HTTPCookieStorage.shared.setCookies(cookies, for: response!.url!, mainDocumentURL: nil)
+                result.message = "False"
+                result.data = data
+                
+            }
+            finish(result)
+        }
+        task.resume()
+        
+    }
+    
+    
     static func callGetgetClassesDocs(year:String, course:String  , docType:String   , studentNumberId:String ,  semester:Int , finish: @escaping ((message:String, data:Data?)) -> Void){
         
         //URL

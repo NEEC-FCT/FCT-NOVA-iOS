@@ -131,7 +131,7 @@
                         <segue destination="BkH-CD-FAH" kind="show" identifier="cliplogin" id="q2A-mr-qMi"/>
                         <segue destination="FNZ-g3-CUc" kind="show" identifier="allogin" id="uG3-Qy-WWg"/>
                         <segue destination="T1q-O0-eoK" kind="show" identifier="gotoAval" id="V5L-oe-VfV"/>
-                        <segue destination="pke-zr-mtT" kind="show" identifier="gotoFicheiros" id="cGA-qp-gtl"/>
+                        <segue destination="gbU-G1-gH5" kind="show" identifier="gotoFicheiros" id="4Oz-PT-ObZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1233,6 +1233,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpQ-IB-9hu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3848.8000000000002" y="465.51724137931041"/>
+        </scene>
+        <!--Show Files-->
+        <scene sceneID="G4E-hn-Sru">
+            <objects>
+                <viewController id="gbU-G1-gH5" customClass="showFiles" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wl6-NX-TN3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="X61-rN-PJy"/>
+                    </view>
+                    <connections>
+                        <segue destination="pke-zr-mtT" kind="show" id="49G-tO-Yr7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMG-ox-xiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2234" y="-507"/>
         </scene>
         <!--Show Files-->
         <scene sceneID="eQF-YN-MSi">
