@@ -41,7 +41,7 @@ class Informacao: UIViewController  , WKNavigationDelegate {
             
         case 2:
             segmentedControl.selectedSegmentIndex = 0
-     
+            self.performSegue(withIdentifier: "gotoFicheiros", sender: nil)
             break
             
         case 3:

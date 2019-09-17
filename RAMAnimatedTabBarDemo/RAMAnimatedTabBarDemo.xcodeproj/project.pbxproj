@@ -44,6 +44,7 @@
 		9CE194FE22F8801900C26F35 /* ScreenSeguranca.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE194FD22F8801900C26F35 /* ScreenSeguranca.swift */; };
 		9CE407E2232EB1EC00EF7CAB /* MenuFCT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407E1232EB1EC00EF7CAB /* MenuFCT.swift */; };
 		9CE407E42330A33D00EF7CAB /* avalicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407E32330A33D00EF7CAB /* avalicao.swift */; };
+		9CE407E623314E8900EF7CAB /* showFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE407E523314E8900EF7CAB /* showFiles.swift */; };
 		C562BD4177761A8AC8BB7752 /* Pods_RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A8DA7EA2CD6BAD5126ECC1 /* Pods_RAMAnimatedTabBarController.framework */; };
 		CE4146781A1B923D0037F03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146771A1B923D0037F03C /* AppDelegate.swift */; };
 		CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4146791A1B923D0037F03C /* ViewController.swift */; };
@@ -127,6 +128,7 @@
 		9CE194FD22F8801900C26F35 /* ScreenSeguranca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSeguranca.swift; sourceTree = "<group>"; };
 		9CE407E1232EB1EC00EF7CAB /* MenuFCT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFCT.swift; sourceTree = "<group>"; };
 		9CE407E32330A33D00EF7CAB /* avalicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avalicao.swift; sourceTree = "<group>"; };
+		9CE407E523314E8900EF7CAB /* showFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showFiles.swift; sourceTree = "<group>"; };
 		CE4146721A1B923D0037F03C /* Animated Tab Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animated Tab Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4146761A1B923D0037F03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4146771A1B923D0037F03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				9C75360D231DEEB0003DF330 /* HeadlineTableViewCel.swift */,
 				9CE407E1232EB1EC00EF7CAB /* MenuFCT.swift */,
 				9CE407E32330A33D00EF7CAB /* avalicao.swift */,
+				9CE407E523314E8900EF7CAB /* showFiles.swift */,
 			);
 			path = RAMAnimatedTabBarDemo;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				84BC64221C22E4C800B89B79 /* RAMBadge.swift in Sources */,
 				9C9CC4CF22DA8FE8002A0D38 /* SobreNeec.swift in Sources */,
 				9C9CC4C822D9F53D002A0D38 /* Mapa.swift in Sources */,
+				9CE407E623314E8900EF7CAB /* showFiles.swift in Sources */,
 				9C9CC4CD22DA4290002A0D38 /* Noticias.swift in Sources */,
 				9C056AFF22F5F3EE00B119D4 /* IntroController.m in Sources */,
 				CE4146A01A1B944D0037F03C /* RAMItemAnimationProtocol.swift in Sources */,

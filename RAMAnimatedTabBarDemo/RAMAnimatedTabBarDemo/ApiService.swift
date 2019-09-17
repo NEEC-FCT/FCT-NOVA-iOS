@@ -12,6 +12,62 @@ import SwiftSoup
 
 class ApiService
 {
+ 
+    
+    static func callGetgetClassesDocs(year:String, course:String  , docType:String   , studentNumberId:String ,  semester:Int , finish: @escaping ((message:String, data:Data?)) -> Void){
+        
+        //URL
+        let STUDENT_CLASS_DOCS_1 = "https://clip.unl.pt/utente/eu/aluno/ano_lectivo/unidades/unidade_curricular/actividade/documentos?tipo_de_per%EDodo_lectivo=s&ano_lectivo=";
+        let STUDENT_CLASS_DOCS_1_TRIMESTER = "https://clip.unl.pt/utente/eu/aluno/ano_lectivo/unidades/unidade_curricular/actividade/documentos?tipo_de_per%EDodo_lectivo=t&ano_lectivo=";
+        let STUDENT_CLASS_DOCS_2 = "&per%EDodo_lectivo=";
+        let STUDENT_CLASS_DOCS_3 = "&aluno=";
+        let STUDENT_CLASS_DOCS_4 = "&institui%E7%E3o=97747&unidade_curricular=";
+        let STUDENT_CLASS_DOCS_5 = "&tipo_de_documento_de_unidade=";
+        
+        //Processa os dados
+        
+        let start = year.prefix(2)
+        let end = year.suffix(2)
+        let newyear = start + end
+        print("ano " + newyear)
+        
+        var url = "";
+        if (semester == 3){
+            url = STUDENT_CLASS_DOCS_1_TRIMESTER + newyear +
+                STUDENT_CLASS_DOCS_2 + String(semester - 1);
+        }
+        else{
+            url = STUDENT_CLASS_DOCS_1 + newyear +
+                STUDENT_CLASS_DOCS_2 + String(semester);
+        }
+        url += STUDENT_CLASS_DOCS_3 + studentNumberId +
+            STUDENT_CLASS_DOCS_4 + course +
+            STUDENT_CLASS_DOCS_5 + docType;
+        
+        
+        print(url)
+        
+        var request = URLRequest(url: NSURL(string: url)! as URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        let cookies = readCookie(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
+        //print("Cookies before request: ", cookies)
+        
+        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
+        let task = session.dataTask(with: request) { data, response, error in
+            if let httpResponse = response as? HTTPURLResponse, let fields = httpResponse.allHeaderFields as? [String : String] {
+                let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: response!.url!)
+                HTTPCookieStorage.shared.setCookies(cookies, for: response!.url!, mainDocumentURL: nil)
+                result.message = "False"
+                result.data = data
+                
+            }
+            finish(result)
+        }
+        task.resume()
+        
+       }
+     
     
     
     static func callGetTestCalendar(year:String,  studentNumberId:String ,  semester:Int , finish: @escaping ((message:String, data:Data?)) -> Void)
@@ -233,3 +289,4 @@ class ApiService
         
     }
 }
+
