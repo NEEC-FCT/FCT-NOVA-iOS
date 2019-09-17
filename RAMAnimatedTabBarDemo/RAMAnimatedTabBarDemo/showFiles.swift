@@ -17,6 +17,7 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
     var semestre:Int = 1
     var html:Data? = nil
     var years = [String]()
+    var idCadeira = [String]()
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -36,12 +37,9 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
         print("You selected cell #\(years[indexPath.row])!")
         
         //Muda de view
-        
         DispatchQueue.main.async {
             let defaults = UserDefaults.standard
-            defaults.set(String(indexPath.row), forKey: "urlSelect")
-            defaults.set(1, forKey: "semestreSelected")
-            
+            defaults.set( self.idCadeira[indexPath.row] , forKey: "idCadeira")
             self.performSegue(withIdentifier: "gotoTypes", sender: nil)
         }
         
@@ -95,6 +93,7 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
                 print(semester_final.split(separator: "=")[1]);
                 print( classID_final.split(separator: "=")[1] );
                 self.years.append(className)
+                self.idCadeira.append( String(classID_final.split(separator: "=")[1]) )
                 
                  }
             else if(linkHref.matches("/utente/eu/aluno/ano_lectivo/unidades[?](.)*&tipo_de_per%EDodo_lectivo=t&(.)*")){
@@ -111,6 +110,7 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
                 print( classID_final.split(separator: "=")[1] );
                 print ("3")
                 self.years.append(className)
+                self.idCadeira.append( String(classID_final.split(separator: "=")[1]) )
                 
                 }
             }
@@ -119,9 +119,8 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
             print("error")
         }
         DispatchQueue.main.async {
-            
-
             print(self.years)
+            print(self.idCadeira)
             self.tableView.reloadData()
         }
         

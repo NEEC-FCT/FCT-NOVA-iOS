@@ -42,9 +42,7 @@ class pickType: UIViewController , UITableViewDelegate , UITableViewDataSource  
         
         DispatchQueue.main.async {
             let defaults = UserDefaults.standard
-            defaults.set(String(indexPath.row), forKey: "urlSelect")
-            defaults.set(1, forKey: "semestreSelected")
-            
+            defaults.set(String(self.url[indexPath.row]), forKey: "docType")
             self.performSegue(withIdentifier: "showDocs", sender: nil)
         }
         
