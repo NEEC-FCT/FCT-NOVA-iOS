@@ -18,6 +18,7 @@ class showAulas: UIViewController , UITableViewDelegate , UITableViewDataSource 
     var idCadeira:String = ""
     var docType:String = ""
     var html:Data? = nil
+    var URLDATA:URL? = nil
     
     var name = [String]()
     var URL = [String]()
@@ -37,6 +38,7 @@ class showAulas: UIViewController , UITableViewDelegate , UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(name[indexPath.row])!")
         print("You selected cell #\(URL[indexPath.row])!")
+        self.showSpinner(onView: self.view)
         ApiService.getFile(url: "https://clip.unl.pt" + URL[indexPath.row] , filename: String(URL[indexPath.row].split(separator: "=")[2]), completion: finishFile)
         
         
@@ -53,20 +55,29 @@ class showAulas: UIViewController , UITableViewDelegate , UITableViewDataSource 
         idCadeira = UserDefaults.standard.string(forKey: "idCadeira") ?? ""
           docType = UserDefaults.standard.string(forKey: "docType") ?? ""
         print("Recebi " + id + " " + ano + " " + idCadeira + " " +  docType)
+        self.showSpinner(onView: self.view)
         ApiService.callGetgetClassesDocs(year: self.ano, course: idCadeira, docType: docType, studentNumberId: self.id, semester: self.semestre , finish: self.finishGetAvalicacao )
         
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewer" {
+            if let destinationVC = segue.destination as? PDFViewController {
+                destinationVC.pdfURL = URLDATA
+            }
+        }
     }
     
     func finishFile (message:URL, data:Data?) -> Void {
     
         print("Got file")
         DispatchQueue.main.async {
-            let pdfViewController = PDFViewController()
+            self.removeSpinner()
             print("Recebido")
             print ( message )
-            pdfViewController.pdfURL = message
-            self.present(pdfViewController, animated: false, completion: nil)
+            self.URLDATA = message
+            self.performSegue(withIdentifier: "viewer", sender: self)
         }
     }
     
@@ -88,12 +99,14 @@ class showAulas: UIViewController , UITableViewDelegate , UITableViewDataSource 
                 
                 print("File data")
                 print(try doc.child(0).text() );
-                self.name.append( try doc.child(0).text() )
-                print(try doc.child(1).child(0).attr("href"));
-                self.URL.append( try doc.child(1).child(0).attr("href") )
-                print( try doc.child(2).text());
-                print( try doc.child(3).text());
-                print( try doc.child(4).text());
+                if( (try doc.child(0).text()).contains("pdf")){
+                    self.name.append( try doc.child(0).text() )
+                    print(try doc.child(1).child(0).attr("href"));
+                    self.URL.append( try doc.child(1).child(0).attr("href") )
+                    print( try doc.child(2).text());
+                    print( try doc.child(3).text());
+                    print( try doc.child(4).text());
+                }
                 
             }
             
@@ -104,6 +117,7 @@ class showAulas: UIViewController , UITableViewDelegate , UITableViewDataSource 
         }
         //Processado
         DispatchQueue.main.async {
+            self.removeSpinner()
             print(self.name)
             print(self.URL)
             self.tableView.reloadData()

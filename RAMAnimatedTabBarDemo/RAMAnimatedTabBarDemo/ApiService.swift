@@ -38,7 +38,7 @@ class ApiService
                                                 appropriateFor: nil,
                                                 create: false)
                     let savedURL = documentsURL.appendingPathComponent(
-                        "\(randomString(length: 20)).pdf")
+                        "\(randomString(length: 30)).pdf")
                   
                     print(url)
                     print(savedURL)
