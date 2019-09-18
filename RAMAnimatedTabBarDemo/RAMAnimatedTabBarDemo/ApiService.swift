@@ -14,7 +14,7 @@ class ApiService
 {
  
     
-    static func getFile(url: String, filename:String , completion: @escaping () -> ()) {
+    static func getFile(url: String, filename:String , completion: @escaping ((message:URL, data:Data?)) -> Void) {
         print("Filename " + filename)
         
         let sessionConfig = URLSessionConfiguration.default
@@ -42,10 +42,10 @@ class ApiService
                   
                     print(url)
                     print(savedURL)
-                    UserDefaults.standard.set( savedURL , forKey: "savedURL")
                     try FileManager.default.moveItem(at: tempLocalUrl , to: savedURL)
                 
-                    completion()
+                    let result:(message:URL, data:Data?) = (message: savedURL, data: nil)
+                    completion(result)
                 } catch (let writeError) {
                     print("error writing file : \(writeError)")
                 }

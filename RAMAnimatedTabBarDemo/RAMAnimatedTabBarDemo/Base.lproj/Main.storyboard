@@ -629,7 +629,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fctedbranco" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-dQ-O8T">
-                                <rect key="frame" x="-16" y="138" width="407" height="529"/>
+                                <rect key="frame" x="179.5" y="138" width="16" height="529"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verdefct" translatesAutoresizingMaskIntoConstraints="NO" id="0XD-iK-1D6">
                                 <rect key="frame" x="0.0" y="31" width="375" height="108"/>
@@ -638,7 +638,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluefundo" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-gh-GGr">
-                                <rect key="frame" x="0.0" y="153" width="375" height="89.000000000000028"/>
+                                <rect key="frame" x="0.0" y="153" width="375" height="89"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88.999999999999972" id="0am-Yy-mk0"/>
                                 </constraints>

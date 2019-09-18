@@ -15,9 +15,6 @@ class PDFViewController: UIViewController {
             pdfView.document = document
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-            self.dismiss(animated: true, completion: nil)
-        }
     }
     
     override func viewDidLayoutSubviews() {

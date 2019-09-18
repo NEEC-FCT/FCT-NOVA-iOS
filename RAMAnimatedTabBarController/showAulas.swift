@@ -58,14 +58,14 @@ class showAulas: UIViewController , UITableViewDelegate , UITableViewDataSource 
         
     }
     
-    func finishFile () -> Void {
+    func finishFile (message:URL, data:Data?) -> Void {
     
         print("Got file")
         DispatchQueue.main.async {
             let pdfViewController = PDFViewController()
-            let URLFILE = UserDefaults.standard.object(forKey: "savedURL") ?? ""
-            print("Recebido " + UserDefaults.standard.string(forKey: "savedURL")! )
-            pdfViewController.pdfURL = NSURL(string: UserDefaults.standard.string(forKey: "savedURL")!) as URL?
+            print("Recebido")
+            print ( message )
+            pdfViewController.pdfURL = message
             self.present(pdfViewController, animated: false, completion: nil)
         }
     }
