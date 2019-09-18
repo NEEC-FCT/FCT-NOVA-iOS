@@ -31,6 +31,7 @@
                                 <segments>
                                     <segment title="FACULDADE"/>
                                     <segment title="ECO FCT"/>
+                                    <segment title="ENTIDADES"/>
                                 </segments>
                                 <connections>
                                     <action selector="toggle:" destination="wJE-Q4-t8C" eventType="valueChanged" id="U7b-ge-G6d"/>

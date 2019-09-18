@@ -61,8 +61,15 @@ class Mapa: UIViewController , WKNavigationDelegate {
                     webview.isHidden = true
                     webview.load(requestObj)
                 }
-                if( separator == 1){
+                 if( separator == 1){
                     let url = URL (string: "https://www.google.com/maps/d/u/0/viewer?mid=1TdpAcDgdncinIqJLrr504ZMAJe6zQ2il&ll=38.661303032631146%2C-9.205898544352294&z=16")
+                    let requestObj = URLRequest(url: url!)
+                    webview.isHidden = true
+                    webview.load(requestObj)
+                }
+                
+                 if(separator == 2){
+                    let url = URL (string: "https://www.google.com/maps/d/u/0/viewer?mid=1pDVA9v49vnMkY9QF49Bxvxi08m39VSLq&ll=38.661303032631146%2C-9.205898544352294&z=16")
                     let requestObj = URLRequest(url: url!)
                     webview.isHidden = true
                     webview.load(requestObj)
@@ -86,6 +93,13 @@ class Mapa: UIViewController , WKNavigationDelegate {
         if( sender.selectedSegmentIndex == 1){
             separator = 1
             let url = URL (string: "https://www.google.com/maps/d/u/0/viewer?mid=1TdpAcDgdncinIqJLrr504ZMAJe6zQ2il&ll=38.661303032631146%2C-9.205898544352294&z=16")
+            let requestObj = URLRequest(url: url!)
+            webview.isHidden = true
+            webview.load(requestObj)
+        }
+        if( sender.selectedSegmentIndex == 2){
+            separator = 1
+            let url = URL (string: "https://www.google.com/maps/d/u/0/viewer?mid=1pDVA9v49vnMkY9QF49Bxvxi08m39VSLq&ll=38.661303032631146%2C-9.205898544352294&z=16")
             let requestObj = URLRequest(url: url!)
             webview.isHidden = true
             webview.load(requestObj)
