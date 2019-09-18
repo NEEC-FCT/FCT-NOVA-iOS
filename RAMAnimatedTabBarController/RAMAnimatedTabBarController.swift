@@ -290,7 +290,8 @@ open class RAMAnimatedTabBarController: UITabBarController {
         let tab = UserDefaults.standard.integer(forKey: "open")
         UserDefaults.standard.removeObject(forKey: "open")
         print("Tab is: " + String(tab))
-        if(tab == 0){
+        
+        if(tab == 0 ||  tab  < 0   || tab > 4 ){
             setSelectIndex(from: 2, to: 2)
         }
         else{

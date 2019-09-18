@@ -68,6 +68,17 @@ class ChooseYearCalendar: UIViewController , UITableViewDelegate , UITableViewDa
         
     }
     
+    func finishPost (message:String, data:Data?) -> Void {
+        
+        DispatchQueue.main.async {
+            print("Pedindo cookie")
+            self.removeSpinner()
+            ApiService.callGetYears(url: URL(string: "https://clip.unl.pt" + self.urlSelect)!, finish: self.finishGetYear)
+            
+        }
+    }
+    
+    
     func finishGetYear (message:String, data:Data?) -> Void
     {
         do
@@ -76,6 +87,21 @@ class ChooseYearCalendar: UIViewController , UITableViewDelegate , UITableViewDa
             print("-------")
             let html = String(decoding: data!, as: UTF8.self)
             print( html )
+            if( (html.contains("geral de utente"))){
+                let defaults = UserDefaults.standard
+                let username = defaults.string(forKey: "username")
+                let password = defaults.string(forKey: "password")
+                print("useername" , username! )
+                print("pass" , password! )
+                let params = ["identificador": username!,
+                              "senha":password!
+                ]
+                self.removeSpinner()
+                
+                ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: finishPost)
+                
+            }
+            else{
             
             do {
                 let doc: Document = try SwiftSoup.parse(html)
@@ -102,7 +128,7 @@ class ChooseYearCalendar: UIViewController , UITableViewDelegate , UITableViewDa
                 self.tableView.reloadData()
             }
             
-            
+           }
         }
     }
     

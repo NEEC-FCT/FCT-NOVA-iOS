@@ -65,12 +65,36 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
         
     }
     
+    func finishPost (message:String, data:Data?) -> Void {
+        
+        DispatchQueue.main.async {
+            print("Pedindo cookie")
+              ApiService.callGetgetClassesDocs(year: self.ano , studentNumberId: self.id,  finish: self.finishGetAvalicacao )
+        }
+    }
+    
     func finishGetAvalicacao (message:String, data:Data?) -> Void {
         
         
         print("Recebi Files")
         let html = String(data: data!, encoding: .isoLatin1)
         print( html! )
+        if( (html?.contains("geral de utente"))!){
+            let defaults = UserDefaults.standard
+            let username = defaults.string(forKey: "username")
+            let password = defaults.string(forKey: "password")
+            print("useername" , username! )
+            print("pass" , password! )
+            let params = ["identificador": username!,
+                          "senha":password!
+            ]
+            self.removeSpinner()
+            
+            ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: finishPost)
+            
+        }
+        else{
+            
         do {
             let doc: Document = try SwiftSoup.parse(html!)
             let hrefs: Elements = try doc.body()!.select("a[href]")
@@ -78,8 +102,6 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
             for  href in hrefs {
                 
             let linkHref = try href.attr("href");
-                
-         
                 
             if(linkHref.matches("/utente/eu/aluno/ano_lectivo/unidades[?](.)*&tipo_de_per%EDodo_lectivo=s&(.)*")) {
           
@@ -124,7 +146,7 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
             print(self.idCadeira)
             self.tableView.reloadData()
         }
-        
+        }
     }
     
     override func didReceiveMemoryWarning() {
