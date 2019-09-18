@@ -13,6 +13,7 @@ class Mapa: UIViewController , WKNavigationDelegate {
     @IBOutlet weak var webview: WKWebView!
     var separator:Int = 0
     
+    @IBOutlet weak var tabControler: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,10 +21,22 @@ class Mapa: UIViewController , WKNavigationDelegate {
         
         webview.navigationDelegate = self
 
-        let url = URL (string: "https://www.google.com/maps/d/viewer?mid=1puDPKCs1qt4eyU1fK2EfzPCHyQzkfm6n&ll=38.661303032631146%2C-9.205898544352294&z=16")
-        let requestObj = URLRequest(url: url!)
-        webview.isHidden = true
-        webview.load(requestObj)
+        let tab = UserDefaults.standard.integer(forKey: "ECO")
+        if( tab == 0){
+            let url = URL (string: "https://www.google.com/maps/d/viewer?mid=1puDPKCs1qt4eyU1fK2EfzPCHyQzkfm6n&ll=38.661303032631146%2C-9.205898544352294&z=16")
+            let requestObj = URLRequest(url: url!)
+            webview.isHidden = true
+            webview.load(requestObj)
+        }
+        else{
+            tabControler.selectedSegmentIndex = 1
+            UserDefaults.standard.removeObject(forKey: "ECO")
+            let url = URL (string: "https://www.google.com/maps/d/u/0/viewer?mid=1TdpAcDgdncinIqJLrr504ZMAJe6zQ2il&ll=38.661303032631146%2C-9.205898544352294&z=16")
+            let requestObj = URLRequest(url: url!)
+            webview.isHidden = true
+            webview.load(requestObj)
+        }
+      
         
     }
     

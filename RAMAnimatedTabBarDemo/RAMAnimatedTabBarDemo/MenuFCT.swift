@@ -75,6 +75,7 @@ class MenuFCT: UIViewController  {
     
 
     @IBAction func ecoClicked(_ sender: Any) {
+        UserDefaults.standard.set( 1  , forKey: "ECO")
         gotoTabView(tab: 4)
     }
     
