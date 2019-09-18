@@ -180,7 +180,7 @@ class ApiService
         let STUDENT_CALENDAR_TEST_3 = "&tipo_de_per%EDodo_lectivo=s&per%EDodo_lectivo=";
         let STUDENT_CALENDAR_TEST_3_TRIMESTER = "&tipo_de_per%EDodo_lectivo=t&per%EDodo_lectivo=";
         
-        var  url = STUDENT_CALENDAR_TEST_1 + studentNumberId + STUDENT_CALENDAR_TEST_2 + year;
+        var  url = STUDENT_CALENDAR_TEST_1 + studentNumberId + STUDENT_CALENDAR_TEST_2 + newyear;
         if (semester == 3) {
            url += STUDENT_CALENDAR_TEST_3_TRIMESTER + String(semester - 1);
         }

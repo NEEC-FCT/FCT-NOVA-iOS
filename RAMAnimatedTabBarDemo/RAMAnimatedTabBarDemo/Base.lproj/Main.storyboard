@@ -1236,7 +1236,7 @@
             </objects>
             <point key="canvasLocation" x="3848.8000000000002" y="465.51724137931041"/>
         </scene>
-        <!--Avaliacao-->
+        <!--Data Source-->
         <scene sceneID="QoX-Xq-vEu">
             <objects>
                 <viewController id="T1q-O0-eoK" customClass="avaliacao" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
@@ -1248,8 +1248,8 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="258"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="Zsy-o9-m6D" id="plu-00-Pcf"/>
-                                    <outlet property="delegate" destination="Zsy-o9-m6D" id="uxk-sH-Xqt"/>
+                                    <outlet property="dataSource" destination="T1q-O0-eoK" id="6T0-oS-cRU"/>
+                                    <outlet property="delegate" destination="T1q-O0-eoK" id="TUh-yt-cgJ"/>
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="67K-OP-b4p">
@@ -1311,8 +1311,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Zsy-o9-m6D" id="IHm-Cb-KRa"/>
-                                    <outlet property="delegate" destination="Zsy-o9-m6D" id="TLu-wy-wXf"/>
+                                    <outlet property="dataSource" destination="T1q-O0-eoK" id="qc0-ET-Rae"/>
+                                    <outlet property="delegate" destination="T1q-O0-eoK" id="Zbu-BE-hSh"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -1328,6 +1328,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ok4-et-8gI"/>
                     </view>
+                    <connections>
+                        <outlet property="calendar" destination="EHl-t2-Sn9" id="z88-E7-ezm"/>
+                        <outlet property="tableView" destination="67K-OP-b4p" id="sSl-nv-lSV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8WQ-Ni-9qa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1480,7 +1484,7 @@
                                     <outlet property="delegate" destination="y1E-A5-5oS" id="Aby-Pl-8yM"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anos Disponíveis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-7i-JBT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione um semestre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-7i-JBT">
                                 <rect key="frame" x="67" y="113" width="241" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

@@ -37,9 +37,7 @@ class pickSemestreCalendar: UIViewController , UITableViewDelegate , UITableView
         
         DispatchQueue.main.async {
             let defaults = UserDefaults.standard
-            defaults.set(String(indexPath.row + 1), forKey: "urlSelect")
-            defaults.set(1, forKey: "semestreSelected")
-            
+            defaults.set(String(indexPath.row + 1), forKey: "semestreSelected")
             self.performSegue(withIdentifier: "goCalendary", sender: nil)
         }
         

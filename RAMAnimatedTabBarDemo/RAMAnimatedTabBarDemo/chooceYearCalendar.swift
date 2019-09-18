@@ -38,8 +38,6 @@ class ChooseYearCalendar: UIViewController , UITableViewDelegate , UITableViewDa
         DispatchQueue.main.async {
             let defaults = UserDefaults.standard
             defaults.set(String(self.years[indexPath.row]), forKey: "urlSelect")
-            defaults.set(1, forKey: "semestreSelected")
-            
             self.performSegue(withIdentifier: "pickSemesterCal", sender: nil)
         }
         
