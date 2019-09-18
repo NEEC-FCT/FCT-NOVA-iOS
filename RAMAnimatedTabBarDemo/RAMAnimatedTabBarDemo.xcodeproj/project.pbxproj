@@ -31,6 +31,7 @@
 		9C06C914231A1DA300911147 /* showHorario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C06C913231A1DA300911147 /* showHorario.swift */; };
 		9C06C916231D697000911147 /* studenNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C06C915231D697000911147 /* studenNumber.swift */; };
 		9C63A22423318A1100BC3120 /* pickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A22323318A1100BC3120 /* pickType.swift */; };
+		9C63A2262331A9B800BC3120 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A2252331A9B800BC3120 /* PDFViewController.swift */; };
 		9C75360E231DEEB0003DF330 /* HeadlineTableViewCel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75360D231DEEB0003DF330 /* HeadlineTableViewCel.swift */; };
 		9C7CD77C2318C37900380FC2 /* ClipLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD77B2318C37900380FC2 /* ClipLogin.swift */; };
 		9C9CC4C822D9F53D002A0D38 /* Mapa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9CC4C722D9F53D002A0D38 /* Mapa.swift */; };
@@ -117,6 +118,7 @@
 		9C06C913231A1DA300911147 /* showHorario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showHorario.swift; sourceTree = "<group>"; };
 		9C06C915231D697000911147 /* studenNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studenNumber.swift; sourceTree = "<group>"; };
 		9C63A22323318A1100BC3120 /* pickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickType.swift; sourceTree = "<group>"; };
+		9C63A2252331A9B800BC3120 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		9C75360D231DEEB0003DF330 /* HeadlineTableViewCel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineTableViewCel.swift; sourceTree = "<group>"; };
 		9C7CD77B2318C37900380FC2 /* ClipLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipLogin.swift; path = ../../RAMAnimatedTabBarController/ClipLogin.swift; sourceTree = "<group>"; };
 		9C9CC4C722D9F53D002A0D38 /* Mapa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapa.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				9CE407E923317BF200EF7CAB /* chooceYearCalendar.swift */,
 				9CE407EB23317F8100EF7CAB /* pickSemestreCalendar.swift */,
 				9C63A22323318A1100BC3120 /* pickType.swift */,
+				9C63A2252331A9B800BC3120 /* PDFViewController.swift */,
 			);
 			path = RAMAnimatedTabBarDemo;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				CE90A8401A1C7C14002D8931 /* RAMAnimatedTabBarController.swift in Sources */,
 				9C06C912231A1B0F00911147 /* ApiService.swift in Sources */,
 				9C9CC4D122DB4D32002A0D38 /* Calendario.swift in Sources */,
+				9C63A2262331A9B800BC3120 /* PDFViewController.swift in Sources */,
 				CE41467A1A1B923D0037F03C /* ViewController.swift in Sources */,
 				9CE407E2232EB1EC00EF7CAB /* MenuFCT.swift in Sources */,
 				5ADAB94A209B0FA8006CCD85 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */,

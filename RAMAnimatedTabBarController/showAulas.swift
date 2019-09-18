@@ -37,6 +37,7 @@ class showAulas: UIViewController , UITableViewDelegate , UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(name[indexPath.row])!")
         print("You selected cell #\(URL[indexPath.row])!")
+        ApiService.getFile(url: "https://clip.unl.pt" + URL[indexPath.row] , filename: String(URL[indexPath.row].split(separator: "=")[2]), completion: finishFile)
         
         
     }
@@ -56,6 +57,19 @@ class showAulas: UIViewController , UITableViewDelegate , UITableViewDataSource 
         
         
     }
+    
+    func finishFile () -> Void {
+    
+        print("Got file")
+        DispatchQueue.main.async {
+            let pdfViewController = PDFViewController()
+            let URLFILE = UserDefaults.standard.object(forKey: "savedURL") ?? ""
+            print("Recebido " + UserDefaults.standard.string(forKey: "savedURL")! )
+            pdfViewController.pdfURL = NSURL(string: UserDefaults.standard.string(forKey: "savedURL")!) as URL?
+            self.present(pdfViewController, animated: false, completion: nil)
+        }
+    }
+    
     
     func finishGetAvalicacao (message:String, data:Data?) -> Void {
         

@@ -58,8 +58,38 @@ class Informacao: UIViewController  , WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //no caso de nao ter net tem de ter acesso a isto
-      //  myHandler(alert: UIAlertAction(title: "OK", style: .default, handler: myHandler))
+        
+        //Get key
+        let tab = UserDefaults.standard.integer(forKey: "TabClip")
+        UserDefaults.standard.removeObject(forKey: "TabClip")
+        switch tab
+        {
+        case 0: break
+            
+        case 1:
+            
+            if( (UserDefaults.standard.string(forKey: "password") ?? nil ) != nil &&  (UserDefaults.standard.string(forKey: "username") ?? nil ) != nil){
+                self.performSegue(withIdentifier: "allogin", sender: nil)
+                
+            }
+            else{
+                self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            }
+            
+            break
+            
+        case 2:
+            self.performSegue(withIdentifier: "gotoFicheiros", sender: nil)
+            break
+            
+        case 3:
+            self.performSegue(withIdentifier: "gotoAval", sender: nil)
+            break
+            
+        default:
+            break
+        }
+        
         webview.navigationDelegate = self
         //FAB
         let actionButton = JJFloatingActionButton()

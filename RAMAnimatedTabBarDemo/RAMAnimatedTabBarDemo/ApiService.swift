@@ -14,6 +14,61 @@ class ApiService
 {
  
     
+    static func getFile(url: String, filename:String , completion: @escaping () -> ()) {
+        print("Filename " + filename)
+        
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig)
+        var request = URLRequest(url: NSURL(string: url)! as URL)
+        request.httpMethod = "GET"
+        let cookies = readCookie(forURL: URL(string: "https://clip.unl.pt/utente/eu")!)
+        
+        let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
+            if let tempLocalUrl = tempLocalUrl, error == nil {
+                // Success
+                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                    print("Success: \(statusCode)")
+                }
+                
+                do {
+                 
+                    let documentsURL = try
+                        FileManager.default.url(for: .documentDirectory,
+                                                in: .userDomainMask,
+                                                appropriateFor: nil,
+                                                create: false)
+                    let savedURL = documentsURL.appendingPathComponent(
+                        "\(randomString(length: 20)).pdf")
+                  
+                    print(url)
+                    print(savedURL)
+                    UserDefaults.standard.set( savedURL , forKey: "savedURL")
+                    try FileManager.default.moveItem(at: tempLocalUrl , to: savedURL)
+                
+                    completion()
+                } catch (let writeError) {
+                    print("error writing file : \(writeError)")
+                }
+                
+            } else {
+                print("Failure: %@", error?.localizedDescription);
+            }
+        }
+        task.resume()
+    }
+    
+    static func randomString(length: Int) -> String {
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        var randomString = ""
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        return randomString
+    }
+    
     static func callGetgetClassesDocs(year:String , studentNumberId:String , finish: @escaping ((message:String, data:Data?)) -> Void){
         
         //URL

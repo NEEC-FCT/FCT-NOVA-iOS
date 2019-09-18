@@ -69,6 +69,8 @@ class MenuFCT: UIViewController  {
     }
     
     @IBAction func happyClicked(_ sender: Any) {
+        guard let url = URL(string: "https://apps.apple.com/pt/app/happy-meal-fct/id1360444881") else { return }
+        UIApplication.shared.open(url)
     }
     
 
@@ -91,14 +93,20 @@ class MenuFCT: UIViewController  {
     
     
     @IBAction func avaliacaoClicked(_ sender: Any) {
+         UserDefaults.standard.set( 3 , forKey: "TabClip")
+         gotoTabView(tab: 1)
     }
     
     
     @IBAction func clipClicked(_ sender: Any) {
+         UserDefaults.standard.set( 2 , forKey: "TabClip")
+         gotoTabView(tab: 1)
     }
     
     
     @IBAction func horariocliked(_ sender: Any) {
+        UserDefaults.standard.set( 1 , forKey: "TabClip")
+        gotoTabView(tab: 1)
     }
     
     
