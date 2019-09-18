@@ -41,12 +41,25 @@ class Informacao: UIViewController  , WKNavigationDelegate {
             
         case 2:
             segmentedControl.selectedSegmentIndex = 0
-            self.performSegue(withIdentifier: "gotoFicheiros", sender: nil)
+           
+            if( (UserDefaults.standard.string(forKey: "password") ?? nil ) != nil &&  (UserDefaults.standard.string(forKey: "username") ?? nil ) != nil){
+                 self.performSegue(withIdentifier: "gotoFicheiros", sender: nil)
+                
+            }
+            else{
+                self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            }
             break
             
         case 3:
             segmentedControl.selectedSegmentIndex = 0
-            self.performSegue(withIdentifier: "gotoAval", sender: nil)
+            if( (UserDefaults.standard.string(forKey: "password") ?? nil ) != nil &&  (UserDefaults.standard.string(forKey: "username") ?? nil ) != nil){
+                self.performSegue(withIdentifier: "gotoAval", sender: nil)
+                
+            }
+            else{
+                self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            }
             break
            
         default:
@@ -67,6 +80,7 @@ class Informacao: UIViewController  , WKNavigationDelegate {
         case 0: break
             
         case 1:
+            segmentedControl.selectedSegmentIndex = 0
             
             if( (UserDefaults.standard.string(forKey: "password") ?? nil ) != nil &&  (UserDefaults.standard.string(forKey: "username") ?? nil ) != nil){
                 self.performSegue(withIdentifier: "allogin", sender: nil)
@@ -79,11 +93,26 @@ class Informacao: UIViewController  , WKNavigationDelegate {
             break
             
         case 2:
-            self.performSegue(withIdentifier: "gotoFicheiros", sender: nil)
+            segmentedControl.selectedSegmentIndex = 0
+            
+            if( (UserDefaults.standard.string(forKey: "password") ?? nil ) != nil &&  (UserDefaults.standard.string(forKey: "username") ?? nil ) != nil){
+                self.performSegue(withIdentifier: "gotoFicheiros", sender: nil)
+                
+            }
+            else{
+                self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            }
             break
             
         case 3:
-            self.performSegue(withIdentifier: "gotoAval", sender: nil)
+            segmentedControl.selectedSegmentIndex = 0
+            if( (UserDefaults.standard.string(forKey: "password") ?? nil ) != nil &&  (UserDefaults.standard.string(forKey: "username") ?? nil ) != nil){
+                self.performSegue(withIdentifier: "gotoAval", sender: nil)
+                
+            }
+            else{
+                self.performSegue(withIdentifier: "cliplogin", sender: nil)
+            }
             break
             
         default:

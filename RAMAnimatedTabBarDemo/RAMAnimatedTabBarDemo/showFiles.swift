@@ -30,6 +30,7 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         cell.textLabel?.text = years[indexPath.row]
+        cell.textLabel?.font = cell.textLabel?.font.withSize(12)
         return cell
     }
     
