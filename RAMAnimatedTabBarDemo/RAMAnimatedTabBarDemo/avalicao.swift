@@ -53,8 +53,21 @@ class avaliacao: UIViewController , UITableViewDelegate  , UITableViewDataSource
         id =  defaults.string(forKey: "IDaluno")!
         ano = defaults.string(forKey: "urlSelect")!
         print("Recebi " + id + " " + ano + " " + String(semestre))
+        self.showSpinner(onView: self.view)
         ApiService.callGetTestCalendar(year: self.ano , studentNumberId: self.id, semester: self.semestre , finish: self.finishGetAvalicacao)
         
+    }
+    
+    
+    func finishPost (message:String, data:Data?) -> Void {
+        
+        DispatchQueue.main.async {
+            print("Pedindo cookie")
+            self.removeSpinner()
+            self.showSpinner(onView: self.view)
+            ApiService.callGetTestCalendar(year: self.ano , studentNumberId: self.id, semester: self.semestre , finish: self.finishGetAvalicacao)
+            
+        }
     }
     
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
@@ -136,6 +149,22 @@ class avaliacao: UIViewController , UITableViewDelegate  , UITableViewDataSource
             print("Recebi")
             let html = String(data: data!, encoding: .isoLatin1)
             print( html! )
+        
+        if( (html!.contains("geral de utente"))){
+            let defaults = UserDefaults.standard
+            let username = defaults.string(forKey: "username")
+            let password = defaults.string(forKey: "password")
+            print("useername" , username! )
+            print("pass" , password! )
+            let params = ["identificador": username!,
+                          "senha":password!
+            ]
+         
+            
+            ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: finishPost)
+            
+        }
+        else{
        do {
             let doc: Document = try SwiftSoup.parse(html!)
             let body: Element =  doc.body()!
@@ -201,9 +230,9 @@ class avaliacao: UIViewController , UITableViewDelegate  , UITableViewDataSource
         print("Mapa do calendario")
         print(  self.borderDefaultColors)
         
-        DispatchQueue.main.async { self.tableView.reloadData() }
+        DispatchQueue.main.async { self.removeSpinner() ; self.tableView.reloadData() }
         DispatchQueue.main.async { self.calendar.reloadData() }
-        
+          }
     }
     
     override func didReceiveMemoryWarning() {

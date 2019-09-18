@@ -76,9 +76,9 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
     func finishGetAvalicacao (message:String, data:Data?) -> Void {
         
         
-        print("Recebi Files")
+        //print("Recebi Files")
         let html = String(data: data!, encoding: .isoLatin1)
-        print( html! )
+        //print( html! )
         if( (html?.contains("geral de utente"))!){
             let defaults = UserDefaults.standard
             let username = defaults.string(forKey: "username")
@@ -115,9 +115,10 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
                 print(className);
                 print(semester_final.split(separator: "=")[1]);
                 print( classID_final.split(separator: "=")[1] );
-                self.years.append(className)
-                self.idCadeira.append( String(classID_final.split(separator: "=")[1]) )
-                
+                if( Int(semester_final.split(separator: "=")[1]) == self.semestre){
+                        self.years.append(className)
+                        self.idCadeira.append( String(classID_final.split(separator: "=")[1]) )
+                    }
                  }
             else if(linkHref.matches("/utente/eu/aluno/ano_lectivo/unidades[?](.)*&tipo_de_per%EDodo_lectivo=t&(.)*")){
                 
@@ -132,9 +133,10 @@ class showFiles: UIViewController , UITableViewDelegate , UITableViewDataSource 
                 print(className);
                 print( classID_final.split(separator: "=")[1] );
                 print ("3")
+                if( 3 == self.semestre){
                 self.years.append(className)
                 self.idCadeira.append( String(classID_final.split(separator: "=")[1]) )
-                
+                 }
                 }
             }
             
