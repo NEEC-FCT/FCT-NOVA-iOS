@@ -105,6 +105,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
     func finishPost (message:String, data:Data?) -> Void {
         
      DispatchQueue.main.async {
+        self.removeSpinner()
         print("Volta ao horario")
         ApiService.callGetHorario(year: self.ano , studentNumberId: self.id, semester: self.semestre , finish: self.finishGetHorario)
          self.removeSpinner()
@@ -190,9 +191,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             
             actionButton.buttonColor = UIColor(red:0.45, green:0.78, blue:0.93, alpha:1.0)
             
-            
             finishGetHorario(message: "nada" ,data: html)
-            //gotoID
         }
         else{
    
@@ -223,6 +222,9 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
         actionButton.addItem(title: "Mudar ano", image: UIImage(named: "calendar")?.withRenderingMode(.alwaysTemplate)) { item in
              _ = self.navigationController?.popViewController(animated: true)
         }
+        
+            
+            
         actionButton.addItem(title: "Mudar semestre", image: UIImage(named: "notebook")?.withRenderingMode(.alwaysTemplate)) { item in
             
             let alert = UIAlertController(title: "Escolha o semestre", message: "", preferredStyle: .alert)
@@ -258,6 +260,17 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             
         }
         
+
+            
+        actionButton.addItem(title:"Atualizar", image: UIImage(named: "refresh")) { item in
+            
+            DispatchQueue.main.async {
+            self.showSpinner(onView: self.view)
+            self.clean()
+            ApiService.callGetHorario(year: self.ano, studentNumberId: self.id, semester: self.semestre, finish: self.finishGetHorario)
+            }
+        }
+            
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -293,12 +306,11 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             defaults.set(data, forKey: "html")
             defaults.set(self.id + self.ano, forKey:"escolhidoTotal")
             
-            print(message)
+            //print(message)
             print("----Horario---")
             
-
             let html = String(data: data!, encoding: .isoLatin1)
-            print( html! )
+            //print( html! )
             if( (html?.contains("geral de utente"))!){
                 let defaults = UserDefaults.standard
                 let username = defaults.string(forKey: "username")
@@ -309,6 +321,7 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                               "senha":password!
                 ]
                 self.removeSpinner()
+                self.showSpinner(onView: self.view)
                 
                 ApiService.callPost(url: URL(string: "https://clip.unl.pt/utente/eu")!, params: params, finish: finishPost)
 
@@ -391,7 +404,12 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                             let startDate  = Calendar.current.date(bySettingHour: Int(HourStar)!, minute: Int(MinStart)!, second: 0, of: Date())!
                             
                             let calendar = Calendar.current
-                            let date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
+                            var date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
+                            if( Int(scheduleClassDuration)! == 3){
+                                date = calendar.date(byAdding: .hour, value: 1, to: startDate)
+                                date = calendar.date(byAdding: .minute, value: 30, to: date!)
+                            }
+                         
                             let hour = calendar.component(.hour, from: date!)
                             let minutes = calendar.component(.minute, from: date!)
                             
@@ -415,7 +433,11 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                             let startDate  = Calendar.current.date(bySettingHour: Int(HourStar)!, minute: Int(MinStart)!, second: 0, of: Date())!
                             
                             let calendar = Calendar.current
-                            let date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
+                            var date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
+                            if( Int(scheduleClassDuration)! == 3){
+                                date = calendar.date(byAdding: .hour, value: 1, to: startDate)
+                                date = calendar.date(byAdding: .minute, value: 30, to: date!)
+                            }
                             let hour = calendar.component(.hour, from: date!)
                             let minutes = calendar.component(.minute, from: date!)
                             if( minutes == 0){
@@ -427,17 +449,6 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
                         }
                    
                     
-                       
-                    
-                        // Create scheduleClass
-                        /*
-                        print("Dia semana " + String(scheduleDayNumber ))
-                        print(String(scheduleClassName ));
-                        print(String(scheduleClassNameMin ));
-                        print(String(scheduleClassType ));
-                        print(String(scheduleClassHourStart ?? ""));
-                        print( scheduleClassHourEnd ?? "");
-                        print(scheduleClassRoom  ?? "");*/
                         
                         //adiciona o tipo
                         scheduleClassName  = scheduleClassName + " " + scheduleClassType

@@ -586,7 +586,7 @@
             </objects>
             <point key="canvasLocation" x="537" y="479"/>
         </scene>
-        <!--Home-->
+        <!--Menu-->
         <scene sceneID="ttZ-oS-sRQ">
             <objects>
                 <viewController id="eCt-4k-9Vu" customClass="SobreNeec" customModule="Animated_Tab_Bar" customModuleProvider="target" sceneMemberID="viewController">
@@ -596,11 +596,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="kSB-yj-LRJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="casa" id="EiX-sv-bUZ" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Menu" image="casa" id="EiX-sv-bUZ" customClass="RAMAnimatedTabBarItem" customModule="Animated_Tab_Bar" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Menu"/>
                         </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="animation" destination="BSW-Za-y3b" id="Q93-Wg-KJV"/>
