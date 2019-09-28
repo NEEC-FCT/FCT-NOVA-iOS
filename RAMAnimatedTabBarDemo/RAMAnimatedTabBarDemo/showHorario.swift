@@ -331,149 +331,187 @@ class showHorario: UIViewController , UITableViewDelegate , UITableViewDataSourc
             
             do {
                 let doc: Document = try SwiftSoup.parse(html!)
-                let trs: Array<Element> = try doc.body()!.select("tr[valign=center]").array()
+                let trs: Elements = try doc.body()!.select("tr[valign=center]")
                 for tr in trs {
                     
                     let tds = try tr.select("td[class~=turno.* celulaDeCalendario]");
                     
                     for td in tds {
-                        let child  = td.child(0).getChildNodes();
-            
-                        var href = try child[2].attr("href").split(separator: "&");
+                        let child  = td.child(0).childNodesCopy();
+                        
+                        // Remove all the garbage
+                        let href = try child[2].attr("href").split(separator: "&");
                         let dia = href[9];
-                        let turno = href[7].uppercased();
+                        let turno = href[7];
                         
-                        let horas_inicio =  tr.child(0);
-                        
+                        let horas_inicio = tr.child(0);
                         let horas_fim = tr.child(1);
-                        //Teoria ir ver sala
-                        var scheduleClassRoom:String? = nil ;
-                        if (child.count > 4){
-                            //print(try child[4].outerHtml())
-                            scheduleClassRoom =  try child[4].outerHtml()
-                            
-                        }
-                
-                    
                         
                         var scheduleDayNumber:Int = -1
                         let stringArray = String(dia).components(separatedBy: CharacterSet.decimalDigits.inverted)
                         for item in stringArray {
                             if let number = Int(item) {
-                               scheduleDayNumber = number
+                                scheduleDayNumber = number
                                 break
                             }
                         }
                         
-                      
-                        var scheduleClassType = String(turno.suffix(1));
+                        var scheduleClassType = String(turno.suffix(1)).uppercased();
                         scheduleClassType += String(href[8].last!)
-                        
                         var scheduleClassName = try td.attr("title");
-                        let scheduleClassNameMin:String = try child[0].outerHtml().slice(from: "<b>", to: "</b>")!
-          
-                        let scheduleClassDuration = try td.attr("rowspan");
-                        var dateDuration = ( Int(scheduleClassDuration)! / 2);
+                      // let scheduleClassNameMin:String = try child[0].outerHtml().slice(from: "<b>", to: "</b>")!
+            
+    
+                        var scheduleClassRoom:String = "";
+                        if (child.count > 4) {
+                            scheduleClassRoom =  try child[4].outerHtml()
+                          }
                       
-                        if( try horas_inicio.html().contains(":")){
-                            lastDate = try horas_inicio.html()
-                        }
                         
-                       
-                        var scheduleClassHourStart:String? = try horas_inicio.html();
+                        let scheduleClassDuration =  try? td.attr("rowspan");
                         
-                        var scheduleClassHourEnd :String? = nil;
-                         let separador = try horas_inicio.html().components(separatedBy: ":")
-                      
-                        if(  separador.count == 1 ){
-                
-                            var crawl = true
-                            dateDuration = dateDuration + 1
-                            scheduleClassHourStart = lastDate
-                            let horas = scheduleClassHourStart!.components(separatedBy: ":")
-                            var HourStar = "8"
-                            var  MinStart = "30"
-                            if( horas.count >= 2){
-                                 HourStar = horas[0]
-                                 MinStart = horas[1]
-                                crawl = false
-                                
-                            }
+                        // Calculate scheduleClassHourStart & End
+                        var scheduleClassHourStart:String = "";
+                        var scheduleClassHourEnd:String = "";
+                        
+                        
+                        let dateDuration = ( Int(scheduleClassDuration!)! / 2);
+                            
+                            if( Int(scheduleClassDuration!) == 3 ){
+                                if (try horas_inicio.text().count >= 1) {
+                                    // Start hour
+                                    scheduleClassHourStart = try horas_inicio.text();
+                                    
+                                    let horas = scheduleClassHourStart.components(separatedBy: ":")
+                                    let startDate  = Calendar.current.date(bySettingHour: Int(horas[0])!, minute: Int(horas[1])!, second: 0, of: Date())!
+                                    
+                                    let calendar = Calendar.current
+                                    var date = calendar.date(byAdding: .hour, value: 1, to: startDate)
+                                    date = calendar.date(byAdding: .minute, value: 30, to: date!)
                           
-                    
-                            let startDate  = Calendar.current.date(bySettingHour: Int(HourStar)!, minute: Int(MinStart)!, second: 0, of: Date())!
-                            
-                            let calendar = Calendar.current
-                            var date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
-                            if( Int(scheduleClassDuration)! == 3){
-                                date = calendar.date(byAdding: .hour, value: 1, to: startDate)
-                                date = calendar.date(byAdding: .minute, value: 30, to: date!)
+                                    let hour = calendar.component(.hour, from: date!)
+                                    let minutes = calendar.component(.minute, from: date!)
+                                    
+                                    // End hour
+                                    if(  minutes == 0){
+                                    scheduleClassHourEnd = String(hour) + ":" + String(minutes) + "0";
+                                        }
+                                    else{
+                                    scheduleClassHourEnd = String(hour) + ":" + String(minutes) ;
+                                    }
+                                } else {
+                                    // Calculate start hour
+                                    // Start hour
+                                    scheduleClassHourStart = try horas_fim.text();
+                                    let horas = scheduleClassHourStart.components(separatedBy: ":")
+                                    let dateStart  = Calendar.current.date(bySettingHour: Int(horas[0])!, minute: Int(horas[1])!, second: 0, of: Date())!
+                                    let calendar = Calendar.current
+                                    var date = calendar.date(byAdding: .minute, value: -30, to: dateStart)
+                                    
+                                    var hour = calendar.component(.hour, from: date!)
+                                    var minutes = calendar.component(.minute, from: date!)
+                                    if(  minutes == 0){
+                                        scheduleClassHourStart = String(hour) + ":" + String(minutes) + "0";
+                                    }
+                                    else{
+                                        scheduleClassHourStart = String(hour) + ":" + String(minutes) ;
+                                    }
+                                    
+                                    date = calendar.date(byAdding: .hour, value: 1, to: dateStart)
+                                      date = calendar.date(byAdding: .minute, value: 30, to: dateStart)
+                                    
+                                    hour = calendar.component(.hour, from: date!)
+                                    minutes = calendar.component(.minute, from: date!)
+                                    
+                                    // End hour
+                                    if(  minutes == 0){
+                                        scheduleClassHourEnd = String(hour) + ":" + String(minutes) + "0";
+                                    }
+                                    else{
+                                        scheduleClassHourEnd = String(hour) + ":" + String(minutes) ;
+                                    }
+                                }
                             }
-                         
-                            let hour = calendar.component(.hour, from: date!)
-                            let minutes = calendar.component(.minute, from: date!)
-                            
-                            if(crawl){
-                                scheduleClassHourStart = "8:30"
+                            else {
+                              
+                                if( try horas_inicio.text().count > 1){
+                                    // Start hour
+                                    scheduleClassHourStart = try horas_inicio.text();
+                                    let horas = scheduleClassHourStart.components(separatedBy: ":")
+                                    let dateStart  = Calendar.current.date(bySettingHour: Int(horas[0])!, minute: Int(horas[1])!, second: 0, of: Date())!
+                                    let calendar = Calendar.current
+                                    let date = calendar.date(byAdding: .hour, value: dateDuration, to: dateStart)
+                                    
+                                    let hour = calendar.component(.hour, from: date!)
+                                    let minutes = calendar.component(.minute, from: date!)
+                                    
+                                    // End hour
+                                    if(  minutes == 0){
+                                        scheduleClassHourEnd = String(hour) + ":" + String(minutes) + "0";
+                                    }
+                                    else{
+                                        scheduleClassHourEnd = String(hour) + ":" + String(minutes) ;
+                                    }
+                                }
+                                else{
+                                    // Start hour
+                                    scheduleClassHourStart = try horas_fim.text();
+                                    let horas = scheduleClassHourStart.components(separatedBy: ":")
+                                    let dateStart  = Calendar.current.date(bySettingHour: Int(horas[0])!, minute: Int(horas[1])!, second: 0, of: Date())!
+                                    let calendar = Calendar.current
+                                    var date = calendar.date(byAdding: .minute, value: -30, to: dateStart)
+                                    
+                                    var hour = calendar.component(.hour, from: date!)
+                                    var minutes = calendar.component(.minute, from: date!)
+                                    if(  minutes == 0){
+                                        scheduleClassHourStart = String(hour) + ":" + String(minutes) + "0";
+                                    }
+                                    else{
+                                        scheduleClassHourStart = String(hour) + ":" + String(minutes) ;
+                                    }
+                                    
+                                     date = calendar.date(byAdding: .hour, value: dateDuration, to: dateStart)
+                                    
+                                     hour = calendar.component(.hour, from: date!)
+                                     minutes = calendar.component(.minute, from: date!)
+                                    
+                                    // End hour
+                                    if(  minutes == 0){
+                                        scheduleClassHourEnd = String(hour) + ":" + String(minutes) + "0";
+                                    }
+                                    else{
+                                        scheduleClassHourEnd = String(hour) + ":" + String(minutes) ;
+                                    }
+                                }
+                              
                             }
-                            
-                            if( minutes == 0){
-                                scheduleClassHourEnd = String(hour) + ":00"
-                            }
-                            else{
-                                scheduleClassHourEnd = String(hour) + ":" + String(minutes)
-                            }
-                       
-                      
-                        }
-                        else{
-                            
-                            let HourStar = separador[0]
-                            let  MinStart = separador[1]
-                            let startDate  = Calendar.current.date(bySettingHour: Int(HourStar)!, minute: Int(MinStart)!, second: 0, of: Date())!
-                            
-                            let calendar = Calendar.current
-                            var date = calendar.date(byAdding: .hour, value: dateDuration, to: startDate)
-                            if( Int(scheduleClassDuration)! == 3){
-                                date = calendar.date(byAdding: .hour, value: 1, to: startDate)
-                                date = calendar.date(byAdding: .minute, value: 30, to: date!)
-                            }
-                            let hour = calendar.component(.hour, from: date!)
-                            let minutes = calendar.component(.minute, from: date!)
-                            if( minutes == 0){
-                                scheduleClassHourEnd = String(hour) + ":00"
-                            }
-                            else{
-                                scheduleClassHourEnd = String(hour) + ":" + String(minutes)
-                            }
-                        }
-                   
-                    
                         
                         //adiciona o tipo
                         scheduleClassName  = scheduleClassName + " " + scheduleClassType
                         
                         if(scheduleDayNumber == 2){
-                          dataS.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim: scheduleClassHourEnd , nome: scheduleClassName , sala: scheduleClassRoom ?? ""))
+                            self.dataS.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim: scheduleClassHourEnd , nome: scheduleClassName , sala: scheduleClassRoom ))
                         }
                         else if (scheduleDayNumber == 3){
-                            dataT.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            self.dataT.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ))
                         }
                         else if (scheduleDayNumber == 4){
-                            dataQ.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            self.dataQ.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ))
                         }
                         else if (scheduleDayNumber == 5){
-                            dataQI.append(CellData.init(horaInicio: scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            self.dataQI.append(CellData.init(horaInicio: scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ))
                         }
                         else if (scheduleDayNumber == 6){
-                            dataSEX.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ?? ""))
+                            self.dataSEX.append(CellData.init(horaInicio:  scheduleClassHourStart, horaFim:  scheduleClassHourEnd , nome: scheduleClassName, sala: scheduleClassRoom ))
+                            }
+                            
                         }
-                      
+                        
                     }
-                    
                 }
                 
-            }  catch {
+                
+                catch {
                 print("error")
             }
             
